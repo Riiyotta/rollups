@@ -1,0 +1,27 @@
+{
+  "$description": "Component-scoped token overrides for the Button primitive, citing src/components/ui/Button.jsx and src/index.css button rules.",
+  "measuredFrom": "src/components/ui/Button.jsx, src/index.css:100-121",
+  "variants": {
+    "primary": {
+      "background": "surface.brand",
+      "color": "text.onSurfaceBrand",
+      "height": "36px",
+      "padding": "12px 16px",
+      "radius": "radius-sm (default) -> radius-xs (hover)",
+      "font": "typography.text-reg-mono, uppercase",
+      "measuredFrom": "src/index.css:92,104,111"
+    },
+    "secondary": {
+      "background": "surface.subtle",
+      "backgroundHover": "surface.subtleHover",
+      "color": "text.primary",
+      "border": "border.secondary",
+      "measuredFrom": "src/index.css:93,102,112"
+    }
+  },
+  "animatedArrow": {
+    "description": "When Button has animated=true, an arrow icon slides in from the right on hover.",
+    "measuredFrom": "src/index.css:113-121, src/components/ui/Button.jsx (Arrow svg)"
+  },
+  "pressState": { "scale": 0.96, "measuredFrom": "src/index.css:107" }
+}

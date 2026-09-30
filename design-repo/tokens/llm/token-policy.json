@@ -1,0 +1,12 @@
+{
+  "$description": "What's enforced vs. convention. PageSpecs in this design-repo carry no per-instance style/token-override field — styling is fully owned by section/component contracts, not by a generated instance (confirmed: schema/pagespec.schema.json has no 'overrides' or 'styleTokens' property anywhere). This is recorded here per MASTER-GUIDE.md 3.21 rather than inventing a field just to have something to validate.",
+  "overrides": {
+    "pageSpecLevelTokenOverrides": "NOT SUPPORTED — no field exists in pagespec.schema.json for this. If a future revision adds one, this file and schema/tests/adversarial_test.py must both gain matching coverage at that time."
+  },
+  "rawValueRestrictions": {
+    "color": "PageSpec content fields never carry raw hex/rgba — color is fully section/component-owned, never instance-level in this schema.",
+    "fontSize": "Type scale is fully section/component-owned; no instance-level override exists.",
+    "fontWeight": "Same as fontSize.",
+    "fontFamily": "Same as fontSize."
+  }
+}

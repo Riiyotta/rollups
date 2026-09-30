@@ -1,0 +1,37 @@
+{
+  "$description": "Citation ledger: which real file/screenshot backs each major decision in this design-repo. Degrades gracefully (a warning, not a failure) when no sibling source tree is present — see extraction/verify_all.py's citation-validity check, which skips gracefully if the sibling project root isn't found.",
+  "sourceProjectRelativeToThisRepo": "..",
+  "sourceProjectDescription": "This field states the RELATIVE relationship at build time for citation purposes only — it is NOT an entryPoint, is NOT required for this design-repo to function standalone, and this design-repo's own scripts never dereference it directly (they derive their root from __file__ and skip citation resolution gracefully if no sibling exists).",
+  "citations": [
+    { "claim": "route table (15 Layout-wrapped routes)", "measuredFrom": "src/pages/routes.jsx:1-31" },
+    { "claim": "App.jsx mounts /get-started and /setup as sibling routes outside Layout", "measuredFrom": "src/App.jsx:44-49" },
+    { "claim": "foundation color palette", "measuredFrom": "src/index.css:19-27, tailwind.config.js:6-21" },
+    { "claim": "typography scale", "measuredFrom": "src/index.css:16-18,66-91" },
+    { "claim": "spacing scale", "measuredFrom": "src/index.css:27, tailwind.config.js:27" },
+    { "claim": "breakpoints 767/991/1600", "measuredFrom": "tailwind.config.js:29, src/index.css:34,58,63-64" },
+    { "claim": "/ruv node sequence (Hero, TestimonialSlider, UseCaseTabs, Capabilities, Companies, Pricing, Faq)", "measuredFrom": "src/pages/Ruv.jsx:154-183" },
+    { "claim": "/safe has NO TestimonialSlider — genuinely shorter node sequence than /ruv", "measuredFrom": "src/pages/Safe.jsx:114-121 (imports: no TestimonialSlider import anywhere in file)" },
+    { "claim": "/consolidate hero is a dual desktop/mobile Lenis+scroll-scrubbed-Lottie shell, tail sequence identical to /ruv", "measuredFrom": "src/pages/Consolidate.jsx:1-270" },
+    { "claim": "/ruv/calculator has its own hero (CalculatorHero) and does NOT render founder-options/how-to-raise.steps/comparison.table/clean-captable", "measuredFrom": "src/pages/RuvCalculator.jsx:1-37" },
+    { "claim": "/how-to-raise-capital renders founder-options, how-to-raise.steps, comparison.table, clean-captable, facts.cta, calculator.tool, stories.grid", "measuredFrom": "src/pages/HowToRaiseCapital.jsx:1-29" },
+    { "claim": "9 real blog article slugs", "measuredFrom": "src/data/articles.js (grep '\"slug\":', 9 matches)" },
+    { "claim": "blog article block-type structural variants (h3-subhead-essay, case-study, blockquote-table-guide)", "measuredFrom": "src/data/articles.js (grep '\"t\": \"h3\"/\"quote\"/\"bq\"/\"table\"')" },
+    { "claim": "24 real company logos across 12 pairs in Companies.jsx", "measuredFrom": "src/components/Companies.jsx PAIRS array" },
+    { "claim": "marie-founder.png is a real testimonial author photo", "measuredFrom": "ASSET_MANIFEST.md:28" },
+    { "claim": "nav menus reference /secondary-vehicles and /control-os, which have no matching route", "measuredFrom": "src/components/navbar/menus.js:12,16,46,48 cross-checked against src/pages/routes.jsx (no match)" },
+    { "claim": "/careers and /customers are deliberate dummy stub routes, not real site content", "measuredFrom": "src/pages/routes.jsx comment: 'Dummy pages: these paths aren't in the cloned sitemap, so links to them go here instead of off-site'" },
+    { "claim": "/get-started + /setup clone app.rollups.com/setup, a structurally separate Rails/Bootstrap app", "measuredFrom": "src/pages/SignUp.jsx:1-9 comment, CLONE_SPEC_SIGNUP.md" }
+  ],
+  "deadNavLinks": {
+    "description": "Real, structurally unusual fact: Navbar dropdown menus (src/components/navbar/menus.js) link to /secondary-vehicles and /control-os, neither of which has a matching entry in src/pages/routes.jsx or src/App.jsx. These are DIFFERENT from the /careers and /customers dummy stubs — those two got real Placeholder routes; these two did not. Clicking them in the live clone would fall through to React Router's unmatched-route behavior (no explicit 404 route was found in routes.jsx either). Documented here per BUILD-GUIDE.md 'note anything structurally unusual' — not modeled as a generatable page in templates.json, and not corrected in this design-repo since it accurately reflects the real, current state of the cloned source.",
+    "measuredFrom": "src/components/navbar/menus.js:12,16 (NAV_MENUS), src/components/navbar/menus.js:46,48 (MOBILE_MENUS), cross-checked against src/pages/routes.jsx (grep 'secondary-vehicles|control-os' — no match)"
+  },
+  "signupPageExclusion": {
+    "description": "The /get-started (alias /setup) SignUp page is INTENTIONALLY EXCLUDED from templates/templates.json and tokens/00-foundation/color.json. It clones a different, real application (app.rollups.com/setup — Rails + Bootstrap backend, AngelList/Inter-family fonts, white background, teal/indigo palette), mounted in src/App.jsx as a sibling <Route> with no shared Navbar/Footer/CookieBar. Merging its tokens into the marketing-site's dark-green palette would misrepresent both systems as one. Its evidence lives in tokens/00-foundation/color.signup.json (documentation-only, not wired into schema/compatibility/allowlist) and is cited from CLONE_SPEC_SIGNUP.md in full.",
+    "measuredFrom": "src/App.jsx:44-49, src/pages/SignUp.jsx, CLONE_SPEC_SIGNUP.md"
+  },
+  "contentAuthenticity": {
+    "description": "Per CLONE_SPEC_CONTENT.md, blog article bodies, legal document bodies, some long FAQ answers, and some option-card descriptions in this SOURCE PROJECT are placeholder/generic text written to match the ORIGINAL rollups.com site's structural shape (paragraph counts, word counts, heading counts) — they are NOT rollups.com's actual live copy. Headings, titles, dates, authors, excerpts, stat numbers, and short labels/CTAs ARE real/verbatim, per src/data/articles.js's own header comment ('Titles, excerpts, meta and every heading are verbatim... the prose itself is placeholder copy'). maxWords budgets in this design-repo are grounded in the real structural shape (accurate), not in the placeholder wording (not literal brand copy). A generator using this design-repo should treat long-form body-copy examples in components/article-body-block.json and sections/legal-body.json as structural demonstrations only.",
+    "measuredFrom": "src/data/articles.js:1-4 (header comment), CLONE_SPEC_CONTENT.md, src/components/shared/faqData.jsx:2-3 (header comment re: filler())"
+  }
+}

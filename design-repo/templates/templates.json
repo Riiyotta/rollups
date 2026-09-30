@@ -1,0 +1,206 @@
+{
+  "$description": "One entry per distinct real page shape observed in src/pages/*.jsx + src/pages/routes.jsx + src/App.jsx. 12 templates cover all 15 routes mounted inside the shared <Layout> (Navbar/Footer/CookieBar). The 16th mounted route, /get-started (alias /setup), is INTENTIONALLY EXCLUDED from this templates.json — it is a structurally separate app (SignUp page, cloning app.rollups.com) mounted as a sibling <Route> outside <Layout>, with its own token system (tokens/00-foundation/color.signup.json) that must not be merged here. See extraction/measured-values.json 'signupPageExclusion' for the full rationale.",
+  "measuredFrom": "src/pages/routes.jsx, src/App.jsx, each page component listed per template below",
+  "templates": [
+    {
+      "id": "template.marketing-home",
+      "description": "Homepage. Only template using hero.marketing, products.grid, inaction.showcase, stages.timeline.",
+      "measuredFrom": "src/pages/Home.jsx",
+      "routes": ["/"],
+      "nodes": [
+        { "section": "shell.navbar", "required": true, "repeatable": false },
+        { "section": "hero.marketing", "required": true, "repeatable": false },
+        { "section": "products.grid", "required": true, "repeatable": false },
+        { "section": "inaction.showcase", "required": true, "repeatable": false },
+        { "section": "stages.timeline", "required": true, "repeatable": false },
+        { "section": "companies.trustedby", "required": true, "repeatable": false },
+        { "section": "faq.accordion", "required": true, "repeatable": false },
+        { "section": "shell.footer", "required": true, "repeatable": false },
+        { "section": "shell.cookiebar", "required": true, "repeatable": false }
+      ]
+    },
+    {
+      "id": "template.product-landing",
+      "description": "Standard product page: hero.product (single Hero component render) followed by testimonial slider, use-case tabs, capabilities, trusted companies, pricing, faq. Used by /ruv only — /consolidate shares this exact tail sequence but swaps in hero.consolidate-scroll for the hero node (see template.product-landing-scroll), which is why they are two templates, not one with a hero variant field, per BUILD-GUIDE.md 'nodes must be structured objects' + the real, confirmed structural difference in hero rendering (dual desktop/mobile Lenis+Lottie shell vs single component).",
+      "measuredFrom": "src/pages/Ruv.jsx",
+      "routes": ["/ruv"],
+      "nodes": [
+        { "section": "shell.navbar", "required": true, "repeatable": false },
+        { "section": "hero.product", "required": true, "repeatable": false },
+        { "section": "testimonial.slider", "required": true, "repeatable": false },
+        { "section": "usecase.tabs", "required": true, "repeatable": false },
+        { "section": "capabilities.grid", "required": true, "repeatable": false },
+        { "section": "companies.trustedby", "required": true, "repeatable": false },
+        { "section": "pricing.table", "required": true, "repeatable": false },
+        { "section": "faq.accordion", "required": true, "repeatable": false },
+        { "section": "shell.footer", "required": true, "repeatable": false },
+        { "section": "shell.cookiebar", "required": true, "repeatable": false }
+      ]
+    },
+    {
+      "id": "template.product-landing-scroll",
+      "description": "Same section tail as template.product-landing (testimonial-slider through faq), but the hero node is hero.consolidate-scroll: a dual desktop/mobile Lenis-smooth-scroll + scroll-scrubbed-Lottie hero shell not present anywhere else in the site. Used by /consolidate only.",
+      "measuredFrom": "src/pages/Consolidate.jsx",
+      "routes": ["/consolidate"],
+      "nodes": [
+        { "section": "shell.navbar", "required": true, "repeatable": false },
+        { "section": "hero.consolidate-scroll", "required": true, "repeatable": false },
+        { "section": "testimonial.slider", "required": true, "repeatable": false },
+        { "section": "usecase.tabs", "required": true, "repeatable": false },
+        { "section": "capabilities.grid", "required": true, "repeatable": false },
+        { "section": "companies.trustedby", "required": true, "repeatable": false },
+        { "section": "pricing.table", "required": true, "repeatable": false },
+        { "section": "faq.accordion", "required": true, "repeatable": false },
+        { "section": "shell.footer", "required": true, "repeatable": false },
+        { "section": "shell.cookiebar", "required": true, "repeatable": false }
+      ]
+    },
+    {
+      "id": "template.product-landing-lite",
+      "description": "Genuinely SHORTER product-page shape: confirmed by direct inspection of Safe.jsx that it has NO testimonial.slider node between hero and usecase.tabs (unlike /ruv and /consolidate). Uses hero.safe (flip-card demo, centered layout) instead of hero.product.",
+      "measuredFrom": "src/pages/Safe.jsx",
+      "routes": ["/safe"],
+      "nodes": [
+        { "section": "shell.navbar", "required": true, "repeatable": false },
+        { "section": "hero.safe", "required": true, "repeatable": false },
+        { "section": "usecase.tabs", "required": true, "repeatable": false },
+        { "section": "capabilities.grid", "required": true, "repeatable": false },
+        { "section": "companies.trustedby", "required": true, "repeatable": false },
+        { "section": "pricing.table", "required": true, "repeatable": false },
+        { "section": "faq.accordion", "required": true, "repeatable": false },
+        { "section": "shell.footer", "required": true, "repeatable": false },
+        { "section": "shell.cookiebar", "required": true, "repeatable": false }
+      ]
+    },
+    {
+      "id": "template.comparison-guide",
+      "description": "Long-form comparison/guide page with an embedded calculator + stories grid, distinct from template.calculator-tool because it ALSO includes founder-options, how-to-raise.steps, comparison.table, and clean-captable — sections that /ruv/calculator does not render.",
+      "measuredFrom": "src/pages/HowToRaiseCapital.jsx",
+      "routes": ["/how-to-raise-capital"],
+      "nodes": [
+        { "section": "shell.navbar", "required": true, "repeatable": false },
+        { "section": "hero.raise", "required": true, "repeatable": false },
+        { "section": "founder-options", "required": true, "repeatable": false },
+        { "section": "how-to-raise.steps", "required": true, "repeatable": false },
+        { "section": "comparison.table", "required": true, "repeatable": false },
+        { "section": "clean-captable", "required": true, "repeatable": false },
+        { "section": "facts.cta", "required": true, "repeatable": false },
+        { "section": "calculator.tool", "required": true, "repeatable": false },
+        { "section": "stories.grid", "required": true, "repeatable": false },
+        { "section": "faq.accordion", "required": true, "repeatable": false },
+        { "section": "shell.footer", "required": true, "repeatable": false },
+        { "section": "shell.cookiebar", "required": true, "repeatable": false }
+      ]
+    },
+    {
+      "id": "template.calculator-tool",
+      "description": "Minimal calculator-focused page: its own compact hero (hero.calculator, no reveal animation), then calculator.tool, facts.cta, stories.grid, faq — reusing the same three FactsCta/Calculator/StoriesGrid components as template.comparison-guide's tail, but WITHOUT founder-options/how-to-raise.steps/comparison.table/clean-captable, confirmed by direct inspection of RuvCalculator.jsx.",
+      "measuredFrom": "src/pages/RuvCalculator.jsx",
+      "routes": ["/ruv/calculator"],
+      "nodes": [
+        { "section": "shell.navbar", "required": true, "repeatable": false },
+        { "section": "hero.calculator", "required": true, "repeatable": false },
+        { "section": "calculator.tool", "required": true, "repeatable": false },
+        { "section": "facts.cta", "required": true, "repeatable": false },
+        { "section": "stories.grid", "required": true, "repeatable": false },
+        { "section": "faq.accordion", "required": true, "repeatable": false },
+        { "section": "shell.footer", "required": true, "repeatable": false },
+        { "section": "shell.cookiebar", "required": true, "repeatable": false }
+      ]
+    },
+    {
+      "id": "template.waitlist-landing",
+      "description": "Waitlist product page with its own page-local hero/trust/how-it-works/capabilities/pricing components (distinct implementations from the shared /ruv/safe/consolidate components, despite similar names).",
+      "measuredFrom": "src/pages/Waitlist.jsx",
+      "routes": ["/waitlist"],
+      "nodes": [
+        { "section": "shell.navbar", "required": true, "repeatable": false },
+        { "section": "hero.waitlist", "required": true, "repeatable": false },
+        { "section": "waitlist.trust", "required": true, "repeatable": false },
+        { "section": "waitlist.howitworks", "required": true, "repeatable": false },
+        { "section": "waitlist.capabilities", "required": true, "repeatable": false },
+        { "section": "companies.trustedby", "required": true, "repeatable": false },
+        { "section": "waitlist.pricing", "required": true, "repeatable": false },
+        { "section": "faq.accordion", "required": true, "repeatable": false },
+        { "section": "shell.footer", "required": true, "repeatable": false },
+        { "section": "shell.cookiebar", "required": true, "repeatable": false }
+      ]
+    },
+    {
+      "id": "template.contact-form",
+      "description": "Single-section contact page. No FAQ, no companies grid, no scroll reveal.",
+      "measuredFrom": "src/pages/ContactUs.jsx",
+      "routes": ["/contact-us"],
+      "nodes": [
+        { "section": "shell.navbar", "required": true, "repeatable": false },
+        { "section": "contact.form", "required": true, "repeatable": false },
+        { "section": "shell.footer", "required": true, "repeatable": false },
+        { "section": "shell.cookiebar", "required": true, "repeatable": false }
+      ]
+    },
+    {
+      "id": "template.blog-index",
+      "description": "Blog listing page with client-side category filtering.",
+      "measuredFrom": "src/pages/Blog.jsx",
+      "routes": ["/blog"],
+      "nodes": [
+        { "section": "shell.navbar", "required": true, "repeatable": false },
+        { "section": "blog.header-filter", "required": true, "repeatable": false },
+        { "section": "blog.grid", "required": true, "repeatable": false },
+        { "section": "shell.footer", "required": true, "repeatable": false },
+        { "section": "shell.cookiebar", "required": true, "repeatable": false }
+      ]
+    },
+    {
+      "id": "template.blog-article",
+      "description": "Blog article template, shared by all 9 real article slugs. The article body's internal block-type sequence genuinely varies by article family (case-study / h3-subhead-essay / quote-essay / blockquote-table-guide — see sections/blogpost-body.json templateVariants) but the PAGE-LEVEL node sequence (header, body) is identical across all 9, so this remains one template with per-instance content variance, not a template split, consistent with BUILD-GUIDE.md 'one template per page shape, not one per route.'",
+      "measuredFrom": "src/pages/BlogPost.jsx, src/data/articles.js (9 slugs)",
+      "routes": ["/blog/:slug"],
+      "routeParam": "slug",
+      "realSlugs": [
+        "announcing-rollups",
+        "why-clean-captable-matters",
+        "case-study-mem0-ruv",
+        "case-study-itemfarm-streamlined-fundraise-ruv",
+        "case-study-heron-power-strategic-investors-ruv",
+        "how-ruvs-simplify-fundraising",
+        "case-study-cimento-ai-angel-investors-ruv",
+        "case-study-secureframe-maximize-captable-value-ruv",
+        "special-purpose-vehicles-for-startups-guide"
+      ],
+      "nodes": [
+        { "section": "shell.navbar", "required": true, "repeatable": false },
+        { "section": "blogpost.header", "required": true, "repeatable": false },
+        { "section": "blogpost.body", "required": true, "repeatable": false },
+        { "section": "shell.footer", "required": true, "repeatable": false },
+        { "section": "shell.cookiebar", "required": true, "repeatable": false }
+      ]
+    },
+    {
+      "id": "template.legal-doc",
+      "description": "Legal document template, shared verbatim by all 3 real legal routes.",
+      "measuredFrom": "src/pages/Legal.jsx, src/data/legal.js",
+      "routes": ["/privacy-policy", "/terms-of-service", "/disclosures"],
+      "nodes": [
+        { "section": "shell.navbar", "required": true, "repeatable": false },
+        { "section": "legal.header", "required": true, "repeatable": false },
+        { "section": "legal.body", "required": true, "repeatable": false },
+        { "section": "shell.footer", "required": true, "repeatable": false },
+        { "section": "shell.cookiebar", "required": true, "repeatable": false }
+      ]
+    },
+    {
+      "id": "template.placeholder-stub",
+      "description": "DELIBERATE DUMMY TEMPLATE. Used only by /careers and /customers, two routes that do NOT exist on the real rollups.com — added to this clone purely so two internal-looking links (footer 'Careers', and the calculator page's 'Read more customer stories') have somewhere to go instead of 404ing or leaving the SPA. Excluded from any 'real cloned pages' tally. Do not generate real marketing content for this template.",
+      "measuredFrom": "src/pages/Placeholder.jsx, src/pages/routes.jsx comment",
+      "routes": ["/careers", "/customers"],
+      "isDummyScope": true,
+      "nodes": [
+        { "section": "shell.navbar", "required": true, "repeatable": false },
+        { "section": "placeholder.stub", "required": true, "repeatable": false },
+        { "section": "shell.footer", "required": true, "repeatable": false },
+        { "section": "shell.cookiebar", "required": true, "repeatable": false }
+      ]
+    }
+  ]
+}

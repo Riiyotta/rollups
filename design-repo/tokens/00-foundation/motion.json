@@ -1,0 +1,58 @@
+{
+  "$description": "Real motion primitives: durations, easings, and the reveal/hover/scroll patterns actually implemented in src/. Closed set — no invented timings. Every generated section's motion object must reference these fields only (enforced by schema/pagespec.schema.json's closed motion definitions).",
+  "measuredFrom": "src/index.css:28,133-140; src/hooks/useReveal.js; src/components/ui/HoverLink.jsx; src/components/Companies.jsx; src/pages/Consolidate.jsx; CLONE_SPEC.md GSAP timing sections",
+  "easings": {
+    "ease-std": { "value": "cubic-bezier(.4,0,.2,1)", "measuredFrom": "src/index.css:28" },
+    "power3-inOut": { "value": "power3.inOut (GSAP named ease)", "measuredFrom": "src/components/Companies.jsx (wipe() EASE constant)" },
+    "power2-out": { "value": "power2.out (GSAP named ease)", "measuredFrom": "src/pages/Consolidate.jsx (frame tween ease)" },
+    "back-out": { "value": "back.out (GSAP named ease)", "measuredFrom": "src/components/ui/HoverLink.jsx (link-box sweep)" },
+    "linear-none": { "value": "none (GSAP 'none' ease)", "measuredFrom": "src/components/ui/HoverLink.jsx (sibling dim/restore)" }
+  },
+  "durations": {
+    "fast": { "value": "0.1s", "measuredFrom": "src/components/ui/HoverLink.jsx (sibling dim on hover)" },
+    "standard": { "value": "0.3s", "measuredFrom": "src/index.css:106 (.button transition), src/index.css:133-137 (.page-fade-in)" },
+    "hover-sweep": { "value": "1s", "measuredFrom": "src/components/ui/HoverLink.jsx (link-box GSAP tween)" },
+    "logo-wipe": { "value": "1.2s", "measuredFrom": "src/components/Companies.jsx (wipe() to() duration)" },
+    "lottie-frame-scrub": { "value": "0.6s", "measuredFrom": "src/pages/Consolidate.jsx (frame tween duration)" }
+  },
+  "patterns": {
+    "scroll-reveal-fade-blur": {
+      "description": "Default section-entry reveal used on .animation-item / .animation-text elements site-wide.",
+      "initialState": { "opacity": 0, "filter": "blur(5px)", "transform": "translateY(20px) [animation-item only]" },
+      "finalState": { "opacity": 1, "filter": "blur(0px)", "transform": "translateY(0)" },
+      "transition": "opacity .3s ease, transform .3s ease",
+      "trigger": "IntersectionObserver via useReveal hook, one-shot per element per page mount",
+      "measuredFrom": "src/index.css:138-140 (.animation-item, .animation-text), src/hooks/useReveal.js",
+      "reducedMotionFallback": "content renders at final state immediately (opacity 1, no blur, no translate) with no transition"
+    },
+    "page-fade-in": {
+      "description": "Route-change transition wrapping the routed page content.",
+      "keyframes": "0% opacity:0 translateY(4px) -> 100% opacity:1 translateY(0)",
+      "duration": "0.3s",
+      "easing": "ease-out",
+      "measuredFrom": "src/index.css:133-137",
+      "reducedMotionFallback": "no transform/opacity animation; page renders at final state immediately"
+    },
+    "hover-link-sweep": {
+      "description": "HoverLink primitive: a light block sweeps left-to-right on hover; sibling links inside the same .multi-hover-link dim to 50% opacity.",
+      "measuredFrom": "src/components/ui/HoverLink.jsx",
+      "reducedMotionFallback": "hover state applies instantly with no sweep tween; siblings do not dim"
+    },
+    "button-press-scale": {
+      "description": "Buttons scale to 0.96 on :active.",
+      "measuredFrom": "src/index.css:107 (.button:active)",
+      "reducedMotionFallback": "no scale transform; :active state expressed via color/opacity only if present"
+    },
+    "logo-grid-wipe": {
+      "description": "Companies/trusted-by logo grid: each logo cell cycles between two logo images via a mask wipe, staggered per-cell, looping indefinitely with a 3s repeat delay.",
+      "measuredFrom": "src/components/Companies.jsx",
+      "reducedMotionFallback": "logo grid renders the first logo of each pair statically, no wipe/loop"
+    },
+    "scroll-scrubbed-lottie": {
+      "description": "Consolidate-page-only hero: a Lottie animation frame-scrubs against scroll position (Lenis-smoothed), snapping to 5 discrete progress points with a 0.6s power2.out tween between snaps.",
+      "measuredFrom": "src/pages/Consolidate.jsx (DesktopHero)",
+      "scopedTo": "template.product-landing-scroll (Consolidate only)",
+      "reducedMotionFallback": "Lottie renders its first frame statically; no scroll-linked scrubbing, no Lenis smoothing"
+    }
+  }
+}

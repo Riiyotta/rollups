@@ -1,0 +1,12 @@
+{
+  "id": "primitive.form-input",
+  "type": "primitive",
+  "description": "Bordered text input used across the hero email-capture form and the contact form. box-sizing:border-box override (unlike the rest of the site's content-box reset).",
+  "measuredFrom": "src/styles/contact.css:44,87-92, src/index.css:11 (form control box-sizing override)",
+  "props": {
+    "type": { "type": "enum", "values": ["text", "email"], "default": "text" },
+    "placeholder": { "type": "string", "required": false, "maxWords": 6 },
+    "name": { "type": "string", "required": true }
+  },
+  "tokens": ["tokens/00-foundation/radius.json (radius-lg 7px)", "tokens/10-semantic/border.json"]
+}

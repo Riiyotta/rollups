@@ -1,0 +1,21 @@
+{
+  "id": "section.hero.consolidate-scroll",
+  "type": "section",
+  "category": "hero",
+  "description": "Consolidate-page-ONLY hero shell. Dual-rendered: DesktopHero (>=1024px, Lenis smooth-scroll + scroll-scrubbed Lottie snapping to 5 progress points) and MobileHero (<=1023px, ScrollTrigger play/reset + 3s-delayed replay loop), both wrapping the same section.hero.product content fields. This is the reason /consolidate is its own template rather than reusing template.product-landing verbatim for its hero node — but every node AFTER the hero (testimonial-slider through faq) is identical in sequence to /ruv, so the template still shares components/sections with product-landing beyond the hero.",
+  "measuredFrom": "src/pages/Consolidate.jsx (DesktopHero, MobileHero, LeftBlock)",
+  "content": {
+    "$ref": "section.hero.product#/content",
+    "lottieSrc": { "type": "assetRef", "assetRole": "motion-graphic-lottie", "required": true }
+  },
+  "constraints": { "onePerPage": true, "mustBeFirst": true, "mustFollowNav": true },
+  "responsive": {
+    "desktop": "Lenis-smoothed scroll drives a frame-scrubbed Lottie snapping to progress points [0, 0.26, 0.51, 0.76, 1] with a 0.6s power2.out tween; hero content parallaxes via translateY",
+    "mobile": "Lottie plays once when the container crosses viewport middle (ScrollTrigger 'top 50%'), resets on leave, replays automatically 3s after each completion",
+    "measuredFrom": "src/pages/Consolidate.jsx DesktopHero/MobileHero implementations"
+  },
+  "motion": {
+    "scrollScrub": "motion.patterns.scroll-scrubbed-lottie",
+    "reducedMotionFallback": "Lottie renders first frame statically, no Lenis smoothing, no ScrollTrigger play/replay loop, no parallax translateY"
+  }
+}

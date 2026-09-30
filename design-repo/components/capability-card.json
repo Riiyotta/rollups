@@ -1,0 +1,17 @@
+{
+  "id": "component.capability-card",
+  "type": "component",
+  "description": "Numbered capability/feature row used by the Capabilities grid section. Some entries open an image modal (CapabilityModal) instead of being plain text.",
+  "measuredFrom": "src/components/shared/Capabilities.jsx",
+  "fields": {
+    "num": { "type": "string", "maxWords": 1, "description": "e.g. '01', '05*' (asterisk marks modal-enabled entries)" },
+    "title": { "type": "string", "maxWords": 12 },
+    "desc": { "type": "string", "maxWords": 45, "required": false },
+    "modal": { "type": "assetRef", "assetRole": "capability-modal-image", "required": false },
+    "card": { "type": "boolean", "required": false, "description": "SAFE-page variant flag: renders as a bordered card instead of a plain row" }
+  },
+  "motion": {
+    "modalOpen": "CapabilityModal opens on click, closes on Escape/outside-click/X",
+    "reducedMotionFallback": "modal open/close has no transition, appears/disappears instantly"
+  }
+}

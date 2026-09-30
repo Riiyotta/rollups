@@ -1,0 +1,16 @@
+{
+  "id": "section.waitlist.pricing",
+  "type": "section",
+  "category": "conversion",
+  "description": "Waitlist-page-only always-free pricing grid. Buttons are explicitly NOT scroll-revealed; one grid cell is intentionally empty (no element) per source comment.",
+  "measuredFrom": "src/components/waitlist/Pricing.jsx",
+  "content": {
+    "heading": { "type": "string", "maxWords": 4, "default": "Pricing" },
+    "planName": { "type": "string", "maxWords": 4, "required": true },
+    "planDescription": { "type": "string", "maxWords": 15, "required": true },
+    "features": { "type": "array", "maxItems": 6, "items": "string maxWords:12" },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "scopedTo": "template.waitlist-landing" },
+  "motion": { "reveal": "heading/features only; buttons excluded from reveal per source", "reducedMotionFallback": "motion.patterns.scroll-reveal-fade-blur.reducedMotionFallback" }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "section.usecase.tabs",
+  "type": "section",
+  "category": "content",
+  "description": "Tabbed use-case explainer: sidebar tab list (or single implicit tab when only 1 use case — SAFE's tab label is an empty string) driving a process-step panel with a closing stat. Present on /ruv, /safe, /consolidate.",
+  "measuredFrom": "src/components/shared/UseCaseTabs.jsx",
+  "content": {
+    "description": { "type": "string", "maxWords": 30, "required": true },
+    "items": { "type": "array", "minItems": 1, "maxItems": 4, "items": { "type": "ref", "component": "component.use-case-card" } },
+    "additionalProperties": false
+  },
+  "constraints": { "maxPerPage": 1 },
+  "motion": { "reveal": "motion.patterns.scroll-reveal-fade-blur", "reducedMotionFallback": "motion.patterns.scroll-reveal-fade-blur.reducedMotionFallback" }
+}

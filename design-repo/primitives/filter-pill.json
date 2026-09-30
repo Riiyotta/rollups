@@ -1,0 +1,11 @@
+{
+  "id": "primitive.filter-pill",
+  "type": "primitive",
+  "description": "Toggle-style pill button used for the blog category filter row.",
+  "measuredFrom": "src/styles/blog.css:23-28, src/pages/Blog.jsx (FILTERS render)",
+  "props": {
+    "label": { "type": "string", "required": true, "maxWords": 3 },
+    "active": { "type": "boolean", "default": false }
+  },
+  "tokens": ["tokens/00-foundation/radius.json (radius-sm default, radius-xs hover)"]
+}

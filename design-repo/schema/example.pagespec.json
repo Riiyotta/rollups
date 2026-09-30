@@ -1,0 +1,180 @@
+{
+  "template": "template.product-landing",
+  "route": "/ruv",
+  "theme": "light",
+  "nodes": [
+    {
+      "section": "shell.navbar",
+      "required": true,
+      "repeatable": false,
+      "content": {
+        "menus": [
+          { "label": "Products", "groups": [] },
+          { "label": "Resources", "groups": [] }
+        ],
+        "ctaSecondary": { "label": "Sign In", "href": "/get-started" },
+        "ctaPrimary": { "label": "Get Started", "href": "/get-started" }
+      },
+      "motion": { "pattern": "dropdown-menu-hover", "reducedMotionFallback": "dropdown opens/closes instantly, no enter transition class" }
+    },
+    {
+      "section": "hero.product",
+      "required": true,
+      "repeatable": false,
+      "content": {
+        "heading": "Roll Up Vehicles by AngelList",
+        "description": "Raise capital from many investors through a single entity — capture their strategic value without the friction and cost.",
+        "emailFormProductInterest": "Roll Up Vehicles",
+        "hint": "Curious how RUVs could work for you? Contact us"
+      },
+      "motion": { "pattern": "scroll-reveal-fade-blur", "duration": "0.3s", "easing": "ease", "reducedMotionFallback": "content renders at final state immediately (opacity 1, no blur, no translate) with no transition" }
+    },
+    {
+      "section": "testimonial.slider",
+      "required": true,
+      "repeatable": false,
+      "content": {
+        "heading": "Turn new investors into one line on the cap table.",
+        "description": "Launch your company's special purpose vehicle in minutes. Send investors custom invite links, and let RUVs handle wire transfers, compliance, and taxes so you can get back to work.",
+        "items": [
+          {
+            "valueprop": "Premium investor experience, powered by AngelList",
+            "content": "Angel investing via RUVs is a 10x improvement. No Docusigns, sending wires, accepting stock certificates, or law firms looking for signatures later.",
+            "meta": "Dan Romero, angel investor",
+            "image": { "assetRole": "testimonial-author-photo", "path": "/assets/pages/testimonial-DanRomero2.png" },
+            "mobile": "No"
+          },
+          {
+            "valueprop": "Raise from many investors",
+            "content": "The Rollups team provided excellent service in the RUV process — professional, fast, and reliable. In moments when founders feel lost, they brought clarity.",
+            "meta": "Kristie D'Ambrosio-Correll, CEO & Co-founder, Dacora Motors",
+            "image": { "assetRole": "testimonial-author-photo", "path": "/assets/pages/testimonial-kristie.png" },
+            "mobile": "Yes"
+          },
+          {
+            "valueprop": "Raise internationally",
+            "content": "RUVs made it easy for our UK-based company to raise $1M+ from investors, regardless of where they were.",
+            "meta": "Jonas Templestein, Founder/CEO, Iterate.com",
+            "image": { "assetRole": "testimonial-author-photo", "path": "/assets/pages/testimonial-Jonasnew.png" },
+            "mobile": "Yes"
+          }
+        ]
+      },
+      "motion": { "pattern": "none", "reducedMotionFallback": "carousel does not auto-advance; user-initiated navigation only, slide transitions are instant crossfades" }
+    },
+    {
+      "section": "usecase.tabs",
+      "required": true,
+      "repeatable": false,
+      "content": {
+        "description": "Companies raise from $50k to $100M+ through an RUV to enable a number of different use cases. Here are a few common ones.",
+        "items": [
+          {
+            "id": "streamline-investor-onboarding",
+            "tab": "Roll up non-lead investors",
+            "cards": [
+              {
+                "title": "Roll up non-lead investors",
+                "description": "While lead investors typically invest directly, other investors like friends, family, angels, customers, and follow-on VCs are well-suited for investing through an RUV.",
+                "image": { "assetRole": "use-case-illustration", "path": "/assets/in-action-5.7c07bb5c.png" },
+                "href": "/contact-us"
+              }
+            ],
+            "steps": [
+              { "title": "Start raising in minutes", "items": [
+                "Create an account, set your deal terms, and build your private investment page.",
+                "Rollups handles entity formation and investor paperwork prep.",
+                "Create custom, private, and trackable invite links for investors."
+              ]},
+              { "day": "03", "title": "Round traction, without the distraction", "items": [
+                "Avoid delays and headaches from investor accreditation, KYC, and banking, all streamlined by AngelList.",
+                "Watch investor visits, commitments, and wires arrive in the real-time dashboard."
+              ]},
+              { "day": "30", "title": "Close the RUV in a few clicks", "items": [
+                "Close the RUV in just a few clicks in the app.",
+                "Provide your financing agreement(s) for Rollups to review and sign."
+              ]}
+            ],
+            "stat": { "number": "35%", "text": "Fewer stakeholders on the cap table after rolling up over 50 investors with an RUV.", "link": { "label": "Read case study", "href": "/blog/case-study-secureframe-maximize-captable-value-ruv" } }
+          }
+        ]
+      },
+      "motion": { "pattern": "scroll-reveal-fade-blur", "reducedMotionFallback": "content renders at final state immediately (opacity 1, no blur, no translate) with no transition" }
+    },
+    {
+      "section": "capabilities.grid",
+      "required": true,
+      "repeatable": false,
+      "content": {
+        "heading": "Capabilities",
+        "items": [
+          { "num": "01*", "title": "Build your custom, private investment page", "desc": "Set up your own secure deal page to share information with investors, and track analytics.", "modal": { "assetRole": "capability-modal-image" } },
+          { "num": "02", "title": "Investor accreditation, KYC/AML, and banking.", "desc": "Give your investors a world-class investment experience, powered by AngelList." },
+          { "num": "03", "title": "Company-friendly pricing", "desc": "No upfront fees, no hidden costs. Pay when you close the RUV." },
+          { "num": "04", "title": "Built-in tax and compliance", "desc": "Form D, Blue Sky filing fees, and automated K-1s for investors." }
+        ]
+      },
+      "motion": { "pattern": "scroll-reveal-fade-blur", "reducedMotionFallback": "content renders at final state immediately (opacity 1, no blur, no translate) with no transition" }
+    },
+    {
+      "section": "companies.trustedby",
+      "required": true,
+      "repeatable": false,
+      "content": {
+        "title": "Top law firms & companies trust us to consolidate stakeholders",
+        "tiles": [
+          { "logoA": { "assetRole": "company-logo", "path": "/assets/basis.3c451477.png" }, "logoB": { "assetRole": "company-logo", "path": "/assets/wispr.5f7509ef.png" } }
+        ]
+      },
+      "motion": { "pattern": "logo-grid-wipe", "duration": "1.2s", "easing": "power3.inOut", "reducedMotionFallback": "renders logoA statically, no wipe, no loop" }
+    },
+    {
+      "section": "pricing.table",
+      "required": true,
+      "repeatable": false,
+      "content": {
+        "title": "Roll Up Vehicle Pricing",
+        "cells": [
+          { "name": "One RUV", "description": "Get started for free, only pay when you wrap up the RUV.", "price": "Starting at $8,000", "unit": "+ filing fees", "button": { "label": "Get Started", "href": "/contact-us", "variant": "primary" } },
+          { "label": "The base price of $8,000 includes", "features": ["RUV for US C-Corporations", "Investment doc generation and digital signing", "Tax support with K-1s for investors"] }
+        ]
+      },
+      "motion": { "pattern": "scroll-reveal-fade-blur", "reducedMotionFallback": "content renders at final state immediately (opacity 1, no blur, no translate) with no transition" }
+    },
+    {
+      "section": "faq.accordion",
+      "required": true,
+      "repeatable": false,
+      "content": {
+        "title": "Frequently Asked Questions",
+        "items": [
+          { "q": "Are investors in RUVs eligible for QSBS benefits?", "a": "Generally, yes, QSBS eligibility flows through to investors when they invest into your RUV. Contact us for more details." },
+          { "q": "Which companies are eligible to use RUVs?", "a": "RUV customers are private companies that have raised (or are currently raising) venture capital. We support companies incorporated in other countries, subject to certain restrictions." },
+          { "q": "Can I publicly share or market my RUV?", "a": "By default, regulatory requirements prevent you from publicly marketing your RUV. Contact us to discuss other options that may be available." }
+        ]
+      },
+      "motion": { "pattern": "faq-accordion-toggle", "duration": "0.25s", "easing": "ease-out", "reducedMotionFallback": "panel opens/closes instantly, icon swaps state without rotate transition" }
+    },
+    {
+      "section": "shell.footer",
+      "required": true,
+      "repeatable": false,
+      "content": {
+        "marqueeText": "One Line on Your Cap Table",
+        "sitemapColumns": [],
+        "socialLinks": [{ "icon": "x", "href": "https://x.com/rollups" }]
+      },
+      "motion": { "pattern": "none", "reducedMotionFallback": "illustration renders fully drawn/static, no DrawSVG animation" }
+    },
+    {
+      "section": "shell.cookiebar",
+      "required": true,
+      "repeatable": false,
+      "content": {
+        "message": "We use cookies to improve your experience.",
+        "acceptLabel": "Accept"
+      },
+      "motion": { "pattern": "none", "reducedMotionFallback": "banner disappears instantly on dismiss" }
+    }
+  ]
+}

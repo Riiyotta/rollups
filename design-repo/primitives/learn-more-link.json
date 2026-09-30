@@ -1,0 +1,16 @@
+{
+  "id": "primitive.learn-more-link",
+  "type": "primitive",
+  "description": "Uppercase mono-font text label with a circular icon badge (double-arrow SVG) that animates on hover (desktop only).",
+  "measuredFrom": "src/components/ui/LearnMore.jsx, src/index.css:122-129",
+  "props": {
+    "children": { "type": "string", "default": "Learn more", "maxWords": 3 },
+    "href": { "type": "string", "default": "#" },
+    "className": { "type": "string", "required": false }
+  },
+  "tokens": ["tokens/20-component/link.json"],
+  "motion": {
+    "hover": "icon svg slides right and resets (link-arrow-slide keyframe, .5s linear, >=768px only)",
+    "reducedMotionFallback": "icon renders statically, no slide keyframe"
+  }
+}

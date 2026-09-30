@@ -1,0 +1,11 @@
+{
+  "$description": "Curated referenceable-token view for a generator. Not the whole token system — just what's safe/expected to reference in a PageSpec.",
+  "referenceable": {
+    "color": ["text.primary", "text.secondary", "text.muted", "text.onSurfaceBrand", "surface.page", "surface.brand", "surface.subtle", "surface.subtleHover", "surface.tint", "surface.modal", "border.default", "border.secondary"],
+    "typography": ["heading", "text-reg", "text-reg-small", "text-reg-big", "text-book", "text-reg-mono", "text-link"],
+    "spacing": ["3xs", "2xs", "xs", "sm", "md", "lg"],
+    "radius": ["radius-none", "radius-xs", "radius-sm", "radius-md", "radius-lg", "radius-full"],
+    "motion": ["motion.easings.*", "motion.durations.*", "motion.patterns.*"]
+  },
+  "note": "SignUp-page tokens (color.signup.json) are intentionally NOT included in this catalog — see compatibility/graph.json SIGNUP_TOKENS_EXCLUDED."
+}

@@ -1,0 +1,13 @@
+{
+  "id": "section.blog.grid",
+  "type": "section",
+  "category": "content",
+  "description": "Blog-index-only card grid, filterable by the paired header-filter section's active category.",
+  "measuredFrom": "src/pages/Blog.jsx, src/components/blog/BlogCard.jsx, src/data/articles.js (9 real articles)",
+  "content": {
+    "cards": { "type": "array", "minItems": 1, "maxItems": 9, "items": { "type": "ref", "component": "component.blog-card" } },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "scopedTo": "template.blog-index" },
+  "motion": { "reveal": "none observed", "reducedMotionFallback": "n/a — section has no motion to disable" }
+}

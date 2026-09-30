@@ -1,0 +1,17 @@
+{
+  "id": "component.flip-card",
+  "type": "component",
+  "description": "SAFE-page-only hero component: a 3D-flip image card that auto-flips every 10s until first user interaction, then only flips on click/Enter/Space. Shows two real product screenshots (investor interface / startup dashboard).",
+  "measuredFrom": "src/pages/Safe.jsx (FlipCard function)",
+  "scopedTo": "template.product-landing-lite (Safe only)",
+  "fields": {
+    "front": { "type": "assetRef", "assetRole": "product-screenshot" },
+    "back": { "type": "assetRef", "assetRole": "product-screenshot" },
+    "frontLabel": { "type": "string", "maxWords": 6 },
+    "backLabel": { "type": "string", "maxWords": 6 }
+  },
+  "motion": {
+    "autoFlip": "flips every 10000ms until first user interaction (click/Enter/Space), which permanently disables the timer",
+    "reducedMotionFallback": "auto-flip timer never starts; flip on interaction is an instant state swap with no 3D rotate transition"
+  }
+}

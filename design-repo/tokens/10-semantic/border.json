@@ -1,0 +1,7 @@
+{
+  "$description": "Semantic border roles resolving to 00-foundation/border.json and color.json.",
+  "roles": {
+    "border.default": { "resolvesTo": "border.hairline", "measuredFrom": "src/index.css:21-22" },
+    "border.secondary": { "resolvesTo": "color.btn-secondary-border", "measuredFrom": "src/index.css:102" }
+  }
+}

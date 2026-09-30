@@ -1,0 +1,15 @@
+{
+  "$description": "Component-scoped tokens for HoverLink and LearnMore primitives.",
+  "measuredFrom": "src/components/ui/HoverLink.jsx, src/components/ui/LearnMore.jsx",
+  "hoverLink": {
+    "sweepColor": "text.primary (color.light-100)",
+    "sweepWidth": "5px -> 25px",
+    "sweepDuration": "motion.durations.hover-sweep (1s)",
+    "sweepEasing": "motion.easings.back-out"
+  },
+  "learnMore": {
+    "iconBackground": "surface.tint",
+    "iconSize": "icon-size.icon-md (20px)",
+    "iconRadius": "radius-full"
+  }
+}

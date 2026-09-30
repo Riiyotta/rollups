@@ -1,0 +1,15 @@
+{
+  "id": "section.waitlist.howitworks",
+  "type": "section",
+  "category": "content",
+  "description": "Waitlist-page-only step-card list, responsive JS re-layout at <=767px (illustration moves inside content wrapper).",
+  "measuredFrom": "src/components/waitlist/HowItWorks.jsx",
+  "content": {
+    "heading": { "type": "string", "maxWords": 6, "required": false },
+    "steps": { "type": "array", "minItems": 3, "maxItems": 5, "items": { "title": "string maxWords:8", "description": "string maxWords:30", "image": "assetRef (assetRole: use-case-illustration)" } },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "scopedTo": "template.waitlist-landing" },
+  "responsive": { "mobile": "illustration re-parents inside .action-card-content-wrapper after the text content, producing measured heights 402/633.4/612.4/458.7px at 390px width", "measuredFrom": "src/components/waitlist/HowItWorks.jsx comment" },
+  "motion": { "reveal": "motion.patterns.scroll-reveal-fade-blur", "reducedMotionFallback": "motion.patterns.scroll-reveal-fade-blur.reducedMotionFallback" }
+}

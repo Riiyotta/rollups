@@ -1,0 +1,19 @@
+{
+  "id": "primitive.button",
+  "type": "primitive",
+  "description": "Two-variant call-to-action button with optional animated slide-in arrow. No content contract beyond its own props — a primitive, not a section.",
+  "measuredFrom": "src/components/ui/Button.jsx",
+  "props": {
+    "children": { "type": "string", "required": true, "maxWords": 4, "description": "button label, rendered uppercase via mono font" },
+    "variant": { "type": "enum", "values": ["primary", "secondary"], "default": "primary" },
+    "animated": { "type": "boolean", "default": false },
+    "href": { "type": "string", "required": false, "description": "renders an <a> instead of <button> when present" },
+    "target": { "type": "enum", "values": ["_blank", null], "required": false }
+  },
+  "tokens": ["tokens/20-component/button.json"],
+  "motion": {
+    "hover": "button--primary/secondary radius narrows on hover (motion.durations.standard, ease)",
+    "press": "motion press-scale 0.96",
+    "animatedArrow": "arrow slides in from right on hover when animated=true"
+  }
+}

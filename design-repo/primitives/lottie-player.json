@@ -1,0 +1,17 @@
+{
+  "id": "primitive.lottie-player",
+  "type": "primitive",
+  "description": "Wraps lottie-web (SVG renderer) to play a JSON animation file. Used for hero decorative animations and the Consolidate page's scroll-scrubbed hero.",
+  "measuredFrom": "src/components/ui/Lottie.jsx",
+  "props": {
+    "src": { "type": "string", "required": true, "description": "path to a real .json lottie file under /lottie/" },
+    "loop": { "type": "boolean", "default": true },
+    "autoplay": { "type": "boolean", "default": true },
+    "onReady": { "type": "function", "required": false }
+  },
+  "assetRole": "motion-graphic-lottie",
+  "motion": {
+    "playback": "plays the referenced Lottie JSON via SVG renderer; may be scroll-scrubbed (see sections/hero-consolidate.json) or scroll-triggered play/reset (mobile)",
+    "reducedMotionFallback": "renders first frame statically (goToAndStop(0)), no autoplay, no scroll-scrub"
+  }
+}

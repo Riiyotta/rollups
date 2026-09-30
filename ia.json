@@ -1,0 +1,455 @@
+{
+  "$comment": "Information architecture for the Rollups clone at /Users/riyaghosh/V3/rollups \u2014 a React/Vite/Tailwind pixel-fidelity clone of rollups.com, built against real Playwright measurements (see CLONE_SPEC*.md). Section composition below is read directly from the built src/pages/*.jsx files, not inferred from the specs. /get-started (aka /setup) is a deliberately separate app (Rails/Bootstrap visual system, not the Next.js marketing site) mounted outside the shared Navbar/Footer layout \u2014 see App.jsx. /careers and /customers are dummy stub pages this clone added so two internal-looking links have somewhere to go; they are not real rollups.com routes.",
+  "meta": {
+    "source": "https://rollups.com (marketing site) + https://app.rollups.com/setup (sign-up app) \u2014 cloned into /Users/riyaghosh/V3/rollups",
+    "status": "measured-from-mirror",
+    "productionApproved": false,
+    "totalRoutes": 25,
+    "totalTemplates": 12,
+    "generatedBy": "ia-builder skill, read directly from src/pages/*.jsx and src/App.jsx routing"
+  },
+  "categories": {
+    "SHELL": "Chrome shared across the marketing site: fixed navbar, footer, cookie consent bar. Present on every route inside the shared Layout; absent on the standalone sign-up app.",
+    "HERO": "Above-the-fold, page-opening block: headline, primary CTA, and page-specific supporting art (Lottie animation, flip card, or stat row).",
+    "PROOF": "Social proof: testimonial slider/quotes, investor/company logo grid, customer stories.",
+    "FEATURES": "Product explanation and capability modules: capability grids, use-case tabs, step-by-step 'how it works' cards, comparison content.",
+    "COMMERCE": "Pricing, calculators, and conversion CTAs that lead toward signing up or contacting sales.",
+    "CONTENT": "Long-form or structured body content: article prose, legal document text, blog listing/filtering.",
+    "FORM": "Data-collection forms: contact form, waitlist capture, the separate sign-up/login form.",
+    "FAQ": "Question/answer accordion content, present in several page-specific variants.",
+    "UTILITY": "Non-marketing scaffolding: placeholder/stub pages for links with no real destination in this clone."
+  },
+  "sections": {
+    "shell.navbar": {
+      "category": "SHELL",
+      "description": "Fixed, blurred-background top navigation: logo/wordmark, Products/Resources dropdowns, Sign In and Get Started actions, mobile hamburger menu.",
+      "scope": "Present on all 23 routes inside the shared Layout (every route except /get-started and /setup, which mount SignUp outside it).",
+      "implementedBy": "src/components/Navbar.jsx"
+    },
+    "shell.footer": {
+      "category": "SHELL",
+      "description": "Site footer: link columns, self-drawing line illustration, 'One Line on Your Cap Table' marquee, copyright, per-page AI-summary links (ChatGPT/Claude) that vary by current route.",
+      "scope": "Present on all 23 routes inside the shared Layout.",
+      "implementedBy": "src/components/Footer.jsx"
+    },
+    "shell.cookie-bar": {
+      "category": "SHELL",
+      "description": "Fixed bottom-right cookie consent bar with accept/decline, slides in on load and remembers the choice in localStorage.",
+      "scope": "Present on all 23 routes inside the shared Layout.",
+      "implementedBy": "src/components/CookieBar.jsx"
+    },
+    "hero.marketing-home": {
+      "category": "HERO",
+      "description": "Homepage hero: announcement banner, 'Take control of your equity' headline, an embedded HeroEmailForm capture (productInterest defaults to the general homepage value), AI-summary links, trusted-by logo row, hero Lottie animation (desktop) / logo marquee (mobile). The email form is a props-driven sub-piece of this component, not a separately placed section \u2014 see HeroEmailForm in Hero.jsx.",
+      "scope": "Homepage only (1 route).",
+      "implementedBy": "src/components/Hero.jsx"
+    },
+    "hero.product-raise": {
+      "category": "HERO",
+      "description": "Product-page hero built on the shared Hero component with page-specific heading/description, an embedded HeroEmailForm whose productInterest prop is set per page ('Roll Up Vehicles' on /ruv, 'Consolidation Vehicles' on /consolidate), and a looping product Lottie animation to the right.",
+      "scope": "Shared shape used by /ruv and /consolidate (2 routes) \u2014 same underlying Hero.jsx props contract, though /consolidate additionally wraps it with Lenis smooth-scroll and a scroll-scrubbed animation (see motion note on template.product-consolidate).",
+      "implementedBy": "src/components/Hero.jsx (RaiseHeroAnimation / HeroLeftBlock variants)"
+    },
+    "hero.safe": {
+      "category": "HERO",
+      "description": "Custom SAFE-page hero: headline, 'Start Raising' CTA, and a flip card that auto-rotates between two product screenshots every 10s until the user interacts.",
+      "scope": "/safe only (1 route).",
+      "implementedBy": "src/pages/Safe.jsx (SafeHero, FlipCard)"
+    },
+    "hero.raise-guide": {
+      "category": "HERO",
+      "description": "'How to raise capital' hero: headline, 3 stat callouts, and a link to the in-page calculator anchor.",
+      "scope": "/how-to-raise-capital only (1 route).",
+      "implementedBy": "src/components/raise/RaiseHero.jsx"
+    },
+    "hero.calculator": {
+      "category": "HERO",
+      "description": "Calculator-page hero: title and intro copy framing the cost calculator below.",
+      "scope": "/ruv/calculator only (1 route).",
+      "implementedBy": "src/pages/RuvCalculator.jsx (CalculatorHero)"
+    },
+    "hero.waitlist": {
+      "category": "HERO",
+      "description": "Waitlist hero: headline plus a 16:9 flip card (company dashboard front/back) that auto-flips every 10s until clicked.",
+      "scope": "/waitlist only (1 route).",
+      "implementedBy": "src/components/waitlist/WaitlistHero.jsx"
+    },
+    "proof.testimonial-slider": {
+      "category": "PROOF",
+      "description": "Horizontally-scrollable slider of customer/investor testimonial cards with quote, author meta, and photo.",
+      "scope": "/ruv (8 cards) and /consolidate (7 cards) \u2014 2 routes.",
+      "implementedBy": "src/components/shared/TestimonialSlider.jsx"
+    },
+    "proof.companies-grid": {
+      "category": "PROOF",
+      "description": "6x2 grid of investor/law-firm/company logos, each cell looping a GSAP wipe between two real logos; heading text varies per page.",
+      "scope": "Homepage plus /ruv, /safe, /consolidate, /waitlist \u2014 5 routes, same component with a title prop.",
+      "implementedBy": "src/components/Companies.jsx"
+    },
+    "proof.waitlist-trust": {
+      "category": "PROOF",
+      "description": "Trust band: heading, supporting copy, an italic founder quote (Cal.com) with logo, and a trusted-logo row.",
+      "scope": "/waitlist only (1 route).",
+      "implementedBy": "src/components/waitlist/WaitlistTrust.jsx"
+    },
+    "proof.stories-grid": {
+      "category": "PROOF",
+      "description": "4-card grid of customer story summaries with logo, quote, and outcome, linking toward /customers.",
+      "scope": "/ruv/calculator and /how-to-raise-capital \u2014 2 routes, shared component.",
+      "implementedBy": "src/components/calculator/StoriesGrid.jsx"
+    },
+    "features.products-raise-consolidate": {
+      "category": "FEATURES",
+      "description": "'Two ways companies use Rollups' \u2014 Raise and Consolidate columns, each looping its own product Lottie; collapses to tabs below 992px.",
+      "scope": "Homepage only (1 route).",
+      "implementedBy": "src/components/Products.jsx"
+    },
+    "features.rollups-in-action": {
+      "category": "FEATURES",
+      "description": "Sticky numbered sidebar plus 3 ActionCards (image, step list, 'Show testimonial' toggle) describing the product flow.",
+      "scope": "Homepage only (1 route).",
+      "implementedBy": "src/components/RollupsInAction.jsx"
+    },
+    "features.stages": {
+      "category": "FEATURES",
+      "description": "'Used by companies at every stage' \u2014 a self-drawing curve (GSAP DrawSVG) with 5 stage labels; becomes a swipeable slider on mobile.",
+      "scope": "Homepage only (1 route).",
+      "implementedBy": "src/components/Stages.jsx"
+    },
+    "features.use-case-tabs": {
+      "category": "FEATURES",
+      "description": "'How it works' tabbed use-case explainer: switchable tabs, each revealing a set of step cards with image and copy.",
+      "scope": "/ruv, /safe, /consolidate \u2014 3 routes, shared component with page-specific items.",
+      "implementedBy": "src/components/shared/UseCaseTabs.jsx"
+    },
+    "features.capabilities": {
+      "category": "FEATURES",
+      "description": "Numbered capability grid; some items open an image modal with additional detail.",
+      "scope": "/ruv, /safe, /consolidate, /waitlist \u2014 4 routes, shared component with page-specific items.",
+      "implementedBy": "src/components/shared/Capabilities.jsx"
+    },
+    "features.founder-options": {
+      "category": "FEATURES",
+      "description": "'Three ways founders raise capital' \u2014 3 option cards, one marked 'Best option'.",
+      "scope": "/how-to-raise-capital only (1 route).",
+      "implementedBy": "src/components/raise/FounderOptions.jsx"
+    },
+    "features.how-to-raise": {
+      "category": "FEATURES",
+      "description": "3 option cards paired with a sticky sidebar that tracks scroll position, reusing the homepage's scroll-sync logic under how-to-raise-* class names.",
+      "scope": "/how-to-raise-capital only (1 route).",
+      "implementedBy": "src/components/raise/HowToRaiseSection.jsx"
+    },
+    "features.comparison-table": {
+      "category": "FEATURES",
+      "description": "4-column x 7-row comparison table; scrolls horizontally with edge fades at \u2264991px.",
+      "scope": "/how-to-raise-capital only (1 route).",
+      "implementedBy": "src/components/raise/ComparisonTable.jsx"
+    },
+    "features.clean-cap-table": {
+      "category": "FEATURES",
+      "description": "'The difference is a clean cap table' \u2014 two static illustrated SVG comparison panels (with vs without a RUV).",
+      "scope": "/how-to-raise-capital only (1 route).",
+      "implementedBy": "src/components/raise/CleanCapTable.jsx"
+    },
+    "features.waitlist-how-it-works": {
+      "category": "FEATURES",
+      "description": "4-card 'how it works' walkthrough with an empty sidebar variant of the homepage ActionCard layout.",
+      "scope": "/waitlist only (1 route).",
+      "implementedBy": "src/components/waitlist/HowItWorks.jsx"
+    },
+    "commerce.pricing": {
+      "category": "COMMERCE",
+      "description": "Pricing grid with plan cell(s), feature checklist, and CTA button; title and cell contents vary per page.",
+      "scope": "/ruv, /safe, /consolidate, /waitlist \u2014 4 routes, shared component with page-specific title/cells props.",
+      "implementedBy": "src/components/shared/Pricing.jsx"
+    },
+    "commerce.calculator": {
+      "category": "COMMERCE",
+      "description": "Interactive cost calculator: 4 base inputs + 5 advanced inputs, Seed/Equity scenario presets, live recompute on every keystroke, Reset button.",
+      "scope": "/ruv/calculator and /how-to-raise-capital \u2014 2 routes, shared component.",
+      "implementedBy": "src/components/calculator/Calculator.jsx"
+    },
+    "commerce.facts-cta": {
+      "category": "COMMERCE",
+      "description": "Stat band ($1.5B+ / 3,000+) with trusted logos and a 'Launch your ruv' CTA.",
+      "scope": "/ruv/calculator and /how-to-raise-capital \u2014 2 routes, shared component.",
+      "implementedBy": "src/components/calculator/FactsCta.jsx"
+    },
+    "content.article-body": {
+      "category": "CONTENT",
+      "description": "Structured article body: prose blocks (p/h2/h3/ul/ol/blockquote/table/hr) whose shape is real per article (paragraph/heading/list counts match the original), but whose actual wording is placeholder copy generated to match that shape \u2014 not the live site's real prose.",
+      "scope": "All 9 blog article routes under /blog/:slug, rendered by one component but with per-article block data (src/data/articles.js) producing 4 real structural variants: 5 case-study articles share one shape (author+h2+hl+p+quote, no h3/hr/table); why-clean-captable-matters and announcing-rollups each have their own distinct shape (h2/h3/hr/ol/ul with no quote, vs h2/h3/ol/ul with no hr/quote respectively); how-ruvs-simplify-fundraising adds a numbered 'process' block; special-purpose-vehicles-for-startups-guide is the only one with blockquotes and a table.",
+      "implementedBy": "src/components/blog/ArticleBody.jsx"
+    },
+    "content.article-meta": {
+      "category": "CONTENT",
+      "description": "Article metadata block: category, author (name/title/photo), publish date, reading time \u2014 rendered as a sticky sidebar (desktop) or inline block (mobile, <1200px).",
+      "scope": "All 9 blog article routes.",
+      "implementedBy": "src/components/blog/ArticleMeta.jsx"
+    },
+    "content.blog-index": {
+      "category": "CONTENT",
+      "description": "Blog listing: 4 client-side filter pills (no URL change), grid of BlogCards (title, excerpt, author, date, category, cover), 2 columns above 1200px / 1 below.",
+      "scope": "/blog only (1 route).",
+      "implementedBy": "src/pages/Blog.jsx, src/components/blog/BlogCard.jsx"
+    },
+    "content.legal-body": {
+      "category": "CONTENT",
+      "description": "Legal document body: centered 550px text column, 'Last modified' line, heading/paragraph blocks. Bodies are original placeholder text following the real outline shape (heading count, paragraph count) of the source document, not the live site's real legal text.",
+      "scope": "/privacy-policy, /terms-of-service, /disclosures \u2014 3 routes, one shared component (disclosures uses paragraph pseudo-headings instead of real headings, per source structure).",
+      "implementedBy": "src/components/legal/LegalContent.jsx"
+    },
+    "faq.accordion": {
+      "category": "FAQ",
+      "description": "Question/answer accordion, GSAP-animated open/close, first item open by default, plus an 'Ask anything else' free-text input (stubbed, no real backend).",
+      "scope": "Homepage, /ruv, /ruv/calculator, /safe, /how-to-raise-capital, /consolidate, /waitlist \u2014 7 routes, one shared component taking a title + items prop (item counts real and vary: 5 homepage/SAFE-adjacent items, 9 RUV items reused on /ruv/calculator and /how-to-raise-capital, 3 on /consolidate, 7 on /waitlist).",
+      "implementedBy": "src/components/Faq.jsx"
+    },
+    "form.contact": {
+      "category": "FORM",
+      "description": "Two-column contact form: full field/validation states (4 error messages, email-format rules), a product-interest multiselect, ?email= prefill, and a 'What to expect' sidebar list. Submit is stubbed (no real endpoint) \u2014 shows a loading state then a stubbed 'submitted' state.",
+      "scope": "/contact-us only (1 route).",
+      "implementedBy": "src/components/contact/ContactForm.jsx"
+    },
+    "form.signup": {
+      "category": "FORM",
+      "description": "Single-field (email only) sign-up/login form belonging to a deliberately SEPARATE visual system (white background, AngelList/Inter fonts, teal/indigo palette \u2014 not the marketing site's dark tokens), cloned from the real app.rollups.com/setup page that 'Sign In'/'Get Started' link to on the live site. No navbar/footer. Submit is stubbed \u2014 simulates the loading label then a 'check your email' confirmation; no real magic-link backend.",
+      "scope": "/get-started and /setup \u2014 1 template, 2 route aliases, mounted as a sibling <Route> outside the shared Layout (no shell.* sections apply here).",
+      "implementedBy": "src/pages/SignUp.jsx"
+    },
+    "utility.placeholder-stub": {
+      "category": "UTILITY",
+      "description": "Minimal stub page (just a heading in a container) used for links that point at paths not present in the real rollups.com sitemap. Added by this clone so the footer 'Careers' link and the calculator page's 'Read more customer stories' link have somewhere to go instead of 404ing.",
+      "scope": "/careers and /customers \u2014 2 dummy routes, not real rollups.com content.",
+      "implementedBy": "src/pages/Placeholder.jsx"
+    }
+  },
+  "templates": [
+    {
+      "id": "template.marketing-home",
+      "name": "Homepage",
+      "routeCount": 1,
+      "routes": [
+        "/"
+      ],
+      "chrome": "full",
+      "sections": [
+        "shell.navbar",
+        "hero.marketing-home",
+        "features.products-raise-consolidate",
+        "features.rollups-in-action",
+        "features.stages",
+        "proof.companies-grid",
+        "faq.accordion",
+        "shell.footer",
+        "shell.cookie-bar"
+      ]
+    },
+    {
+      "id": "template.product-landing",
+      "name": "Product landing (RUV / Consolidate)",
+      "routeCount": 2,
+      "routes": [
+        "/ruv",
+        "/consolidate"
+      ],
+      "chrome": "full",
+      "sections": [
+        "shell.navbar",
+        "hero.product-raise",
+        "proof.testimonial-slider",
+        "features.use-case-tabs",
+        "features.capabilities",
+        "proof.companies-grid",
+        "commerce.pricing",
+        "faq.accordion",
+        "shell.footer",
+        "shell.cookie-bar"
+      ]
+    },
+    {
+      "id": "template.safe-landing",
+      "name": "SAFE product landing",
+      "routeCount": 1,
+      "routes": [
+        "/safe"
+      ],
+      "chrome": "full",
+      "sections": [
+        "shell.navbar",
+        "hero.safe",
+        "features.use-case-tabs",
+        "features.capabilities",
+        "proof.companies-grid",
+        "commerce.pricing",
+        "faq.accordion",
+        "shell.footer",
+        "shell.cookie-bar"
+      ]
+    },
+    {
+      "id": "template.calculator-tool",
+      "name": "RUV calculator",
+      "routeCount": 1,
+      "routes": [
+        "/ruv/calculator"
+      ],
+      "chrome": "full",
+      "sections": [
+        "shell.navbar",
+        "hero.calculator",
+        "commerce.calculator",
+        "commerce.facts-cta",
+        "proof.stories-grid",
+        "faq.accordion",
+        "shell.footer",
+        "shell.cookie-bar"
+      ]
+    },
+    {
+      "id": "template.raise-guide",
+      "name": "How to raise capital guide",
+      "routeCount": 1,
+      "routes": [
+        "/how-to-raise-capital"
+      ],
+      "chrome": "full",
+      "sections": [
+        "shell.navbar",
+        "hero.raise-guide",
+        "features.founder-options",
+        "features.how-to-raise",
+        "features.comparison-table",
+        "features.clean-cap-table",
+        "commerce.facts-cta",
+        "commerce.calculator",
+        "proof.stories-grid",
+        "faq.accordion",
+        "shell.footer",
+        "shell.cookie-bar"
+      ]
+    },
+    {
+      "id": "template.waitlist-landing",
+      "name": "Waitlist landing",
+      "routeCount": 1,
+      "routes": [
+        "/waitlist"
+      ],
+      "chrome": "full",
+      "sections": [
+        "shell.navbar",
+        "hero.waitlist",
+        "proof.waitlist-trust",
+        "features.waitlist-how-it-works",
+        "features.capabilities",
+        "proof.companies-grid",
+        "commerce.pricing",
+        "faq.accordion",
+        "shell.footer",
+        "shell.cookie-bar"
+      ]
+    },
+    {
+      "id": "template.contact-form",
+      "name": "Contact form",
+      "routeCount": 1,
+      "routes": [
+        "/contact-us"
+      ],
+      "chrome": "full",
+      "sections": [
+        "shell.navbar",
+        "form.contact",
+        "shell.footer",
+        "shell.cookie-bar"
+      ]
+    },
+    {
+      "id": "template.blog-index",
+      "name": "Blog index",
+      "routeCount": 1,
+      "routes": [
+        "/blog"
+      ],
+      "chrome": "full",
+      "sections": [
+        "shell.navbar",
+        "content.blog-index",
+        "shell.footer",
+        "shell.cookie-bar"
+      ]
+    },
+    {
+      "id": "template.blog-post",
+      "name": "Blog article",
+      "routeCount": 9,
+      "routes": [
+        "/blog/why-clean-captable-matters",
+        "/blog/case-study-mem0-ruv",
+        "/blog/case-study-itemfarm-streamlined-fundraise-ruv",
+        "/blog/case-study-heron-power-strategic-investors-ruv",
+        "/blog/how-ruvs-simplify-fundraising",
+        "/blog/case-study-cimento-ai-angel-investors-ruv",
+        "/blog/announcing-rollups",
+        "/blog/case-study-secureframe-maximize-captable-value-ruv",
+        "/blog/special-purpose-vehicles-for-startups-guide"
+      ],
+      "chrome": "full",
+      "sections": [
+        "shell.navbar",
+        "content.article-meta",
+        "content.article-body",
+        "shell.footer",
+        "shell.cookie-bar"
+      ]
+    },
+    {
+      "id": "template.legal-doc",
+      "name": "Legal document",
+      "routeCount": 3,
+      "routes": [
+        "/privacy-policy",
+        "/terms-of-service",
+        "/disclosures"
+      ],
+      "chrome": "full",
+      "sections": [
+        "shell.navbar",
+        "content.legal-body",
+        "shell.footer",
+        "shell.cookie-bar"
+      ]
+    },
+    {
+      "id": "template.placeholder-stub",
+      "name": "Placeholder stub",
+      "routeCount": 2,
+      "routes": [
+        "/careers",
+        "/customers"
+      ],
+      "chrome": "full",
+      "sections": [
+        "shell.navbar",
+        "utility.placeholder-stub",
+        "shell.footer",
+        "shell.cookie-bar"
+      ]
+    },
+    {
+      "id": "template.signup",
+      "name": "Sign up / log in",
+      "routeCount": 2,
+      "routes": [
+        "/get-started",
+        "/setup"
+      ],
+      "chrome": "none",
+      "sections": [
+        "form.signup"
+      ]
+    }
+  ]
+}

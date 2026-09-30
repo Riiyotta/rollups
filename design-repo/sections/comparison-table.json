@@ -1,0 +1,14 @@
+{
+  "id": "section.comparison.table",
+  "type": "section",
+  "category": "content",
+  "description": "HowToRaiseCapital-page-only 3-column comparison table (No Vehicle / RUVs / SPVs) with check/cross icon cells and text cells. Class names verbatim preserve the live site's 'comparision' typo.",
+  "measuredFrom": "src/components/raise/ComparisonTable.jsx",
+  "content": {
+    "columns": { "type": "array", "minItems": 3, "maxItems": 3, "items": "string maxWords:3" },
+    "rows": { "type": "array", "minItems": 3, "maxItems": 10, "items": { "feature": "string maxWords:8", "values": "array of (check|cross|string maxWords:20)" } },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "scopedTo": "template.comparison-guide" },
+  "motion": { "reveal": "none (no reveal classes present in source)", "reducedMotionFallback": "n/a — section has no motion to disable" }
+}

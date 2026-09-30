@@ -1,0 +1,30 @@
+{
+  "$description": "Foundation color palette for the Rollups marketing site clone. Every value cited from src/index.css :root custom properties and tailwind.config.js theme.extend.colors — the two files agree (spot-checked). This does NOT include the /get-started (SignUp, app.rollups.com clone) palette, which is a structurally separate, intentionally different token system — see tokens/00-foundation/color.signup.json.",
+  "measuredFrom": "src/index.css:19-27, tailwind.config.js:6-21",
+  "colors": {
+    "light-100": { "value": "#e4eac8", "measuredFrom": "src/index.css:20", "usage": "primary text on dark green background, primary button text color" },
+    "light-200": { "value": "#d1dbb9", "measuredFrom": "src/index.css:20", "usage": "secondary text" },
+    "light-300": { "value": "#989e7b", "measuredFrom": "src/index.css:20", "usage": "tertiary/muted text, default border color" },
+    "green": { "value": "#2a5d33", "measuredFrom": "src/index.css:21, tailwind.config.js:10", "usage": "primary button text (on light-100 background)" },
+    "green-deep": { "value": "#295d32", "measuredFrom": "tailwind.config.js:11, src/index.css body background-image start stop", "usage": "page background gradient start, html background-color" },
+    "green-dark": { "value": "#273f2c", "measuredFrom": "tailwind.config.js:12, src/index.css body background-image end stop", "usage": "page background gradient end" },
+    "black": { "value": "#1a1717", "measuredFrom": "src/index.css:21, tailwind.config.js:13", "usage": "reserved dark tone (not observed as a direct background in sampled components)" },
+    "light-bg": { "value": "#ecefe7", "measuredFrom": "src/index.css:21, tailwind.config.js:14", "usage": "light background context (SignUp-adjacent / light surface, rare on marketing pages)" },
+    "tint": { "value": "rgba(84,137,93,.24)", "measuredFrom": "src/index.css:22, tailwind.config.js:15", "usage": "learn-more icon circle fill, faq icon circle fill, cookie-consent panel fill" },
+    "tint-hover": { "value": "rgba(84,137,93,.4)", "measuredFrom": "src/index.css:22, tailwind.config.js:16", "usage": "hover state of tint fills" },
+    "btn-secondary": { "value": "rgba(228,234,200,.08)", "measuredFrom": "src/index.css:112 (.button--secondary), tailwind.config.js:17", "usage": "secondary button background" },
+    "btn-secondary-hover": { "value": "rgba(228,234,200,.12)", "measuredFrom": "src/index.css:112, tailwind.config.js:18", "usage": "secondary button hover background" },
+    "btn-secondary-border": { "value": "#466346", "measuredFrom": "src/index.css:102 (.button-wrapper--secondary), tailwind.config.js:19", "usage": "secondary button border" },
+    "modal": { "value": "#2d5636", "measuredFrom": "tailwind.config.js:20", "usage": "capability image modal panel background" }
+  },
+  "gradients": {
+    "page-background": {
+      "value": "linear-gradient(268deg, #295d32 4.2%, #273f2c 98.63%)",
+      "measuredFrom": "src/index.css:37 (html), src/index.css:39-42 (body)"
+    },
+    "radial-fade": {
+      "value": "radial-gradient(75.88% 59.69% at 50% 111.69%, rgba(228,234,200,.16) 0, rgba(65,102,72,.16) 100%)",
+      "measuredFrom": "src/index.css:141 (.radial-gradient)"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$description": "Semantic surface/background roles resolving to 00-foundation/color.json.",
+  "roles": {
+    "surface.page": { "resolvesTo": "gradients.page-background", "measuredFrom": "src/index.css:37-42" },
+    "surface.brand": { "resolvesTo": "color.light-100", "measuredFrom": "src/index.css:92 (.button--primary background)" },
+    "surface.subtle": { "resolvesTo": "color.btn-secondary", "measuredFrom": "src/index.css:93 (.button--secondary background)" },
+    "surface.subtleHover": { "resolvesTo": "color.btn-secondary-hover", "measuredFrom": "src/index.css:112" },
+    "surface.tint": { "resolvesTo": "color.tint", "measuredFrom": "src/index.css:125, src/styles/bottom.css:103,177" },
+    "surface.modal": { "resolvesTo": "color.modal", "measuredFrom": "tailwind.config.js:20, src/components/shared/Capabilities.jsx CapabilityModal" }
+  }
+}

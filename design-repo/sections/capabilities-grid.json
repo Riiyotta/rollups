@@ -1,0 +1,15 @@
+{
+  "id": "section.capabilities.grid",
+  "type": "section",
+  "category": "content",
+  "description": "Numbered capability list, some entries opening an image modal. Present on /ruv, /safe, /consolidate, /waitlist (waitlist variant has its own simpler component.capability-card without modal support — see sections/waitlist-capabilities.json).",
+  "measuredFrom": "src/components/shared/Capabilities.jsx",
+  "content": {
+    "heading": { "type": "string", "maxWords": 4, "default": "Capabilities" },
+    "items": { "type": "array", "minItems": 4, "maxItems": 10, "items": { "type": "ref", "component": "component.capability-card" } },
+    "lastRowNoBorder": { "type": "boolean", "required": false },
+    "additionalProperties": false
+  },
+  "constraints": { "maxPerPage": 1 },
+  "motion": { "reveal": "motion.patterns.scroll-reveal-fade-blur", "reducedMotionFallback": "motion.patterns.scroll-reveal-fade-blur.reducedMotionFallback" }
+}

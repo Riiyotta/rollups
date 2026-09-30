@@ -1,0 +1,13 @@
+{
+  "id": "section.placeholder.stub",
+  "type": "section",
+  "category": "chrome",
+  "description": "DELIBERATE DUMMY STUB. Used only by /careers and /customers — two routes that do NOT exist on the real rollups.com and were added to this clone solely so the footer 'Careers' link and the calculator page's 'Read more customer stories' link have somewhere to go instead of 404ing or leaving the SPA. Do not generate real marketing copy for this section; it is intentionally a bare title. Excluded from the 13 'real cloned pages' count.",
+  "measuredFrom": "src/pages/Placeholder.jsx, src/pages/routes.jsx (comment: 'Dummy pages: these paths aren't in the cloned sitemap')",
+  "content": {
+    "title": { "type": "string", "maxWords": 3, "required": true },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "mustBeFirst": true, "mustFollowNav": true, "scopedTo": "template.placeholder-stub" },
+  "motion": { "reveal": "motion.patterns.scroll-reveal-fade-blur (title only)", "reducedMotionFallback": "motion.patterns.scroll-reveal-fade-blur.reducedMotionFallback" }
+}

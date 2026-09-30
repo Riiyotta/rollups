@@ -1,0 +1,14 @@
+{
+  "id": "component.blog-card",
+  "type": "component",
+  "description": "Blog index grid card: cover image, category, title, excerpt, date/reading-time meta.",
+  "measuredFrom": "src/components/blog/BlogCard.jsx, src/data/articles.js article schema",
+  "fields": {
+    "cover": { "type": "assetRef", "assetRole": "blog-cover-image" },
+    "category": { "type": "string", "maxWords": 3 },
+    "title": { "type": "string", "maxWords": 12 },
+    "excerpt": { "type": "string", "maxWords": 40 },
+    "date": { "type": "string" },
+    "readingTime": { "type": "string", "maxWords": 3 }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "section.blogpost.body",
+  "type": "section",
+  "category": "content",
+  "description": "Blog-article-page-only body: an ordered list of component.article-body-block entries, followed by an in-article FAQ starting at index `faqStart`, then a back-to-blog link. CONTENT AUTHENTICITY: body prose is placeholder text matching the real structural shape (word counts, block-type sequence) per src/data/articles.js and CLONE_SPEC_CONTENT.md — see components/article-body-block.json for the full note.",
+  "measuredFrom": "src/pages/BlogPost.jsx, src/components/blog/ArticleBody.jsx, src/data/articles.js",
+  "content": {
+    "blocks": { "type": "array", "minItems": 10, "items": { "type": "ref", "component": "component.article-body-block" } },
+    "faqStart": { "type": "int", "required": true },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "scopedTo": "template.blog-article" },
+  "templateVariants": {
+    "case-study": { "blockShape": "quote+author early, structured process/ul-heavy body", "observedSlugs": ["case-study-mem0-ruv", "case-study-itemfarm-streamlined-fundraise-ruv", "case-study-heron-power-strategic-investors-ruv", "case-study-cimento-ai-angel-investors-ruv", "case-study-secureframe-maximize-captable-value-ruv"] },
+    "h3-subhead-essay": { "blockShape": "h3 subheads under h2 sections", "observedSlugs": ["why-clean-captable-matters", "announcing-rollups", "how-ruvs-simplify-fundraising"] },
+    "quote-essay": { "blockShape": "single mid-article quote block, no h3 subheads", "observedSlugs": ["how-ruvs-simplify-fundraising"], "note": "how-ruvs-simplify-fundraising has BOTH an h3 subhead structure and a mid-article quote block — it is not exclusive to one variant, both flags are set for this slug" },
+    "blockquote-table-guide": { "blockShape": "5 bq (blockquote) blocks plus a table block, unique to this article", "observedSlugs": ["special-purpose-vehicles-for-startups-guide"] }
+  },
+  "motion": { "reveal": "none observed", "reducedMotionFallback": "n/a — section has no motion to disable" }
+}

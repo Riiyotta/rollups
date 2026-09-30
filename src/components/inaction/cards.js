@@ -1,0 +1,66 @@
+// Verbatim copy from CLONE_SPEC.md §4 "The three cards"
+export const CARDS = [
+  {
+    id: 'raise-with-ruvs',
+    sidebar: 'Raise with Roll Up Vehicles®',
+    image: { src: '/assets/in-action-5.7c07bb5c.png', w: 1000, h: 828 },
+    label: 'raise',
+    title: 'Raise with Roll Up Vehicles®',
+    description: 'Raise capital from many investors in a single entity — and just one line on your cap table.',
+    list: [
+      'Your startup wants to include 45 friends, advisors, and angels in your round.',
+      'Rather than manage 45 separate investments, you open an RUV and invite them to invest.',
+      'Rollups provides a smooth online investor experience for KYC/AML, accreditation, and banking, all powered by AngelList.',
+      'Track round progress, close in a few clicks, sign once, receive one wire, and just one line to your cap table.',
+    ],
+    href: '/ruv',
+    testimonial: {
+      quote: 'Pretty sure that RUVs are the single best fintech product ever launched. I bet NPS (for both the investors and the founders) is off the charts.',
+      author: 'Auren Hoffman,',
+      link: { label: '@auren', href: 'https://x.com/auren' },
+      image: { src: '/assets/auren.6a595073.png', w: 200, h: 200 },
+    },
+  },
+  {
+    id: 'cap-table-cleanup',
+    sidebar: 'Consolidate legacy stakeholders',
+    image: { src: '/assets/in-action-1.80dd0b92.png', w: 936, h: 614 },
+    label: 'consolidate',
+    title: 'Consolidate legacy stakeholders',
+    description: 'Regain control of your cap table by transferring early angels, SAFE holders, and small check investors into a single vehicle.',
+    list: [
+      'Your startup previously raised capital from 120 smaller investors.',
+      'You’re now raising a Series B, and the feedback from a potential lead is that your cap table is too messy.',
+      'You create a Consolidation Vehicle to compile the smaller shareholders into one entity, resulting in 74 fewer lines on your cap table.',
+      "Your Series B now requires 74 fewer signatures to close, and you're able to raise without any issues or delays.",
+    ],
+    href: '/consolidate',
+    testimonial: {
+      quote: 'Motif signed over 30 SAFEs to raise initial funds. We feared chasing down all of those investor signatures in future financings. But our investors were happy to execute the Rollup, saving Motif ~$20,000 and ~2 weeks time.',
+      author: 'Marie Schneegans, Co-Founder,',
+      link: { label: 'Markprompt', href: 'https://www.markprompt.com/' },
+      image: { src: '/assets/marie-founder.cda9a517.png', w: 1000, h: 1000 },
+    },
+  },
+  {
+    id: 'streamline-acquisitions',
+    sidebar: 'Streamline acquisitions',
+    image: { src: '/assets/in-action-3.43381e4b.png', w: 906, h: 696 },
+    label: 'consolidate',
+    title: 'Streamline acquisitions',
+    description: 'Consolidate the acquisition target’s stakeholders into one entity before adding them to your cap table and inflating your costs.',
+    list: [
+      'Your startup is entertaining an acquisition offer: part cash, part equity in their company.',
+      'Issuing equity to the 120 stakeholders on your cap table creates complexity and cost for the acquirer.',
+      'So, you open a Consolidation Vehicle to consolidate all 120 stakeholders into one entity.',
+      "Now, the acquirer issues the equity to the CV once, adding just one line to their cap table, and you're able to close the deal on time.",
+    ],
+    href: '/consolidate',
+    testimonial: {
+      quote: 'AngelList’s consolidation vehicle was instrumental in streamlining Wand’s acquisition of Accern by combining dozens of our stakeholders into a single SPV, preserving a clean cap table for Wand.',
+      author: 'Kumesh Aroomoogan, CEO at Accern, a Wand AI Company',
+      link: null,
+      image: { src: '/assets/kumesh.89fad49b.png', w: 357, h: 233 },
+    },
+  },
+]

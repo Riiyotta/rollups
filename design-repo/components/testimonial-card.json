@@ -1,0 +1,14 @@
+{
+  "id": "component.testimonial-card",
+  "type": "component",
+  "description": "One slide of the TestimonialSlider: quote content, author meta line, author photo, and an optional 'valueprop' category tag. Composes primitive.hover-link for slider controls elsewhere, but the card itself is content-agnostic media+text.",
+  "measuredFrom": "src/components/shared/TestimonialSlider.jsx, src/pages/Ruv.jsx TESTIMONIALS data shape",
+  "composesPrimitives": [],
+  "fields": {
+    "valueprop": { "type": "string", "maxWords": 6 },
+    "content": { "type": "string", "maxWords": 60 },
+    "meta": { "type": "string", "maxWords": 10, "description": "author name, title, company" },
+    "image": { "type": "assetRef", "assetRole": "testimonial-author-photo" },
+    "mobile": { "type": "enum", "values": ["Yes", "No"], "description": "whether this slide appears in the mobile-condensed slider" }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "section.legal.header",
+  "type": "section",
+  "category": "content",
+  "description": "Legal-page header: title + last-modified date. Shared verbatim across /privacy-policy, /terms-of-service, /disclosures.",
+  "measuredFrom": "src/pages/Legal.jsx, src/data/legal.js",
+  "content": {
+    "title": { "type": "string", "maxWords": 5, "required": true },
+    "lastModified": { "type": "string", "required": true },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "mustBeFirst": true, "mustFollowNav": true, "scopedTo": "template.legal-doc" },
+  "motion": { "reveal": "none observed", "reducedMotionFallback": "n/a — section has no motion to disable" }
+}

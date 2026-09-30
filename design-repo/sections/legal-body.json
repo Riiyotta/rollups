@@ -1,0 +1,13 @@
+{
+  "id": "section.legal.body",
+  "type": "section",
+  "category": "content",
+  "description": "Legal-page body: an ordered list of prose/heading blocks. CONTENT AUTHENTICITY: per CLONE_SPEC_CONTENT.md, legal body copy is placeholder text matching the real document's structural shape (heading counts, paragraph counts), not the live site's actual legal text.",
+  "measuredFrom": "src/pages/Legal.jsx, src/components/legal/LegalContent.jsx, src/data/legal.js",
+  "content": {
+    "blocks": { "type": "array", "minItems": 5, "items": { "type": "string maxWords:150 per block, or heading string maxWords:10" } },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "scopedTo": "template.legal-doc" },
+  "motion": { "reveal": "none observed", "reducedMotionFallback": "n/a — section has no motion to disable" }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "section.pricing.table",
+  "type": "section",
+  "category": "conversion",
+  "description": "Two-column content-grid pricing table (plan cell + features cell, repeated). Present on /ruv, /safe, /consolidate. The waitlist page has its own simpler always-free pricing variant (sections/waitlist-pricing.json).",
+  "measuredFrom": "src/components/shared/Pricing.jsx",
+  "content": {
+    "title": { "type": "string", "maxWords": 5, "required": true },
+    "cells": { "type": "array", "minItems": 2, "maxItems": 4, "items": { "type": "ref", "component": "component.pricing-cell" } },
+    "withBottomBorder": { "type": "boolean", "required": false },
+    "additionalProperties": false
+  },
+  "constraints": { "maxPerPage": 1 },
+  "motion": { "reveal": "motion.patterns.scroll-reveal-fade-blur", "reducedMotionFallback": "motion.patterns.scroll-reveal-fade-blur.reducedMotionFallback" }
+}

@@ -1,0 +1,12 @@
+{
+  "$description": "Border width/color tokens, cited from src/index.css :root.",
+  "measuredFrom": "src/index.css:21-22",
+  "hairline": {
+    "width": { "value": "0.5px", "measuredFrom": "src/index.css:21 (--border-line-width)" },
+    "color": { "value": "#989e7b (light-300)", "measuredFrom": "src/index.css:21 (--border-color: var(--colors--light-300))" },
+    "composite": { "value": "0.5px solid #989e7b", "measuredFrom": "src/index.css:22 (--border)" }
+  },
+  "secondaryBorder": {
+    "color": { "value": "#466346 (btn-secondary-border)", "measuredFrom": "src/index.css:102 (.button-wrapper--secondary)" }
+  }
+}

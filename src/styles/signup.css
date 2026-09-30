@@ -1,0 +1,171 @@
+/*
+ * Sign-up / login page (app.rollups.com/setup), cloned from spec CLONE_SPEC_SIGNUP.md.
+ * This page is intentionally a SEPARATE visual system from the rollups.com marketing site
+ * (different app, Ruby on Rails + Bootstrap, not Next.js/GSAP). Everything here is scoped
+ * under .signup-page so none of it leaks into / bleeds from the marketing site's tokens,
+ * and none of the marketing site's dark palette/fonts apply here.
+ *
+ * Font: the real page uses "AngelList", a proprietary variable font (weight 1-999) hosted
+ * on AngelList's own CDN. The spec recommends NOT vendoring it (likely licensed) and using
+ * Inter — already the page's own documented fallback — as the practical substitute.
+ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600&display=swap');
+
+/* index.css's body rule (dark gradient bg, 79px navbar padding-top) is for the marketing
+   site only; this page is a different app with no fixed navbar, so cancel both here. */
+body.signup-body { background: #ffffff; padding-top: 0; }
+body.signup-body .noise-bg { display: none; } /* grain texture is a marketing-site-only effect */
+
+.signup-page {
+  --al-teal-900: #002b31;
+  --al-teal-900-hover: #00090b;
+  --al-teal-active: #000000;
+  --al-teal-focus-ring: rgba(38, 75, 80, 0.5);
+  --al-input-border: #f3f4f2;
+  --al-input-focus-border: #009bb1;
+  --al-valid: #03ab25;
+  --al-valid-ring: rgba(3, 171, 37, 0.25);
+  --al-invalid: #d44113;
+  --al-invalid-ring: rgba(212, 65, 19, 0.25);
+  --al-muted: rgba(48, 64, 55, 0.6);
+  --al-body-80: rgba(29, 42, 41, 0.8);
+  --al-link: #5955ff;
+  --al-link-hover: #0e09ff;
+  --al-placeholder: rgba(48, 64, 55, 0.6);
+  --al-hairline: rgba(138, 138, 123, 0.1);
+
+  box-sizing: border-box;
+  min-height: 100vh;
+  background: #ffffff;
+  color: var(--al-teal-900);
+  font-family: Inter, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-size: 17px;
+  line-height: 1.6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+.signup-page *, .signup-page *::before, .signup-page *::after { box-sizing: border-box; }
+
+.signup-col {
+  width: 100%;
+  max-width: 560px;
+  padding: 40px;
+  border-left: 1px solid var(--al-hairline);
+  border-right: 1px solid var(--al-hairline);
+}
+
+.signup-logo { display: inline-block; margin-top: 72px; }
+.signup-logo img { width: 79.2px; height: 20px; display: block; }
+@media (min-width: 768px) { .signup-logo { margin-top: 88px; } }
+
+.signup-h1 {
+  margin: 88px 0 0;
+  font-size: 28px;
+  font-weight: 550;
+  line-height: 40px;
+  letter-spacing: -0.28px;
+  color: var(--al-teal-900);
+}
+@media (max-width: 767px) { .signup-h1 { margin-top: 76px; } }
+
+.signup-intro {
+  margin: 16px 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--al-teal-900);
+}
+
+.signup-form { margin: 16px 0 4px; }
+
+.signup-field { margin: 0; }
+.signup-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--al-teal-900);
+}
+.signup-input {
+  width: 100%;
+  height: 50.4px;
+  padding: 13px 20px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22.4px;
+  color: #000;
+  background: #fff;
+  border: 1px solid var(--al-input-border);
+  border-radius: 6px;
+  box-shadow: none;
+  outline: 0;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.signup-input::placeholder { color: var(--al-placeholder); }
+.signup-input:focus { border-color: var(--al-input-focus-border); }
+.signup-input.is-valid { border-color: var(--al-valid); }
+.signup-input.is-valid:focus { box-shadow: 0 0 0 4px var(--al-valid-ring); }
+.signup-input.is-invalid { border-color: var(--al-invalid); }
+.signup-input.is-invalid:focus { box-shadow: 0 0 0 4px var(--al-invalid-ring); }
+.signup-input:disabled { background: var(--al-input-border); opacity: 1; }
+
+.signup-error {
+  margin-top: 4px;
+  font-size: 12.3px; /* 88.2% of 14px, per spec */
+  color: var(--al-invalid);
+}
+
+.signup-actions { margin-top: 4px; }
+.signup-submit {
+  width: 100%;
+  height: 40px;
+  padding: 8px 16px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #fff;
+  background: var(--al-teal-900);
+  border: 0 solid var(--al-teal-900);
+  border-radius: 4px;
+  box-shadow: none;
+  cursor: pointer;
+  transition: background-color .15s ease-in-out, box-shadow .15s ease-in-out, border-color .15s ease-in-out;
+}
+.signup-submit:hover:not(:disabled) { box-shadow: 0 0 0 2px var(--al-teal-900); }
+.signup-submit:focus-visible { background: var(--al-teal-900-hover); border-color: #000; box-shadow: 0 0 0 4px var(--al-teal-focus-ring); outline: 0; }
+.signup-submit:active:not(:disabled) { background: var(--al-teal-active); border-color: #000; }
+.signup-submit:disabled { opacity: .6; cursor: default; }
+
+.signup-divider {
+  margin: 32px 0 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--al-hairline);
+  text-align: center;
+}
+.signup-divider p { margin: 0; font-size: 14px; line-height: 24px; color: var(--al-muted); }
+
+.signup-alt-row { margin: 0 0 8px; font-size: 17px; line-height: 27.2px; color: var(--al-body-80); }
+.signup-alt-row:last-of-type { margin-bottom: 0; }
+.signup-alt-row .muted { font-size: 14px; color: var(--al-muted); }
+.signup-alt-row a {
+  font-size: 13px;
+  line-height: 20.8px;
+  color: var(--al-link);
+  text-decoration: none;
+}
+.signup-alt-row a:hover { color: var(--al-link-hover); text-decoration: underline; }
+
+.signup-fine-print {
+  margin: 32px 0 0;
+  font-size: 13px;
+  line-height: 24px;
+  text-align: left;
+  color: var(--al-muted);
+}
+.signup-fine-print a { color: var(--al-muted); text-decoration: none; }
+.signup-fine-print a:hover { text-decoration: underline; }

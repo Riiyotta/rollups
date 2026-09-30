@@ -1,0 +1,110 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://design-repo.local/rollups/pagespec.schema.json",
+  "title": "Rollups Marketing Site PageSpec",
+  "description": "Machine contract for a generated marketing page. Covers the 12 real templates mapped 1:1 to the 15 routes inside the shared Layout. Does NOT cover /get-started (SignUp) — that page is a structurally separate app excluded from this schema's template enum entirely.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["template", "route", "nodes"],
+  "properties": {
+    "template": {
+      "type": "string",
+      "enum": [
+        "template.marketing-home",
+        "template.product-landing",
+        "template.product-landing-scroll",
+        "template.product-landing-lite",
+        "template.comparison-guide",
+        "template.calculator-tool",
+        "template.waitlist-landing",
+        "template.contact-form",
+        "template.blog-index",
+        "template.blog-article",
+        "template.legal-doc",
+        "template.placeholder-stub"
+      ]
+    },
+    "route": { "type": "string", "minLength": 1 },
+    "theme": { "type": "string", "enum": ["light"], "default": "light" },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/definitions/node" }
+    }
+  },
+  "definitions": {
+    "node": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["section", "required", "repeatable", "content", "motion"],
+      "properties": {
+        "section": {
+          "type": "string",
+          "enum": [
+            "shell.navbar", "shell.footer", "shell.cookiebar",
+            "hero.marketing", "hero.product", "hero.consolidate-scroll", "hero.safe", "hero.raise", "hero.calculator", "hero.waitlist",
+            "products.grid", "inaction.showcase", "stages.timeline", "companies.trustedby",
+            "testimonial.slider", "usecase.tabs", "capabilities.grid", "pricing.table", "faq.accordion",
+            "founder-options", "how-to-raise.steps", "comparison.table", "clean-captable",
+            "facts.cta", "calculator.tool", "stories.grid",
+            "contact.form",
+            "waitlist.trust", "waitlist.howitworks", "waitlist.capabilities", "waitlist.pricing",
+            "blog.header-filter", "blog.grid",
+            "blogpost.header", "blogpost.body",
+            "legal.header", "legal.body",
+            "placeholder.stub"
+          ]
+        },
+        "required": { "type": "boolean" },
+        "repeatable": { "type": "boolean" },
+        "content": { "type": "object" },
+        "motion": { "$ref": "#/definitions/motion" }
+      }
+    },
+    "motion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reducedMotionFallback"],
+      "properties": {
+        "pattern": {
+          "type": "string",
+          "enum": [
+            "none",
+            "scroll-reveal-fade-blur",
+            "page-fade-in",
+            "hover-link-sweep",
+            "button-press-scale",
+            "logo-grid-wipe",
+            "scroll-scrubbed-lottie",
+            "scroll-sync-sidebar",
+            "faq-accordion-toggle",
+            "flip-card-auto",
+            "dropdown-menu-hover"
+          ]
+        },
+        "duration": { "type": "string" },
+        "easing": { "type": "string" },
+        "trigger": { "type": "string" },
+        "reducedMotionFallback": { "type": "string", "minLength": 1 }
+      }
+    },
+    "assetRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assetRole"],
+      "properties": {
+        "assetRole": {
+          "type": "string",
+          "enum": [
+            "brand-logo", "company-logo", "trusted-by-logo", "testimonial-author-photo",
+            "product-screenshot", "blog-cover-image", "product-illustration",
+            "use-case-illustration", "capability-modal-image", "motion-graphic-lottie",
+            "illustrative-diagram", "decorative-illustration"
+          ]
+        },
+        "path": { "type": "string" },
+        "alt": { "type": "string" }
+      }
+    }
+  }
+}

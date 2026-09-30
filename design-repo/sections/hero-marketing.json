@@ -1,0 +1,16 @@
+{
+  "id": "section.hero.marketing",
+  "type": "section",
+  "category": "hero",
+  "description": "Homepage-only hero: heading, description, trusted-logo row, hero animation (Lottie/marquee), AI-query link. Used exclusively on Home (template.marketing-home).",
+  "measuredFrom": "src/components/Hero.jsx, src/pages/Home.jsx",
+  "content": {
+    "heading": { "type": "string", "maxWords": 14, "required": true },
+    "description": { "type": "string", "maxWords": 40, "required": false },
+    "trustedLogos": { "type": "array", "maxItems": 5, "items": { "type": "assetRef", "assetRole": "trusted-by-logo" } },
+    "animation": { "type": "assetRef", "assetRole": "motion-graphic-lottie", "required": false },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "mustBeFirst": true, "mustFollowNav": true },
+  "motion": { "reveal": "motion.patterns.scroll-reveal-fade-blur", "reducedMotionFallback": "motion.patterns.scroll-reveal-fade-blur.reducedMotionFallback" }
+}

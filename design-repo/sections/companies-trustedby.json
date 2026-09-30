@@ -1,0 +1,14 @@
+{
+  "id": "section.companies.trustedby",
+  "type": "section",
+  "category": "social-proof",
+  "description": "Logo grid of 12 tiles (24 distinct real company/law-firm logos) that mask-wipe between pairs on a continuous loop. REAL THIRD-PARTY LOGOS: see tokens/llm/asset-roles.json 'company-logo' role — must-reuse-exact-or-omit, never AI-regenerate/fabricate a replacement logo.",
+  "measuredFrom": "src/components/Companies.jsx",
+  "content": {
+    "title": { "type": "node", "maxWords": 10, "default": "Top law firms & companies trust us to consolidate stakeholders" },
+    "tiles": { "type": "array", "minItems": 1, "maxItems": 12, "items": { "type": "ref", "component": "component.logo-tile" } },
+    "additionalProperties": false
+  },
+  "constraints": { "maxPerPage": 1, "noConsecutive": false },
+  "motion": { "loop": "motion.patterns.logo-grid-wipe", "reducedMotionFallback": "motion.patterns.logo-grid-wipe.reducedMotionFallback" }
+}

@@ -1,0 +1,9 @@
+{
+  "$description": "Semantic text-color roles resolving to 00-foundation/color.json values. An LLM should reference these, never a raw hex.",
+  "roles": {
+    "text.primary": { "resolvesTo": "color.light-100", "measuredFrom": "src/index.css:97 (.text-light-100)" },
+    "text.secondary": { "resolvesTo": "color.light-200", "measuredFrom": "src/index.css:98 (.text-light-200)" },
+    "text.muted": { "resolvesTo": "color.light-300", "measuredFrom": "src/index.css:99 (.text-light-300)" },
+    "text.onSurfaceBrand": { "resolvesTo": "color.green", "measuredFrom": "src/index.css:92 (.button--primary color)" }
+  }
+}

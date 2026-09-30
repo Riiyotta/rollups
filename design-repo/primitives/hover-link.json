@@ -1,0 +1,17 @@
+{
+  "id": "primitive.hover-link",
+  "type": "primitive",
+  "description": "Text/inline link with a GSAP light-block sweep on hover. When rendered inside a .multi-hover-link group, sibling links dim to 50% opacity on any one's hover.",
+  "measuredFrom": "src/components/ui/HoverLink.jsx",
+  "props": {
+    "children": { "type": "node", "required": true },
+    "href": { "type": "string", "required": false },
+    "as": { "type": "string", "required": false, "description": "override rendered tag" },
+    "className": { "type": "string", "required": false }
+  },
+  "tokens": ["tokens/20-component/link.json"],
+  "motion": {
+    "hoverSweep": "motion.patterns.hover-link-sweep",
+    "reducedMotionFallback": "instant hover state, no sweep tween, no sibling dim"
+  }
+}

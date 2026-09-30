@@ -1,0 +1,17 @@
+{
+  "id": "section.inaction.showcase",
+  "type": "section",
+  "category": "content",
+  "description": "Homepage-only 'Rollups in action' scroll-synced sidebar showcase: an IntersectionObserver picks the viewport-centered card as 'current' and updates a sidebar nav.",
+  "measuredFrom": "src/components/RollupsInAction.jsx",
+  "content": {
+    "heading": { "type": "string", "maxWords": 8, "required": false },
+    "cards": { "type": "array", "minItems": 2, "maxItems": 6, "items": { "title": "string maxWords:8", "description": "string maxWords:30", "image": "assetRef (assetRole: use-case-illustration)" } },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "scopedTo": "template.marketing-home" },
+  "motion": {
+    "scrollSync": "IntersectionObserver selects the card whose center is nearest viewport center as 'current'",
+    "reducedMotionFallback": "renders the first card as current with no scroll-driven re-selection; all cards remain statically visible"
+  }
+}

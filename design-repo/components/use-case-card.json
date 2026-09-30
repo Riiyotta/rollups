@@ -1,0 +1,23 @@
+{
+  "id": "component.use-case-card",
+  "type": "component",
+  "description": "Tab-panel content for UseCaseTabs: a hero card (title/desc/image), a 4-stage process list (Start/day-N milestones), and a closing UseCaseStat (logo + number + proof text).",
+  "measuredFrom": "src/components/shared/UseCaseTabs.jsx, src/pages/Ruv.jsx USE_CASES data shape",
+  "fields": {
+    "id": { "type": "string" },
+    "tab": { "type": "string", "maxWords": 5, "description": "sidebar tab label; may be empty string when only one use case exists (SAFE page)" },
+    "cards": { "type": "array", "maxItems": 1, "items": {
+      "title": "string maxWords:8",
+      "description": "string maxWords:35",
+      "image": "assetRef (assetRole: use-case-illustration)",
+      "mobileImage": "assetRef, required:false",
+      "href": "string, required:false"
+    }},
+    "steps": { "type": "array", "minItems": 3, "maxItems": 4, "items": {
+      "day": "string, required:false (e.g. '03','30','30+')",
+      "title": "string maxWords:10",
+      "items": "array of string maxWords:40 each, maxItems:4"
+    }},
+    "stat": { "type": "object", "fields": { "logo": "node/assetRef", "number": "string maxWords:3", "text": "string maxWords:30", "link": "object required:false" } }
+  }
+}

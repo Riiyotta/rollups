@@ -1,0 +1,15 @@
+{
+  "id": "section.blog.header-filter",
+  "type": "section",
+  "category": "content",
+  "description": "Blog-index-only header + category filter pill row. Filters are 'All' plus distinct real article categories, alphabetized.",
+  "measuredFrom": "src/pages/Blog.jsx",
+  "content": {
+    "heading": { "type": "string", "maxWords": 3, "default": "Blog" },
+    "description": { "type": "string", "maxWords": 15, "required": true },
+    "filters": { "type": "array", "items": { "type": "ref", "primitive": "primitive.filter-pill" } },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "mustBeFirst": true, "mustFollowNav": true, "scopedTo": "template.blog-index" },
+  "motion": { "reveal": "none observed", "reducedMotionFallback": "n/a — section has no motion to disable" }
+}

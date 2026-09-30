@@ -1,0 +1,19 @@
+{
+  "$description": "The single real theme this site ships — there is no dark/light toggle; the marketing site always renders on the dark green gradient background with light-100/200/300 text. Named 'light' only in the sense of 'light text on dark surface' per this workspace's theme-file convention, not a literal light-background theme. Resolves every semantic token to a real foundation value.",
+  "measuredFrom": "src/index.css (single :root token set, no [data-theme] or prefers-color-scheme branching found anywhere in src/)",
+  "defaultTheme": true,
+  "resolved": {
+    "text.primary": "#e4eac8",
+    "text.secondary": "#d1dbb9",
+    "text.muted": "#989e7b",
+    "text.onSurfaceBrand": "#2a5d33",
+    "surface.page": "linear-gradient(268deg, #295d32 4.2%, #273f2c 98.63%)",
+    "surface.brand": "#e4eac8",
+    "surface.subtle": "rgba(228,234,200,.08)",
+    "surface.subtleHover": "rgba(228,234,200,.12)",
+    "surface.tint": "rgba(84,137,93,.24)",
+    "surface.modal": "#2d5636",
+    "border.default": "0.5px solid #989e7b",
+    "border.secondary": "#466346"
+  }
+}

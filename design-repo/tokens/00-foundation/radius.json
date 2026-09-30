@@ -1,0 +1,12 @@
+{
+  "$description": "Border-radius histogram, cited from real component CSS across src/index.css and src/styles/*.css.",
+  "measuredFrom": "src/index.css:101-125, src/styles/bottom.css:103-177, src/styles/contact.css:44-101, src/styles/blog.css:23-28",
+  "scale": {
+    "radius-none": { "value": "0px", "usage": "button hover states on primary/secondary buttons narrow toward this, faq-assistant-form input" },
+    "radius-xs": { "value": "3px", "measuredFrom": "src/index.css:111-112 (.button--primary:hover, .button--secondary:hover), src/styles/blog.css:28", "usage": "button/pill hover state" },
+    "radius-sm": { "value": "4px", "measuredFrom": "src/index.css:104 (.button), src/styles/bottom.css:177 (.cookie-consent), src/styles/blog.css:23 (.blog-filter-pill)", "usage": "buttons default, cookie bar panel, filter pills" },
+    "radius-md": { "value": "5px", "measuredFrom": "src/index.css:101 (.button-wrapper)", "usage": "button outer wrapper border radius" },
+    "radius-lg": { "value": "7px", "measuredFrom": "src/styles/contact.css:44,87", "usage": "contact form inputs/selects" },
+    "radius-full": { "value": "100% / 50%", "measuredFrom": "src/index.css:125 (.learn-more-icon), src/styles/bottom.css:103,117 (.faq-icon, .faq-assistant-form button)", "usage": "circular icon badges (learn-more, faq toggle, assistant send button)" }
+  }
+}

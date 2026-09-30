@@ -1,0 +1,17 @@
+{
+  "id": "section.shell.cookiebar",
+  "type": "section",
+  "category": "shell",
+  "description": "Fixed-position cookie-consent banner, bottom-right desktop / full-width mobile.",
+  "measuredFrom": "src/components/CookieBar.jsx, src/styles/bottom.css:177-181",
+  "content": {
+    "message": { "type": "string", "maxWords": 30 },
+    "acceptLabel": { "type": "string", "maxWords": 3 },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true },
+  "motion": {
+    "dismiss": "translateY slide-out, 0.3s ease-in-out",
+    "reducedMotionFallback": "banner disappears instantly on dismiss"
+  }
+}

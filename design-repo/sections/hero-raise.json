@@ -1,0 +1,18 @@
+{
+  "id": "section.hero.raise",
+  "type": "section",
+  "category": "hero",
+  "description": "HowToRaiseCapital-page hero: heading, AI-query link, hero stats in left block, decorative Lottie on the right (IntersectionObserver play/pause at 0.5 threshold), no email form, no trusted logos.",
+  "measuredFrom": "src/components/raise/RaiseHero.jsx",
+  "content": {
+    "heading": { "type": "string", "maxWords": 12, "required": true },
+    "stats": { "type": "array", "maxItems": 3, "items": { "value": "string maxWords:2", "label": "string maxWords:6" } },
+    "animation": { "type": "assetRef", "assetRole": "motion-graphic-lottie", "required": false },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "mustBeFirst": true, "mustFollowNav": true },
+  "motion": {
+    "lottiePlayback": "IntersectionObserver threshold 0.5 on .hero-animation-wrapper toggles play/pause",
+    "reducedMotionFallback": "Lottie renders first frame statically, no IntersectionObserver-driven playback"
+  }
+}

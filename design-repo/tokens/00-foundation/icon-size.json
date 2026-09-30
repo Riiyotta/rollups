@@ -1,0 +1,9 @@
+{
+  "$description": "Icon size tokens, cited from real SVG-wrapping component CSS.",
+  "measuredFrom": "src/index.css:125-127 (.learn-more-icon), src/styles/bottom.css:103-107 (.faq-icon)",
+  "sizes": {
+    "icon-sm": { "value": "12px", "measuredFrom": "src/index.css:107-109 (.button-arrow)", "usage": "button arrow icon" },
+    "icon-md": { "value": "20px", "measuredFrom": "src/index.css:125, src/styles/bottom.css:103", "usage": "learn-more icon badge, faq toggle icon badge" },
+    "icon-lg": { "value": "44px", "measuredFrom": "src/styles/bottom.css:117 (.faq-assistant-form button)", "usage": "faq AI-assistant send button" }
+  }
+}

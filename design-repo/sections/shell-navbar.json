@@ -1,0 +1,19 @@
+{
+  "id": "section.shell.navbar",
+  "type": "section",
+  "category": "shell",
+  "description": "Site-wide navbar: logo, two dropdown menus (Products, Resources), Sign In / Get Started CTAs, mobile hamburger. Shared across all 15 Layout-wrapped routes. Dropdown menus reference two real-but-unmounted routes (/secondary-vehicles, /control-os) — see extraction/measured-values.json 'deadNavLinks' note; do not treat these as pages to generate.",
+  "measuredFrom": "src/components/Navbar.jsx, src/components/navbar/menus.js",
+  "content": {
+    "logo": { "type": "assetRef", "assetRole": "brand-logo", "required": true },
+    "menus": { "type": "array", "maxItems": 2, "items": { "label": "string maxWords:2", "groups": "array" } },
+    "ctaSecondary": { "type": "object", "fields": { "label": "string maxWords:2", "href": "string" } },
+    "ctaPrimary": { "type": "object", "fields": { "label": "string maxWords:3", "href": "string" } },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "mustBeFirst": true },
+  "motion": {
+    "dropdown": "opens on hover, closes after 150ms mouseleave delay, unmounts 200ms after close (motion.patterns not applicable, component-local timers)",
+    "reducedMotionFallback": "dropdown opens/closes instantly, no enter transition class"
+  }
+}

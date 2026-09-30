@@ -1,0 +1,19 @@
+{
+  "id": "section.blogpost.header",
+  "type": "section",
+  "category": "content",
+  "description": "Blog-article-page-only header: sidebar nav-back link + article meta (column layout on desktop sidebar, row layout duplicated below content on mobile), title, excerpt, cover image.",
+  "measuredFrom": "src/pages/BlogPost.jsx, src/components/blog/ArticleMeta.jsx",
+  "content": {
+    "title": { "type": "string", "maxWords": 14, "required": true, "note": "real/verbatim per CLONE_SPEC_CONTENT.md" },
+    "excerpt": { "type": "string", "maxWords": 45, "required": true, "note": "real/verbatim" },
+    "cover": { "type": "assetRef", "assetRole": "blog-cover-image", "required": true },
+    "author": { "type": "string", "maxWords": 4, "required": true, "note": "real/verbatim" },
+    "date": { "type": "string", "required": true, "note": "real/verbatim" },
+    "readingTime": { "type": "string", "maxWords": 3, "required": true, "note": "real/verbatim" },
+    "category": { "type": "string", "maxWords": 3, "required": true, "note": "real/verbatim" },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "mustBeFirst": true, "mustFollowNav": true, "scopedTo": "template.blog-article" },
+  "motion": { "reveal": "none observed", "reducedMotionFallback": "n/a — section has no motion to disable" }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "section.products.grid",
+  "type": "section",
+  "category": "content",
+  "description": "Homepage-only product-tile grid introducing RUV/Consolidate/SAFE/Waitlist product lines.",
+  "measuredFrom": "src/components/Products.jsx",
+  "content": {
+    "heading": { "type": "string", "maxWords": 8, "required": false },
+    "tiles": { "type": "array", "minItems": 2, "maxItems": 6, "items": { "title": "string maxWords:6", "description": "string maxWords:25", "href": "string", "image": "assetRef (assetRole: product-illustration)" } },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "scopedTo": "template.marketing-home" },
+  "motion": { "reveal": "motion.patterns.scroll-reveal-fade-blur", "reducedMotionFallback": "motion.patterns.scroll-reveal-fade-blur.reducedMotionFallback" }
+}

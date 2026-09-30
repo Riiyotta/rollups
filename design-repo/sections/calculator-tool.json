@@ -1,0 +1,13 @@
+{
+  "id": "section.calculator.tool",
+  "type": "section",
+  "category": "interactive",
+  "description": "Interactive cost-comparison calculator with numeric inputs and derived output. Shared by /how-to-raise-capital and /ruv/calculator (identical component, Calculator.jsx). Input defaults are real, measured values.",
+  "measuredFrom": "src/components/calculator/Calculator.jsx",
+  "content": {
+    "inputs": { "type": "array", "minItems": 4, "maxItems": 9, "items": { "key": "string", "label": "string maxWords:5", "default": "string (numeric)" } },
+    "additionalProperties": false
+  },
+  "constraints": { "maxPerPage": 1, "scopedTo": ["template.comparison-guide", "template.calculator-tool"] },
+  "motion": { "reveal": "none", "reducedMotionFallback": "n/a — section has no motion to disable" }
+}

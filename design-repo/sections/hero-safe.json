@@ -1,0 +1,19 @@
+{
+  "id": "section.hero.safe",
+  "type": "section",
+  "category": "hero",
+  "description": "SAFE-page-only hero. Centered heading-wrapper layout (matches the 'testimonials' section shell class, NOT hero.product's layout) paired with component.flip-card showing two real product screenshots. No email-capture form, no trusted-logo row — genuinely different content contract from hero.product, not a themed variant of it.",
+  "measuredFrom": "src/pages/Safe.jsx (SafeHero function)",
+  "content": {
+    "eyebrow": { "type": "string", "maxWords": 3, "required": true },
+    "heading": { "type": "string", "maxWords": 10, "required": true },
+    "description": { "type": "string", "maxWords": 20, "required": true },
+    "ctaLabel": { "type": "string", "maxWords": 3, "required": true },
+    "ctaHref": { "type": "string", "required": true },
+    "flipCard": { "type": "ref", "component": "component.flip-card", "required": true },
+    "hint": { "type": "string", "maxWords": 20, "required": false },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "mustBeFirst": true, "mustFollowNav": true },
+  "motion": { "reveal": "motion.patterns.scroll-reveal-fade-blur", "reducedMotionFallback": "motion.patterns.scroll-reveal-fade-blur.reducedMotionFallback" }
+}

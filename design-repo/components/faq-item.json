@@ -1,0 +1,15 @@
+{
+  "id": "component.faq-item",
+  "type": "component",
+  "description": "Accordion question/answer pair used by the Faq section. NOTE on content authenticity: per CLONE_SPEC_PRODUCTS.md, some real FAQ answers are verbatim short copy while longer answers in this source project are placeholder text matching only the real word-count shape (see extraction/measured-values.json contentAuthenticity note) — maxWords budgets below are grounded in the real structural shape, not the placeholder wording itself.",
+  "measuredFrom": "src/components/Faq.jsx, src/components/shared/faqData.jsx",
+  "fields": {
+    "q": { "type": "string", "maxWords": 20 },
+    "a": { "type": "string", "maxWords": 90, "note": "structural budget; real site mixes verbatim short answers (~35-85 words) with a few longer ones — see faqData.jsx real word counts (35,36,37,49,65,66,82)" }
+  },
+  "composesPrimitives": ["primitive.icon-badge"],
+  "motion": {
+    "expandCollapse": "faq-icon rotates lines to plus/minus, panel height animates open/closed (0.25s ease-out)",
+    "reducedMotionFallback": "panel opens/closes instantly, icon swaps state without rotate transition"
+  }
+}

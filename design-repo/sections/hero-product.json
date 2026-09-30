@@ -1,0 +1,17 @@
+{
+  "id": "section.hero.product",
+  "type": "section",
+  "category": "hero",
+  "description": "Product-page hero shared by /ruv and /consolidate's LeftBlock content contract (rendering differs — Consolidate wraps it in a dual desktop/mobile Lenis+Lottie shell, see section.hero.consolidate-scroll — but the CONTENT fields are identical, both use components/Hero.jsx's HeroLeftBlock/HeroEmailForm/buildAiQuery).",
+  "measuredFrom": "src/components/Hero.jsx (HeroLeftBlock, HeroEmailForm, buildAiQuery), src/pages/Ruv.jsx, src/pages/Consolidate.jsx (LeftBlock)",
+  "content": {
+    "heading": { "type": "string", "maxWords": 8, "required": true },
+    "description": { "type": "string", "maxWords": 30, "required": true },
+    "emailFormProductInterest": { "type": "string", "maxWords": 4, "required": true },
+    "hint": { "type": "string", "maxWords": 12, "required": false },
+    "aiQuery": { "type": "object", "fields": { "productName": "string", "mdUrl": "string", "pageUrl": "string", "helpUrl": "string" } },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "mustBeFirst": true, "mustFollowNav": true },
+  "motion": { "reveal": "motion.patterns.scroll-reveal-fade-blur", "reducedMotionFallback": "motion.patterns.scroll-reveal-fade-blur.reducedMotionFallback" }
+}

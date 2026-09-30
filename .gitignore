@@ -1,0 +1,19 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+
+# Recon scratch material (reference screenshots/lottie/svg pulled from the live
+# site during the build) — not needed to build or run the clone itself.
+recon/
+
+# Full saved copy of the original page (Rollups.html + Rollups_files/) kept
+# only as build reference; the clone's own source under src/ is what ships.
+Rollups.html
+Rollups_files/
+
+# Build artifact — regenerated fresh from design-repo/ after every change.
+# Never track this alongside the live design-repo/ folder it's built from
+# (a tracked zip goes stale the moment design-repo/ changes again, and
+# whoever clones the repo gets two disagreeing copies of the same content).
+design-repo.zip

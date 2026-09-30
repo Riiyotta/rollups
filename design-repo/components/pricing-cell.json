@@ -1,0 +1,23 @@
+{
+  "id": "component.pricing-cell",
+  "type": "component",
+  "description": "One cell of the Pricing content-grid — either a priced-plan cell (name/description/price/button) or a features-list cell (label + checkmark list). Both variants appear together per section, in fixed pairs.",
+  "measuredFrom": "src/components/shared/Pricing.jsx",
+  "variants": {
+    "plan": {
+      "fields": {
+        "name": { "type": "string", "maxWords": 6 },
+        "description": { "type": "string", "maxWords": 20, "required": false },
+        "price": { "type": "string", "maxWords": 6, "required": false },
+        "unit": { "type": "string", "maxWords": 4, "required": false },
+        "button": { "type": "object", "fields": { "label": "string maxWords:4", "href": "string", "variant": "primary|secondary" } }
+      }
+    },
+    "features": {
+      "fields": {
+        "label": { "type": "string", "maxWords": 6 },
+        "features": { "type": "array", "items": "string maxWords:12", "maxItems": 6 }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "component.article-body-block",
+  "type": "component",
+  "description": "One typed content block inside a blog article body. Block type is a closed enum matching the real block-shape vocabulary recorded in src/data/articles.js. CONTENT AUTHENTICITY NOTE: prose inside 'p'/'quote'/'bq' blocks in this source project is generated placeholder text matching only the real word-count/paragraph-count shape (see src/components/blog/placeholder.js and CLONE_SPEC_CONTENT.md) — headings (h2/h3/hl.h), table headers, and structural counts are the real, evidence-grounded part of this contract. A generator using this design-repo should treat block prose as a structural demonstration, not literal brand copy.",
+  "measuredFrom": "src/data/articles.js (block type comment + all 9 article objects), src/components/blog/ArticleBody.jsx",
+  "blockTypes": {
+    "p": { "fields": { "w": "int (word count budget)", "l": "int links, optional", "s": "int strong runs, optional", "br": "int line breaks, optional", "bo": "boolean bold-only, optional" } },
+    "h2": { "fields": { "text": "string maxWords:12, real/verbatim" } },
+    "h3": { "fields": { "text": "string maxWords:12, real/verbatim" }, "observedIn": ["why-clean-captable-matters", "announcing-rollups", "how-ruvs-simplify-fundraising"] },
+    "hr": { "fields": {} },
+    "hl": { "fields": { "h": "string heading, real/verbatim", "items": "array of int (word count per list item)" } },
+    "ul": { "fields": { "items": "array", "bold": "boolean optional", "l": "int links optional", "nested": "boolean optional" } },
+    "ol": { "fields": { "items": "array" } },
+    "process": { "fields": { "items": "array" } },
+    "quote": { "fields": { "w": "int word count" }, "observedIn": ["case-study articles", "how-ruvs-simplify-fundraising"] },
+    "author": { "fields": { "w": "int word count" } },
+    "bq": { "fields": { "w": "int word count" }, "observedIn": ["special-purpose-vehicles-for-startups-guide (5 occurrences)"] },
+    "table": { "fields": { "headers": "array of string, real/verbatim", "rows": "array of array", "w": "int" }, "observedIn": ["special-purpose-vehicles-for-startups-guide only"] }
+  },
+  "faqStart": { "type": "int", "description": "index of the first block that belongs to the in-article FAQ section (div.faq-section), present on every article" }
+}

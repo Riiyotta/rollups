@@ -1,0 +1,14 @@
+{
+  "id": "component.logo-tile",
+  "type": "component",
+  "description": "One cell of the Companies/trusted-by logo grid: two real company logo images that mask-wipe between each other on a continuous loop. REAL THIRD-PARTY LOGOS — see tokens/llm/asset-roles guidance: assetRole 'company-logo' is must-reuse-exact-or-omit, never AI-regenerate.",
+  "measuredFrom": "src/components/Companies.jsx PAIRS array (12 pairs = 24 distinct real logos)",
+  "fields": {
+    "logoA": { "type": "assetRef", "assetRole": "company-logo" },
+    "logoB": { "type": "assetRef", "assetRole": "company-logo" }
+  },
+  "motion": {
+    "wipeLoop": "motion.patterns.logo-grid-wipe, staggered 0.15s per tile, repeatDelay 3s",
+    "reducedMotionFallback": "renders logoA statically, no wipe, no loop"
+  }
+}

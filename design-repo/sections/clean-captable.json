@@ -1,0 +1,18 @@
+{
+  "id": "section.clean-captable",
+  "type": "section",
+  "category": "content",
+  "description": "HowToRaiseCapital-page-only static illustrated before/after cap-table comparison panel with a single CTA. Static SVGs, no reveal classes.",
+  "measuredFrom": "src/components/raise/CleanCapTable.jsx",
+  "content": {
+    "title": { "type": "string", "maxWords": 8, "required": true },
+    "description": { "type": "string", "maxWords": 40, "required": true },
+    "ctaLabel": { "type": "string", "maxWords": 4, "required": true },
+    "ctaHref": { "type": "string", "required": true },
+    "beforeSvg": { "type": "assetRef", "assetRole": "illustrative-diagram" },
+    "afterSvg": { "type": "assetRef", "assetRole": "illustrative-diagram" },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "scopedTo": "template.comparison-guide" },
+  "motion": { "reveal": "none", "reducedMotionFallback": "n/a — section has no motion to disable" }
+}

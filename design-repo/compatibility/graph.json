@@ -1,0 +1,75 @@
+{
+  "$description": "Rhythm/adjacency/position rules JSON Schema cannot express. Every rule carries severity error|warn. Rules checked against templates/templates.json's real node sequences at write time (per MASTER-GUIDE.md 3.18) — not assumption.",
+  "rules": [
+    {
+      "id": "ONE_NAVBAR_PER_PAGE",
+      "description": "Exactly one shell.navbar node, always first.",
+      "severity": "error",
+      "check": "count(nodes, section == 'shell.navbar') == 1 AND nodes[0].section == 'shell.navbar'",
+      "exception": "None — every one of the 12 real templates has shell.navbar as its first node (verified against templates.json)."
+    },
+    {
+      "id": "ONE_FOOTER_PER_PAGE",
+      "description": "Exactly one shell.footer node, always last content node (shell.cookiebar may follow it).",
+      "severity": "error",
+      "check": "count(nodes, section == 'shell.footer') == 1 AND nodes[-2].section == 'shell.footer'",
+      "exception": "None — every one of the 12 real templates ends [..., shell.footer, shell.cookiebar]."
+    },
+    {
+      "id": "ONE_HERO_PER_PAGE",
+      "description": "Exactly one hero.* section, immediately following shell.navbar.",
+      "severity": "error",
+      "check": "count(nodes, section startswith 'hero.') == 1 AND that node directly follows shell.navbar",
+      "exception": "template.contact-form and template.blog-index and template.blog-article and template.legal-doc and template.placeholder-stub have NO hero.* node at all — they open directly with their own lead content section (contact.form / blog.header-filter / blogpost.header / legal.header / placeholder.stub respectively) immediately after shell.navbar. These 5 templates are the named NO_HERO_TEMPLATES exception set; the ONE_HERO rule does not apply to them (0 heroes is valid, not a violation)."
+    },
+    {
+      "id": "NO_ADJACENT_SAME_CATEGORY",
+      "description": "Two sections of the same 'category' (per their section contract's category field) should not appear back-to-back, to avoid visually repetitive rhythm.",
+      "severity": "warn",
+      "check": "no i where nodes[i].category == nodes[i+1].category",
+      "exception": "companies.trustedby (category: social-proof) directly followed by pricing.table (category: conversion) is fine — different categories. facts.cta (social-proof) followed by calculator.tool (interactive) followed by stories.grid (social-proof) in template.comparison-guide is NOT adjacent-same-category (interactive sits between the two social-proof nodes) — verified against templates.json, no violation exists in the real template set today."
+    },
+    {
+      "id": "NO_CONSECUTIVE_SCROLL_STAGES",
+      "description": "section.stages.timeline and section.inaction.showcase (both scroll-synced 'current card' patterns) should not appear consecutively.",
+      "severity": "warn",
+      "check": "no i where {nodes[i].section, nodes[i+1].section} intersects {'inaction.showcase','stages.timeline'} in both positions",
+      "exception": "template.marketing-home has inaction.showcase then stages.timeline separated by nothing else — this IS adjacent. Verified against Home.jsx real order (Hero, Products, RollupsInAction, Stages, Companies, Faq). This is real, correct, intentional site structure, not a bug — so this specific adjacency is a NAMED EXCEPTION for template.marketing-home, downgraded to non-blocking. The warn still fires for any OTHER template that might introduce this adjacency without the same real-evidence backing."
+    },
+    {
+      "id": "FAQ_MUST_PRECEDE_FOOTER",
+      "description": "When present, faq.accordion is the last content section before shell.footer.",
+      "severity": "error",
+      "check": "if any node.section == 'faq.accordion': that node is immediately followed by shell.footer",
+      "exception": "template.contact-form, template.blog-index, template.blog-article, template.legal-doc, template.placeholder-stub have no faq.accordion node at all — rule is vacuously satisfied for these 5."
+    },
+    {
+      "id": "TESTIMONIAL_SLIDER_SCOPE",
+      "description": "section.testimonial.slider may only appear on templates that are confirmed (by direct source inspection) to render TestimonialSlider.",
+      "severity": "error",
+      "check": "node.section == 'testimonial.slider' implies template.id in ['template.product-landing', 'template.product-landing-scroll']",
+      "exception": "None. template.product-landing-lite (Safe) was specifically checked against Safe.jsx and confirmed to have NO TestimonialSlider import or render — this rule exists specifically to prevent a generator from assuming /safe-shaped pages need a testimonial slider by analogy to /ruv."
+    },
+    {
+      "id": "MOTION_BUDGET_SCROLL_SCRUB",
+      "description": "motion.patterns.scroll-scrubbed-lottie (Lenis + frame-scrubbed Lottie) may only be used by section.hero.consolidate-scroll.",
+      "severity": "error",
+      "check": "any node using motion pattern 'scroll-scrubbed-lottie' implies node.section == 'hero.consolidate-scroll'",
+      "exception": "None — this is the single most distinctive, expensive motion pattern on the site and is real evidence-grounded to exactly one page (src/pages/Consolidate.jsx). No other hero variant may claim it."
+    },
+    {
+      "id": "REAL_LOGO_NO_FABRICATION",
+      "description": "Any section/component referencing assetRole 'company-logo' or 'trusted-by-logo' or 'testimonial-author-photo' must cite a real asset path from ASSET_MANIFEST*.md — never a generator-invented filename.",
+      "severity": "error",
+      "check": "assetRef.assetRole in ['company-logo','trusted-by-logo','testimonial-author-photo'] implies assetRef.path is present in tokens/llm/asset-roles.json's realAssetInventory list",
+      "exception": "None. This is a compliance rule, not a style rule — the source approximates a real company and these are real third-party logos and real people's photos."
+    },
+    {
+      "id": "SIGNUP_TOKENS_EXCLUDED",
+      "description": "No template/section/component in this design-repo may reference tokens/00-foundation/color.signup.json.",
+      "severity": "error",
+      "check": "grep for 'color.signup' outside color.signup.json itself and registry.manifest.json's documentation note returns nothing",
+      "exception": "None. The /get-started SignUp page is intentionally excluded from templates.json entirely; this rule guards against accidental cross-contamination if someone tries to add it later without re-deriving its own token set."
+    }
+  ]
+}

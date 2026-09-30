@@ -1,0 +1,6 @@
+{
+  "$description": "STRUCTURALLY SEPARATE token namespace for the /get-started (alias /setup) SignUp page ONLY. This page clones app.rollups.com/setup — a different real app (Rails + Bootstrap), not the Next.js/React marketing site. It is mounted as a sibling <Route> outside the shared <Layout> (no Navbar/Footer) in src/App.jsx. Its tokens (white background, AngelList/Inter-family fonts, teal/indigo palette) MUST NOT be merged into the marketing-site foundation palette in color.json, and no marketing-site template/section may reference these tokens. This file exists purely to document the exception per BUILD-GUIDE.md's 'note anything structurally unusual' guidance and CLONE_SPEC_SIGNUP.md — it is NOT wired into templates/sections/compatibility graph the way color.json is, and the schema's template enum intentionally excludes a 'signup' page shape.",
+  "measuredFrom": "CLONE_SPEC_SIGNUP.md (full file), src/pages/SignUp.jsx, src/styles/signup.css, src/App.jsx:44-49 (sibling route, no Layout)",
+  "doNotMergeInto": "tokens/00-foundation/color.json",
+  "note": "This design-repo does not ship a generation-ready template for /get-started. Treat it as documented-but-excluded scope, consistent with the source clone's own intentional app-boundary."
+}

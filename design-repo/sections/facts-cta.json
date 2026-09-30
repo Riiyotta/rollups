@@ -1,0 +1,15 @@
+{
+  "id": "section.facts.cta",
+  "type": "section",
+  "category": "social-proof",
+  "description": "Stat-band + partner logo row + CTA. Shared by /how-to-raise-capital and /ruv/calculator (identical component, FactsCta.jsx). No reveal classes.",
+  "measuredFrom": "src/components/calculator/FactsCta.jsx",
+  "content": {
+    "heading": { "type": "string", "maxWords": 10, "required": true },
+    "stats": { "type": "array", "minItems": 1, "maxItems": 4, "items": { "value": "string maxWords:2", "label": "string maxWords:5" } },
+    "logos": { "type": "array", "maxItems": 5, "items": { "type": "assetRef", "assetRole": "company-logo" } },
+    "additionalProperties": false
+  },
+  "constraints": { "maxPerPage": 1, "scopedTo": ["template.comparison-guide", "template.calculator-tool"] },
+  "motion": { "reveal": "none", "reducedMotionFallback": "n/a — section has no motion to disable" }
+}

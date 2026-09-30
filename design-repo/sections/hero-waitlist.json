@@ -1,0 +1,20 @@
+{
+  "id": "section.hero.waitlist",
+  "type": "section",
+  "category": "hero",
+  "description": "Waitlist-page hero: centered heading-wrapper layout (testimonials shell), eyebrow, heading, description, CTA button and flip-card demo. The button and flip card are explicitly NOT scroll-revealed per source comment.",
+  "measuredFrom": "src/components/waitlist/WaitlistHero.jsx",
+  "content": {
+    "eyebrow": { "type": "string", "maxWords": 3, "required": true },
+    "heading": { "type": "string", "maxWords": 10, "required": true },
+    "description": { "type": "string", "maxWords": 25, "required": true },
+    "ctaLabel": { "type": "string", "maxWords": 3, "required": true },
+    "ctaHref": { "type": "string", "required": true },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "mustBeFirst": true, "mustFollowNav": true },
+  "motion": {
+    "reveal": "motion.patterns.scroll-reveal-fade-blur (heading/eyebrow/description only; button and flip-card are excluded from reveal per source)",
+    "reducedMotionFallback": "motion.patterns.scroll-reveal-fade-blur.reducedMotionFallback"
+  }
+}

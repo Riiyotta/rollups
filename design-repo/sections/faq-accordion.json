@@ -1,0 +1,15 @@
+{
+  "id": "section.faq.accordion",
+  "type": "section",
+  "category": "content",
+  "description": "Accordion FAQ list, present near the end of nearly every real page (Home, /ruv, /safe, /consolidate, /how-to-raise-capital, /ruv/calculator, /waitlist). NOT present on /contact-us, /blog, /blog/:slug (which has its own in-article faq-section block type instead), legal pages, or placeholder stubs.",
+  "measuredFrom": "src/components/Faq.jsx, src/components/shared/faqData.jsx",
+  "content": {
+    "title": { "type": "string", "maxWords": 6, "required": false, "default": "Frequently Asked Questions" },
+    "items": { "type": "array", "minItems": 3, "maxItems": 12, "items": { "type": "ref", "component": "component.faq-item" } },
+    "revealWrapper": { "type": "boolean", "required": false },
+    "additionalProperties": false
+  },
+  "constraints": { "maxPerPage": 1, "mustPrecedeFooter": true },
+  "motion": { "reveal": "motion.patterns.scroll-reveal-fade-blur", "reducedMotionFallback": "motion.patterns.scroll-reveal-fade-blur.reducedMotionFallback" }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "primitive.icon-badge",
+  "type": "primitive",
+  "description": "Circular tint-filled badge that hosts a small icon — used standalone as the FAQ accordion toggle and as part of learn-more-link. Not content-bearing on its own.",
+  "measuredFrom": "src/styles/bottom.css:103-107 (.faq-icon), src/index.css:122-129 (.learn-more-icon)",
+  "props": {
+    "icon": { "type": "node", "required": true },
+    "size": { "type": "enum", "values": ["icon-md", "icon-lg"], "default": "icon-md" }
+  },
+  "tokens": ["tokens/00-foundation/icon-size.json", "tokens/10-semantic/surface.json"],
+  "motion": {
+    "toggle": "faq variant rotates the two crossed lines to a plus/minus on open/close (0.25s ease-out)",
+    "reducedMotionFallback": "toggles state instantly, no rotate transition"
+  }
+}

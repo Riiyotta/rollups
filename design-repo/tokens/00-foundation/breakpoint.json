@@ -1,0 +1,10 @@
+{
+  "$description": "Responsive breakpoints, cited from tailwind.config.js theme.extend.screens and the raw @media queries used throughout src/index.css and src/styles/*.css (both agree: 767, 991, 1600).",
+  "measuredFrom": "tailwind.config.js:29, src/index.css:34,58,63-64",
+  "breakpoints": {
+    "mobile": { "value": "max-width: 767px", "measuredFrom": "tailwind.config.js:29, src/index.css:34" },
+    "tablet": { "value": "max-width: 991px", "measuredFrom": "tailwind.config.js:29, src/index.css:63" },
+    "wide": { "value": "min-width: 1600px", "measuredFrom": "tailwind.config.js:29, src/index.css:62" },
+    "mid-wide": { "value": "min-width: 1360px and max-width: 1599px", "measuredFrom": "src/index.css:60" }
+  }
+}

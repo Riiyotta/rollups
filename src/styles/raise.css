@@ -1,0 +1,350 @@
+/* /ruv/calculator + /how-to-raise-capital. Values copied from CLONE_SPEC_PRODUCTS.md Appendix Z (A, E–L).
+   Font tokens: Appendix Z's --fonts-family--font-family-primary/secondary/tertiary map to the project's
+   --font-primary / --font-secondary / --font-mono. */
+
+/* ---------- A. Page hero (how-to-raise variant: .raise-hero without .ruv-hero) ---------- */
+.stack { display: flex; max-width: 100%; }
+.stack[data-direction=row] { flex-direction: row; }
+.stack[data-direction=column] { flex-direction: column; }
+.stack[data-gap="3xs"] { gap: var(--spacing-3xs); }
+.stack[data-gap="2xs"] { gap: var(--spacing-2xs); }
+.stack[data-gap=xs] { gap: var(--spacing-xs); }
+.stack[data-gap=sm] { gap: var(--spacing-sm); }
+.stack[data-gap=md] { gap: var(--spacing-md); }
+.stack[data-gap=lg] { gap: var(--spacing-lg); }
+.stack[data-align=start] { align-items: start; }
+.stack[data-align=center] { align-items: center; }
+.stack[data-align=end] { align-items: end; }
+.stack[data-justify=start] { justify-content: start; }
+.stack[data-justify=center] { justify-content: center; }
+.stack[data-justify=end] { justify-content: end; }
+.stack[data-justify=space-between] { justify-content: space-between; }
+.hero-content-description { max-width: 47ch; }
+.raise-hero .hero-block:last-child { display: flex !important; align-items: center !important; justify-content: center !important; }
+@media (max-width: 900px) { .raise-hero .hero-block .heading-wrapper { padding-top: 60px !important; } }
+@media (max-width: 600px) { .raise-hero .hero-block .heading-wrapper { padding-top: 42px !important; } }
+.hero-stats { display: flex; gap: 24px; align-items: flex-start; padding-top: 32px; padding-bottom: 32px; }
+@media (max-width: 767px) { .hero-stats { flex-direction: column; gap: 16px; margin-top: 24px; display: none; } }
+.hero-stat-item { display: flex; flex-direction: column; gap: 8px; padding: 8px 12px 12px; width: 100%; }
+@media (max-width: 767px) { .hero-stat-item { width: 100%; padding: 8px 0 12px; } }
+.hero-stat-value { font-family: var(--font-primary); font-size: 24px; line-height: 100%; letter-spacing: -.36px; color: var(--colors--light-100); margin: 0; font-weight: 450; }
+.hero-stat-label { font-family: var(--font-mono); font-size: var(--fonts-sizes--text-xs); line-height: normal; color: var(--colors--light-300); text-transform: uppercase; margin: 0; }
+.hero-stat-disclosure-link {
+  width: fit-content; white-space: nowrap; text-decoration-line: underline; text-decoration-color: rgba(209,219,185,.42);
+  text-decoration-thickness: 1px; text-underline-offset: 4px; transition: color .2s ease, text-decoration-color .2s ease;
+}
+.hero-stat-disclosure-link:focus-visible, .hero-stat-disclosure-link:hover { color: var(--colors--light-100); text-decoration-color: rgba(209,219,185,.9); }
+.hero-stat-disclosure-link:focus-visible { outline: 1px solid rgba(209,219,185,.72); outline-offset: 4px; }
+.hero-stat-disclosure-mark { font-size: .75em; line-height: 0; }
+.raise-hero .stack.animation-item { margin-top: 12px; }
+.raise-hero.hero-content .hero-block .hero-animation-wrapper { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; overflow: initial; position: relative; }
+/* not in Appendix Z: the measured box (772.5x1050 at y-88, §4.1) implies the homepage `top:10%` resolves to 0 here */
+.raise-hero.hero-content .hero-block .hero-animation { top: 0; }
+@media (max-width: 1180px) { .raise-hero.hero-content .hero-block .hero-animation svg { margin-left: -20% !important; width: 100% !important; } }
+@media (max-width: 900px) { .raise-hero.hero-content .vertical-divider { margin-bottom: 24px; } }
+@media (max-width: 900px) { .raise-hero.hero-content .hero-block .hero-animation { margin-left: 0; margin-top: 0; } }
+@media (max-width: 900px) { .raise-hero.hero-content .hero-block .hero-animation svg { width: 120vw !important; margin-left: -25vw !important; margin-bottom: 24px; } }
+
+/* ---------- E. How-to-raise sidebar section ---------- */
+/* homepage helpers the original defines globally (scoped to .rollups-section in middle.css) */
+.how-to-raise-section .text-reg-mono.text-allcaps.light-300 { color: var(--colors--light-300); }
+.how-to-raise-section .text-book.animation-text.book { font-weight: 500; }
+.how-to-raise-section .how-to-raise-wrapper { border-bottom: .5px solid var(--colors--light-300); grid-template-rows: auto; grid-template-columns: .5fr 1fr; grid-auto-columns: 1fr; display: grid; }
+@media (max-width: 1200px) { .how-to-raise-section .how-to-raise-wrapper { grid-template-columns: .35fr 1fr; } }
+@media (max-width: 991px) { .how-to-raise-section .how-to-raise-wrapper { grid-template-columns: 1fr; } }
+.how-to-raise-section .how-to-raise-wrapper .how-to-raise-sidebar { position: relative; padding: 300px 0; }
+@media (max-width: 991px) { .how-to-raise-section .how-to-raise-wrapper .how-to-raise-sidebar { display: none; } }
+.how-to-raise-section .how-to-raise-wrapper .how-to-raise-sidebar .how-to-raise-sidebar-list { position: sticky; top: 300px; padding-left: 30px; display: flex; flex-direction: column; gap: 16px; }
+.how-to-raise-section .how-to-raise-wrapper .how-to-raise-sidebar .how-to-raise-sidebar-list li a { display: flex; align-items: center; gap: 14px; }
+.how-to-raise-section .how-to-raise-wrapper .how-to-raise-sidebar .how-to-raise-sidebar-list li a:hover .text-light { color: var(--colors--light-200); }
+.how-to-raise-section .how-to-raise-wrapper .how-to-raise-sidebar .how-to-raise-sidebar-list li a .text-light { transition: color .25s ease; color: var(--colors--light-300); }
+.how-to-raise-section .how-to-raise-wrapper .how-to-raise-sidebar .how-to-raise-sidebar-list .sidebar-item-current .text-light { color: var(--colors--light-100); }
+.how-to-raise-section .how-to-raise-wrapper .how-to-raise-content { display: flex; flex-direction: column; gap: 40px; }
+.how-to-raise-section .how-to-raise-wrapper .how-to-raise-content .how-to-raise-steps { display: flex; flex-direction: column; gap: 140px; border-left: var(--border-line-width) solid var(--colors--light-300); }
+.how-to-raise-section .how-to-raise-wrapper .how-to-raise-content .how-to-raise-steps .how-to-raise-step:last-child .action-card { border-bottom: none; }
+.how-to-raise-section .how-to-raise-wrapper .how-to-raise-content .how-to-raise-steps .how-to-raise-step .action-card-ilu-wrapper { display: flex; justify-content: center; align-items: center; }
+.how-to-raise-section .how-to-raise-wrapper .how-to-raise-content .how-to-raise-steps .how-to-raise-step .action-card-content-ilu { max-width: 440px; margin: auto; }
+@media (max-width: 767px) { .how-to-raise-section .how-to-raise-wrapper .how-to-raise-content .how-to-raise-steps .how-to-raise-step .action-card-content-ilu { max-width: 320px; } }
+@media (max-width: 767px) { .how-to-raise-section .how-to-raise-wrapper .how-to-raise-content .how-to-raise-steps { gap: 60px; border-left: none; } }
+.how-to-raise-section .action-card .action-card-ilu-wrapper { padding: 30px; }
+@media (min-width: 992px) { .how-to-raise-section .action-card .action-card-ilu-wrapper { height: 600px; } }
+
+/* ---------- F. Founder options overview ---------- */
+.founder-options-overview { display: grid; box-sizing: border-box; grid-template-columns: .5fr 1fr; border-bottom: var(--border-line-width) solid var(--colors--light-300); min-height: 500px; align-items: stretch; }
+@media (max-width: 991px) { .founder-options-overview { grid-template-columns: 1fr; } }
+.founder-options-overview-intro { box-sizing: border-box; display: flex; flex-direction: column; flex-shrink: 0; border-right: var(--border-line-width) solid var(--colors--light-300); padding: 0 30px; justify-content: center; align-items: flex-start; gap: 21px; }
+@media (max-width: 991px) { .founder-options-overview-intro { width: 100%; border-right: none; border-bottom: var(--border-line-width) solid var(--colors--light-300); padding: 40px 24px; gap: 16px; } }
+@media (max-width: 767px) { .founder-options-overview-intro { padding: 32px 16px; } }
+.founder-options-overview-title { font-size: 54px; line-height: 100%; letter-spacing: -1.08px; color: var(--colors--light-100); white-space: pre-wrap; font-family: var(--font-secondary); font-weight: 500; }
+@media (max-width: 991px) { .founder-options-overview-title { font-size: var(--fonts-sizes--text-4xl); } }
+@media (max-width: 767px) { .founder-options-overview-title { font-size: var(--fonts-sizes--text-3xl); letter-spacing: -.72px; } }
+.founder-options-overview-description { font-size: var(--fonts-sizes--text-sm); line-height: 1.5; color: var(--colors--light-200); white-space: pre-wrap; }
+.founder-options-overview-button { align-self: flex-start; }
+.founder-options-overview-options { display: flex; flex: 1 1; min-width: 0; }
+@media (max-width: 991px) { .founder-options-overview-options { flex-direction: column; } }
+.option-card { flex: 1 0; position: relative; border-right: var(--border-line-width) solid var(--colors--light-300); padding: 180px 24px 0; overflow: hidden; }
+@media (max-width: 991px) { .option-card { border-right: none; border-bottom: var(--border-line-width) solid var(--colors--light-300); padding: 40px 24px; min-height: auto; } }
+@media (max-width: 767px) { .option-card { padding: 32px 16px; } }
+.option-card:last-child { border-right: none; }
+@media (max-width: 991px) { .option-card:last-child { border-bottom: none; } }
+.option-card-highlighted { background-color: rgba(84,137,93,.16); }
+.option-header { display: flex; gap: 16px; align-items: center; position: absolute; top: 110.5px; left: 24px; }
+@media (max-width: 991px) { .option-header { position: static; margin-bottom: 16px; } }
+.option-label { color: var(--colors--light-100); opacity: .8; font-size: var(--fonts-sizes--text-xs); text-transform: uppercase; line-height: 100%; font-family: var(--font-mono); }
+.option-card-highlighted .option-label { opacity: 1; }
+.option-badge { background-color: var(--colors--light-100); padding: 8px 16px; position: relative; display: flex; align-items: center; justify-content: center; }
+.option-badge-text { color: var(--colors--green); font-size: 8px; text-transform: uppercase; line-height: 100%; font-family: var(--font-mono); }
+.option-content { display: flex; flex-direction: column; gap: 8px; color: var(--colors--light-100); white-space: pre-wrap; max-width: 272px; }
+@media (max-width: 991px) { .option-content { max-width: 100%; } }
+.option-card:not(.option-card-highlighted) .option-content { opacity: .8; }
+.option-title { font-size: 18px; line-height: 100%; letter-spacing: -.36px; color: var(--colors--light-100); margin: 0; font-family: var(--font-primary); font-weight: 400; }
+.option-description, .option-subtitle { font-size: var(--fonts-sizes--text-sm); line-height: 1.5; color: var(--colors--light-100); font-family: var(--font-primary); font-weight: 400; }
+
+/* ---------- G. Comparison table ---------- */
+.comparision-table { --border: var(--border-line-width) solid var(--colors--light-300); position: relative; width: 100%; border-bottom: var(--border); padding-top: 100px; box-sizing: border-box; }
+@media (max-width: 991px) { .comparision-table { padding: 32px 24px 120px; } }
+@media (max-width: 767px) { .comparision-table { padding: 0; } }
+.comparision-table-header { display: flex; flex-direction: column; align-items: flex-start; gap: 21px; padding: 80px 30px 40px; max-width: 40%; }
+@media (max-width: 991px) { .comparision-table-header { max-width: 100%; padding: 32px 16px; } }
+.comparision-table-title { font-family: var(--font-secondary); font-size: 54px; font-weight: 500; line-height: 1; letter-spacing: -1.08px; color: var(--colors--light-100); margin: 0; }
+@media (max-width: 991px) { .comparision-table-title { font-size: 42px; letter-spacing: -.84px; } }
+@media (max-width: 767px) { .comparision-table-title { font-size: 32px; letter-spacing: -.64px; } }
+.comparision-table-description { font-family: var(--font-primary); font-size: 14px; line-height: 1.5; color: var(--colors--light-200); margin: 0; }
+.comparision-table-table-wrapper { display: flex; justify-content: flex-end; padding-left: 25%; position: relative; }
+@media (max-width: 991px) { .comparision-table-table-wrapper { margin-left: 0; margin-top: 0; padding-left: 0; } }
+.comparision-table-table-content { width: 100%; max-width: 1161px; display: flex; flex-direction: column; gap: 12px; }
+/* fade utilities precede the table rule so its --fade: 64px wins (64px measured at 390) */
+.fade-right { mask-image: linear-gradient(to left, transparent 0, #000 var(--fade)); -webkit-mask-image: linear-gradient(to left, transparent 0, #000 var(--fade)); }
+.fade-right, .fade-x { --fade: 80px; overflow: auto; }
+.comparision-table-table-scroll { width: 100%; --fade: 64px; }
+.comparision-table-table { display: flex; width: 100%; max-width: 1161px; }
+@media (min-width: 1024px) { .comparision-table-table { margin-top: -60px; } }
+@media (max-width: 991px) { .comparision-table-table { max-width: none; } }
+.comparision-table-column { max-width: 240px; display: flex; flex-direction: column; flex: 1 0; }
+@media (max-width: 991px) { .comparision-table-column { flex: 0 0 200px; max-width: none; } }
+@media (max-width: 767px) { .comparision-table-column { flex: 0 0 160px; } }
+.comparision-table-column:last-child, .comparision-table-column:last-child .comparision-table-cell { border-right: none; }
+.comparision-table-column-features { min-width: 240px; max-width: 100%; }
+@media (max-width: 991px) { .comparision-table-column-features .comparision-table-cell-feature.comparision-table-cell-feature { border-left: none; } }
+.comparision-table-column-features:first-child .comparision-table-cell-header { border-right: none; }
+.comparision-table-column-features .comparision-table-cell-feature { border-left: var(--border); }
+@media (max-width: 991px) { .comparision-table-column-features { min-width: 200px; } }
+@media (max-width: 767px) { .comparision-table-column-features { min-width: 140px; } }
+.comparision-table-cell { display: flex; align-items: center; justify-content: center; min-height: 88px; padding: 0 32px; border-top: var(--border); border-right: var(--border); position: relative; }
+@media (max-width: 991px) { .comparision-table-cell { padding: 24px 26px; min-height: 84px; } }
+@media (max-width: 767px) { .comparision-table-cell { padding: 16px; min-height: 68px; } }
+@media (max-width: 991px) { .comparision-table-table-content { max-width: none; } }
+@media (max-width: 991px) { .comparision-table-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: rgba(228,234,200,.35) rgba(0,0,0,0); } }
+@media (max-width: 991px) { .comparision-table-table-scroll::-webkit-scrollbar { height: 6px; } }
+@media (max-width: 991px) { .comparision-table-table-scroll::-webkit-scrollbar-track { background: rgba(0,0,0,0); } }
+@media (max-width: 991px) { .comparision-table-table-scroll::-webkit-scrollbar-thumb { background-color: rgba(228,234,200,.35); border-radius: 999px; } }
+.comparision-table-cell-header { border-top: none; padding: 0 32px; }
+@media (max-width: 991px) { .comparision-table-cell-header { padding: 24px 26px; } }
+@media (max-width: 767px) { .comparision-table-cell-header { padding: 14px 12px; min-height: 68px; } }
+.comparision-table-cell-feature { justify-content: flex-start; text-align: left; }
+.comparision-table-cell-alt-bg { background-color: rgba(54,101,62,.16); }
+.comparision-table-feature-text, .comparision-table-header-text { font-family: var(--font-primary); font-size: 18px; font-weight: 400; line-height: normal; letter-spacing: -.36px; color: var(--colors--light-100); margin: 0; }
+@media (max-width: 767px) { .comparision-table-feature-text, .comparision-table-header-text { font-size: 12px; letter-spacing: -.24px; line-height: 1.3; } }
+.comparision-table-text-value { font-family: var(--font-primary); font-size: 12px; font-weight: 400; line-height: 1.2; letter-spacing: -.28px; color: var(--colors--light-100); margin: 0; }
+@media (max-width: 767px) { .comparision-table-text-value { font-size: 10px; letter-spacing: -.22px; line-height: 1.3; } }
+.comparision-table-icon-wrapper { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0; }
+@media (max-width: 767px) { .comparision-table-icon-wrapper { width: 24px; height: 24px; border-radius: 6px; } }
+@media (max-width: 767px) { .comparision-table-icon-wrapper > svg { width: 12px; height: 12px; } }
+.comparision-table-icon-wrapper-check {
+  background-color: var(--colors--light-100);
+  box-shadow: 0 58.904px 82.672px 0 rgba(28,75,36,.4), 0 24.609px 34.538px 0 rgba(28,75,36,.29), 0 13.157px 18.466px 0 rgba(28,75,36,.24), 0 7.376px 10.352px 0 rgba(28,75,36,.2), 0 3.917px 5.498px 0 rgba(28,75,36,.16), 0 1.63px 2.288px 0 rgba(28,75,36,.11);
+}
+.comparision-table-icon-wrapper-check svg { color: var(--colors--green); stroke-width: 2; }
+.comparision-table-icon-wrapper-cross { background-color: rgba(84,137,93,.16); }
+.comparision-table-icon-wrapper-cross svg { color: var(--colors--light-300); }
+
+/* ---------- H. Clean cap table illustrated + comparison panels ---------- */
+.ruv-comparision-illustrated { display: flex; border-bottom: var(--border-line-width) solid var(--colors--light-300); min-height: 500px; align-items: stretch; box-sizing: border-box; }
+@media (max-width: 991px) { .ruv-comparision-illustrated { flex-direction: column; min-height: auto; } }
+.ruv-comparision-illustrated-intro { display: flex; flex-direction: column; gap: 21px; width: 30%; flex-shrink: 0; padding: 0 40px; justify-content: center; align-items: flex-start; box-sizing: border-box; }
+@media (max-width: 991px) { .ruv-comparision-illustrated-intro { width: 100%; border-bottom: var(--border-line-width) solid var(--colors--light-300); padding: 40px 24px; gap: 16px; } }
+@media (max-width: 767px) { .ruv-comparision-illustrated-intro { padding: 32px 16px; } }
+.ruv-comparision-illustrated-title { font-size: 54px; line-height: 100%; color: var(--colors--light-100); white-space: pre-wrap; font-weight: 500; }
+@media (max-width: 991px) { .ruv-comparision-illustrated-title { font-size: var(--fonts-sizes--text-4xl); } }
+@media (max-width: 767px) { .ruv-comparision-illustrated-title { font-size: var(--fonts-sizes--text-3xl); letter-spacing: -.72px; } }
+.ruv-comparision-illustrated-description { font-size: var(--fonts-sizes--text-sm); line-height: 1.5; color: var(--colors--light-200); white-space: pre-wrap; }
+.ruv-comparision-illustrated-button { align-self: flex-start; }
+.ruv-comparision-illustrated-visual { box-sizing: border-box; display: flex; flex: 1 1; min-width: 0; padding: 100px 32px; gap: var(--spacing-md); }
+@media (max-width: 991px) { .ruv-comparision-illustrated-visual { flex-direction: column; gap: 0; padding: 16px 16px 0; } }
+.comparison-panel { box-sizing: border-box; flex: 1 0; display: flex; flex-direction: column; gap: var(--spacing-md); background-color: rgba(84,137,93,.16); padding: 32px 40px; min-height: 100%; }
+@media (max-width: 991px) { .comparison-panel { margin-bottom: 16px; padding: 40px 24px; min-height: auto; } }
+@media (max-width: 991px) { .comparison-panel:last-child { border-bottom: none; } }
+@media (max-width: 767px) { .comparison-panel { padding: 32px 16px; } }
+.comparison-panel-header { display: flex; flex-direction: column; gap: var(--spacing-xs); }
+.comparison-panel-title { font-size: 18px; line-height: 100%; letter-spacing: -.36px; color: var(--colors--light-100); font-family: var(--font-primary); font-weight: 400; }
+.comparison-panel-subtitle { font-size: var(--fonts-sizes--text-sm); line-height: 1.5; color: var(--colors--light-100); white-space: pre-wrap; }
+.comparison-panel-content { display: flex; flex-direction: column; gap: var(--spacing-xs); }
+.comparison-panel-content-nested { position: relative; }
+.comparison-panel-content svg { width: 100%; height: auto; }
+
+/* ---------- I. RUV facts CTA ---------- */
+.ruv-facts-cta { box-sizing: border-box; padding: 80px 40px; display: flex; align-items: flex-end; justify-content: center; width: 100%; }
+@media (max-width: 991px) { .ruv-facts-cta { padding: 60px 24px; } }
+@media (max-width: 767px) { .ruv-facts-cta { padding: 48px 16px; } }
+.ruv-facts-cta-container { display: flex; flex-direction: column; gap: 48px; align-items: center; max-width: 700px; width: 100%; }
+@media (max-width: 767px) { .ruv-facts-cta-container { gap: 32px; } }
+.ruv-facts-cta-content { display: flex; flex-direction: column; gap: 48px; align-items: center; width: 100%; }
+@media (max-width: 767px) { .ruv-facts-cta-content { gap: 32px; } }
+.ruv-facts-cta-header { display: flex; flex-direction: column; gap: 32px; align-items: flex-start; width: 100%; }
+@media (max-width: 767px) { .ruv-facts-cta-header { gap: 24px; } }
+.ruv-facts-cta-heading { font-family: var(--font-secondary); font-size: 32px; line-height: 1; color: var(--colors--light-100); text-align: center; letter-spacing: -.64px; width: 100%; margin: 0; white-space: pre-wrap; }
+@media (max-width: 767px) { .ruv-facts-cta-heading { font-size: var(--fonts-sizes--text-2xl); letter-spacing: -.48px; } }
+.ruv-facts-cta-stats { display: flex; gap: 24px; width: 100%; height: 130px; justify-content: center; }
+@media (max-width: 767px) { .ruv-facts-cta-stats { flex-direction: column; height: auto; gap: 16px; } }
+.ruv-facts-cta-stat-card { flex: 1 0; background: rgba(84,137,93,.16); box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; align-items: center; justify-content: center; padding: 16px 24px; height: 100%; }
+@media (max-width: 767px) { .ruv-facts-cta-stat-card { height: auto; min-height: 100px; } }
+.ruv-facts-cta-stat-value { font-family: var(--font-primary); font-size: 40px; line-height: 1.5; color: var(--colors--light-100); margin: 0; text-align: center; }
+@media (max-width: 767px) { .ruv-facts-cta-stat-value { font-size: 32px; } }
+.ruv-facts-cta-stat-label { font-family: var(--font-mono); font-size: var(--fonts-sizes--text-xs); line-height: normal; color: var(--colors--light-300); text-transform: uppercase; margin: 0; text-align: center; }
+.ruv-facts-cta-companies { position: relative; width: 100%; height: 72px; }
+@media (max-width: 767px) { .ruv-facts-cta-companies { height: auto; min-height: 72px; } }
+.ruv-facts-cta-companies-label { position: absolute; top: 6px; left: 50%; transform: translateX(-50%) translateY(-50%); font-family: var(--font-mono); font-size: var(--fonts-sizes--text-xs); line-height: 0; color: var(--colors--light-300); text-transform: uppercase; white-space: pre-wrap; margin: 0; width: 159px; text-align: center; }
+@media (max-width: 767px) { .ruv-facts-cta-companies-label { position: static; transform: none; margin-bottom: 12px; width: 100%; } }
+.ruv-facts-cta-companies-list { position: absolute; top: 12px; left: 0; display: flex; gap: 8px; align-items: center; justify-content: center; width: 100%; scrollbar-width: none; -ms-overflow-style: none; }
+.ruv-facts-cta-companies-list::-webkit-scrollbar { display: none; }
+@media (max-width: 767px) { .ruv-facts-cta-companies-list { position: static; margin-top: 12px; } }
+@media (max-width: 767px) { .ruv-facts-cta-companies-list :nth-child(n+4) { display: none; } }
+.ruv-facts-cta-company-logo { box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; align-items: center; justify-content: center; height: 60px; padding: 0 8px; }
+.ruv-facts-cta-company-logo-img { height: 100%; width: auto; max-width: 100px; object-fit: contain; filter: brightness(0) saturate(100%) invert(92%) sepia(8%) saturate(400%) hue-rotate(40deg) brightness(98%) contrast(88%); }
+.ruv-facts-cta-button-wrapper { position: relative; }
+.ruv-facts-cta-button-wrapper:after { content: ""; position: absolute; inset: -.5px; pointer-events: none; box-shadow: inset 0 0 0 1px var(--colors--green); border-radius: 5px; }
+@media (max-width: 767px) { .ruv-facts-cta-button-wrapper, .ruv-facts-cta-button-wrapper .ruv-facts-cta-button { width: 100%; } }
+
+/* ---------- J. Cost comparison calculator ---------- */
+.cost-comparision-calculator { position: relative; width: 100%; padding: 100px 40px; border-bottom: var(--border-line-width) solid var(--colors--light-300); border-top: var(--border-line-width) solid var(--colors--light-300); box-sizing: border-box; }
+@media (max-width: 991px) { .cost-comparision-calculator { padding: 32px 24px; } }
+@media (max-width: 767px) { .cost-comparision-calculator { padding: 24px 16px; } }
+.cost-comparision-calculator-content { display: flex; flex-direction: column; gap: 40px; max-width: 100%; }
+.cost-comparision-calculator-header { display: flex; flex-direction: column; gap: 21px; max-width: 550px; }
+.cost-comparision-calculator-title { font-family: var(--font-secondary); font-size: 54px; font-weight: 500; line-height: 1; letter-spacing: -1.08px; color: var(--colors--light-100); margin: 0; }
+@media (max-width: 991px) { .cost-comparision-calculator-title { font-size: 42px; letter-spacing: -.84px; } }
+@media (max-width: 767px) { .cost-comparision-calculator-title { font-size: 32px; letter-spacing: -.64px; } }
+.cost-comparision-calculator-description { font-family: var(--font-primary); font-size: 14px; line-height: 1.5; color: var(--colors--light-200); margin: 0; }
+.cost-comparision-calculator-inputs { display: flex; gap: 16px; width: 100%; }
+@media (max-width: 767px) { .cost-comparision-calculator-inputs { flex-direction: column; } }
+.cost-comparision-calculator-input-group { display: flex; flex-direction: column; gap: 8px; flex: 1 0; min-width: 0; }
+@media (max-width: 767px) { .cost-comparision-calculator-input-group:nth-child(4) { display: none; } }
+.cost-comparision-calculator-label { color: var(--colors--light-200); margin: 0; }
+.cost-comparision-calculator-input, .cost-comparision-calculator-label { font-family: var(--font-primary); font-size: 14px; line-height: 1.5; }
+.cost-comparision-calculator-input { width: 100%; padding: 12px 16px; border: var(--border-line-width) solid rgba(228,234,200,.24); border-radius: 4px; background: rgba(0,0,0,0); color: rgba(209,219,185,.64); box-sizing: border-box; transition: border-color .2s ease; }
+.cost-comparision-calculator-input:focus { outline: none; border-color: var(--colors--light-300); color: var(--colors--light-100); }
+.cost-comparision-calculator-input::placeholder { color: rgba(209,219,185,.64); }
+.cost-comparision-calculator-advanced { display: flex; flex-direction: column; gap: 16px; width: 100%; }
+.cost-comparision-calculator-advanced-header { display: flex; align-items: flex-start; justify-content: space-between; width: 100%; gap: 16px; }
+@media (max-width: 767px) { .cost-comparision-calculator-advanced-header { flex-direction: column; gap: 12px; } }
+.cost-comparision-calculator-advanced-title-wrapper { display: flex; flex-direction: column; gap: 16px; max-width: 550px; }
+.cost-comparision-calculator-advanced-title { font-family: var(--font-secondary); font-size: 32px; font-weight: 500; line-height: 1; letter-spacing: -.64px; color: var(--colors--light-100); margin: 0; }
+@media (max-width: 767px) { .cost-comparision-calculator-advanced-title { font-size: 24px; letter-spacing: -.48px; } }
+.cost-comparision-calculator-advanced-description { font-family: var(--font-primary); font-size: 14px; line-height: 1.5; color: var(--colors--light-200); margin: 0; }
+.cost-comparision-calculator-toggle { position: relative; width: 51px; height: 31px; border-radius: 16px; border: none; background: rgba(84,137,93,.24); cursor: pointer; padding: 0; flex-shrink: 0; transition: background-color .2s ease; }
+.cost-comparision-calculator-toggle-active { background: rgba(84,137,93,.24); }
+.cost-comparision-calculator-toggle-knob { position: absolute; top: 2px; left: 2px; width: 27px; height: 27px; background: #54895d; border-radius: 16px; box-shadow: 0 3px 7px 0 rgba(0,0,0,.12); transition: transform .2s ease; }
+.cost-comparision-calculator-toggle-active .cost-comparision-calculator-toggle-knob { transform: translateX(20px); }
+.cost-comparision-calculator-advanced-content { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+.cost-comparision-calculator-scenario-row { display: flex; gap: 16px; align-items: flex-start; width: 100%; }
+@media (max-width: 767px) { .cost-comparision-calculator-scenario-row { flex-direction: column; align-items: stretch; } }
+.cost-comparision-calculator-scenario-row-primary { padding-top: 24px; border-top: var(--border-line-width) solid rgba(228,234,200,.24); }
+.cost-comparision-calculator-scenario-group { display: flex; flex-direction: column; gap: 8px; flex: 1 0; min-width: 0; }
+.cost-comparision-calculator-scenario-description { font-family: var(--font-primary); font-size: 12px; line-height: 1.5; color: rgba(209,219,185,.64); margin: 0; }
+.cost-comparision-calculator-dropdown-wrapper { position: relative; width: 100%; }
+.cost-comparision-calculator-dropdown-trigger { display: flex; align-items: center; gap: 10px; width: 100%; padding: 12px 16px; border: var(--border-line-width) solid rgba(228,234,200,.24); border-radius: 4px; background: rgba(0,0,0,0); cursor: pointer; box-sizing: border-box; transition: border-color .2s ease; }
+.cost-comparision-calculator-dropdown-trigger:hover { border-color: var(--colors--light-300); }
+.cost-comparision-calculator-dropdown-trigger:focus { outline: none; border-color: var(--colors--light-300); }
+.cost-comparision-calculator-dropdown-trigger-open .cost-comparision-calculator-dropdown-arrow { transform: rotate(180deg); }
+.cost-comparision-calculator-dropdown-value { flex: 1 0; font-family: var(--font-primary); font-size: 14px; line-height: 1.5; color: rgba(209,219,185,.64); text-align: left; }
+.cost-comparision-calculator-dropdown-arrow { display: flex; align-items: center; justify-content: center; width: 20px; height: 20px; flex-shrink: 0; color: rgba(209,219,185,.64); transition: transform .2s ease; }
+.cost-comparision-calculator-dropdown-menu { position: absolute; top: calc(100% + 4px); left: 0; right: 0; background: rgba(41,93,50,.95); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: var(--border-line-width) solid var(--colors--light-300); border-radius: 4px; box-shadow: 0 4px 24px rgba(0,0,0,.12); z-index: 100; overflow: hidden; display: flex; flex-direction: column; }
+.cost-comparision-calculator-dropdown-item { padding: 12px 16px; border: none; background: rgba(0,0,0,0); font-family: var(--font-primary); font-size: 14px; line-height: 1.5; color: var(--colors--light-100); text-align: left; cursor: pointer; transition: background-color .2s ease; }
+.cost-comparision-calculator-dropdown-item:hover { background: rgba(255,255,255,.1); }
+.cost-comparision-calculator-dropdown-item-active { background: rgba(255,255,255,.15); }
+.cost-comparision-calculator-actions { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; padding-top: 29px; margin-top: 5px; }
+@media (max-width: 767px) { .cost-comparision-calculator-actions { flex-direction: column; width: 100%; padding-top: 0; } }
+@media (max-width: 767px) { .cost-comparision-calculator-actions .button-wrapper, .cost-comparision-calculator-actions .button-wrapper button { width: 100%; } }
+/* Appendix Z's `.cost-comparision-calculator-{calculate,reset}-button .button(-wrapper)` rules (height 32, min-width 120)
+   are omitted: on the original the class sits on the <button> itself, so those descendant selectors never match
+   (measured 112.8x38 / 84x38). Here the Button component puts className on its wrapper, so they WOULD match. */
+.cost-comparision-calculator-advanced-grid { display: grid; width: 100%; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-top: 16px; }
+@media (max-width: 991px) { .cost-comparision-calculator-advanced-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 767px) { .cost-comparision-calculator-advanced-grid { grid-template-columns: 1fr; } }
+.cost-comparision-calculator-results { box-sizing: border-box; display: flex; flex-direction: column; gap: 0; width: 100%; padding: 32px; border: var(--border-line-width) solid rgba(228,234,200,.24); border-radius: 12px; background: rgba(41,93,50,.32); box-shadow: 0 20px 40px rgba(0,0,0,.16); }
+@media (max-width: 767px) { .cost-comparision-calculator-results { padding: 24px 16px; } }
+.cost-comparision-calculator-results-table-header { display: grid; grid-template-columns: minmax(0,1fr) minmax(320px,1fr); width: 100%; height: 80px; align-items: center; border-bottom: var(--border-line-width) solid rgba(228,234,200,.24); gap: 16px; }
+@media (max-width: 991px) { .cost-comparision-calculator-results-table-header { grid-template-columns: 1fr; height: auto; } }
+.cost-comparision-calculator-results-table-header-values { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; font-family: var(--font-primary); font-size: 12px; text-transform: uppercase; letter-spacing: .48px; color: rgba(209,219,185,.72); text-align: center; align-items: center; justify-content: center; height: 100%; }
+.cost-comparision-calculator-results-table-header-values span { display: inline-flex; align-items: center; justify-content: center; height: 100%; }
+.cost-comparision-calculator-results-table-header-values span:last-child { background: rgba(255,255,255,.05); border-radius: 8px 8px 0 0; }
+@media (max-width: 991px) { .cost-comparision-calculator-results-table-header-values { display: none; } }
+.cost-comparision-calculator-results-table { display: flex; flex-direction: column; width: 100%; }
+.cost-comparision-calculator-results-row { display: grid; grid-template-columns: minmax(0,1fr) minmax(320px,1fr); gap: 16px; height: 80px; align-items: center; border-bottom: var(--border-line-width) solid rgba(228,234,200,.12); }
+@media (max-width: 991px) { .cost-comparision-calculator-results-row { grid-template-columns: 1fr; height: auto; padding: 20px 0; } }
+.cost-comparision-calculator-results-row-highlight { border-bottom-color: rgba(228,234,200,.32); }
+.cost-comparision-calculator-results-row-info { display: flex; flex-direction: column; gap: 4px; }
+.cost-comparision-calculator-results-row-title { font-family: var(--font-secondary); font-size: 18px; font-weight: 500; line-height: 1.2; color: var(--colors--light-100); margin: 0; }
+.cost-comparision-calculator-results-row-helper { font-family: var(--font-primary); font-size: 13px; line-height: 1.4; color: rgba(209,219,185,.64); margin: 0; }
+.cost-comparision-calculator-results-values { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; height: 100%; }
+@media (max-width: 991px) { .cost-comparision-calculator-results-values { grid-template-columns: 1fr; border-top: var(--border-line-width) solid rgba(228,234,200,.12); padding-top: 16px; height: auto; } }
+.cost-comparision-calculator-results-value { display: flex; flex-direction: column; gap: 4px; align-items: center; justify-content: center; text-align: center; height: 100%; padding: 0 8px; }
+@media (max-width: 767px) { .cost-comparision-calculator-results-value { background: rgba(0,0,0,0); padding: 0; align-items: flex-start; justify-content: flex-start; text-align: left; gap: 2px; } }
+.cost-comparision-calculator-results-value-savings { background: rgba(255,255,255,.05); }
+@media (max-width: 767px) { .cost-comparision-calculator-results-value-savings { background: rgba(0,0,0,0); } }
+.cost-comparision-calculator-results-value-label { font-family: var(--font-primary); font-size: 12px; text-transform: uppercase; letter-spacing: .48px; color: rgba(209,219,185,.72); }
+@media (min-width: 992px) { .cost-comparision-calculator-results-value-label { display: none; } }
+.cost-comparision-calculator-results-value-amount { font-family: var(--font-secondary); font-size: 18px; font-weight: 500; color: var(--colors--light-100); }
+@media (max-width: 767px) { .cost-comparision-calculator-results-value-amount { font-size: 16px; } }
+.cost-comparision-calculator-results-row-highlight .cost-comparision-calculator-results-value-amount { font-size: 32px; letter-spacing: -.64px; }
+@media (max-width: 767px) { .cost-comparision-calculator-results-row-highlight .cost-comparision-calculator-results-value-amount { font-size: 24px; } }
+.cost-comparision-calculator-terms { max-width: 720px; scroll-margin-top: 96px; font-family: var(--font-primary); font-size: 12px; line-height: 1.5; color: rgba(209,219,185,.64); margin: -16px 0 0; }
+@media (max-width: 767px) { .cost-comparision-calculator-terms { margin-top: -8px; } }
+/* the original has no Tailwind preflight: the † keeps the UA sup (font-size smaller → 10px, vertical-align super), which grows the first line */
+.cost-comparision-calculator-terms sup { font-size: 10px; vertical-align: super; line-height: normal; position: static; }
+
+/* ---------- K. Calculator hero ---------- */
+.ruv-calculator-hero { box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%; padding: 104px 40px 88px; text-align: center; }
+@media (max-width: 991px) { .ruv-calculator-hero { padding: 80px 24px 64px; } }
+@media (max-width: 767px) { .ruv-calculator-hero { align-items: flex-start; padding: 56px 16px 48px; text-align: left; } }
+.ruv-calculator-hero-eyebrow { font-family: var(--font-primary); font-size: var(--fonts-sizes--text-sm); line-height: 1.5; color: var(--colors--light-300); margin: 0; }
+.ruv-calculator-hero-title { max-width: 840px; font-family: var(--font-secondary); font-size: 72px; font-weight: 500; line-height: .95; color: var(--colors--light-100); margin: 0; }
+@media (max-width: 991px) { .ruv-calculator-hero-title { font-size: 54px; } }
+@media (max-width: 767px) { .ruv-calculator-hero-title { font-size: var(--fonts-sizes--text-4xl); } }
+.ruv-calculator-hero-description { max-width: 720px; font-family: var(--font-primary); font-size: var(--fonts-sizes--text-lg); line-height: 1.55; color: var(--colors--light-200); margin: 0; }
+.ruv-calculator-hero-description a { color: var(--colors--light-100); text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 767px) { .ruv-calculator-hero-description { font-size: var(--fonts-sizes--text-base); } }
+
+/* ---------- B/L. Stories grid ---------- */
+.grid-item-border { border: .5px solid var(--colors--light-300); border-right: none; margin-bottom: -.5px; margin-left: -.5px; }
+.stories-grid .container { border-top: none; }
+@media (max-width: 767px) { .stories-grid .container { padding: 0; } }
+.stories-grid .stories { display: grid; grid-template-columns: repeat(4,1fr); grid-template-rows: repeat(2,1fr); gap: 0; }
+@media (max-width: 1024px) { .stories-grid .stories { grid-template-columns: repeat(2,1fr); grid-template-rows: repeat(1,1fr); padding: 0; } }
+.stories-grid .story-card { box-sizing: border-box; padding: 32px; position: relative; min-height: 400px; border-top: none; }
+@media (max-width: 1024px) { .stories-grid .story-card { padding: 16px; min-height: 320px; } }
+.stories-grid .story-card .logo { max-height: 32px; max-width: 100%; }
+@media (max-width: 767px) { .stories-grid .story-card .logo { max-height: 24px; } }
+.stories-grid .story-card .logo svg { width: auto; height: 100%; max-width: 100%; }
+/* measured logo boxes are 32 tall (24 at ≤767); give .logo that height so the svg's height:100% resolves */
+.stories-grid .story-card .logo { height: 32px; }
+@media (max-width: 767px) { .stories-grid .story-card .logo { height: 24px; } }
+.stories-grid .story-card .content { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; gap: 24px; }
+@media (max-width: 767px) { .stories-grid .story-card .content { gap: 16px; } }
+.stories-grid .story-card .quote { margin-top: auto; width: 100%; color: var(--Light-100, #e4eac8); font-size: var(--fonts-sizes--text-2xl); font-weight: 400; line-height: 1.2; word-wrap: break-word; padding-top: 24px; }
+@media (max-width: 767px) { .stories-grid .story-card .quote { font-size: var(--fonts-sizes--text-xl); } }
+.stories-grid .story-card.sm .quote { font-size: var(--fonts-sizes--text-xl); }
+@media (max-width: 767px) { .stories-grid .story-card.sm .quote { font-size: var(--fonts-sizes--text-sm); } }
+@media (max-width: 767px) { .stories-grid .story-card.sm .author { font-size: var(--fonts-sizes--text-xs); } }
+.stories-grid .story-card .author { width: 100%; color: var(--colors--light-200); font-size: var(--fonts-sizes--text-sm); font-weight: 400; word-wrap: break-word; }
+section.stories-grid.how-to-raise-testimonials .container { border-top: var(--border-line-width) solid var(--colors--light-300); border-bottom: var(--border-line-width) solid var(--colors--light-300); }
+section.stories-grid.how-to-raise-testimonials .stories { grid-template-rows: repeat(1,1fr); border-top: var(--border-line-width) solid var(--colors--light-300); }
+section.stories-grid.how-to-raise-testimonials .story-card { min-height: 360px; }
+@media (max-width: 1024px) { section.stories-grid.how-to-raise-testimonials .story-card { min-height: 320px; } }
+@media (max-width: 767px) { section.stories-grid.how-to-raise-testimonials .story-card { min-height: 280px; } }
+.ruv-testimonials-grid-footer { box-sizing: border-box; display: flex; align-items: center; justify-content: flex-end; width: 100%; padding: 24px 32px; border-top: var(--border-line-width) solid var(--colors--light-300); }
+.ruv-testimonials-grid-footer .button-wrapper { margin-left: auto; }
+@media (max-width: 767px) { .ruv-testimonials-grid-footer { justify-content: stretch; padding: 20px 16px; } }
+@media (max-width: 767px) { .ruv-testimonials-grid-footer .button, .ruv-testimonials-grid-footer .button-wrapper { width: 100%; } }
+/* the original's inner <button> carries .ruv-facts-cta-button; our Button can't class its inner element, so target .button */
+@media (max-width: 767px) { .ruv-facts-cta-button-wrapper .button { width: 100%; } }

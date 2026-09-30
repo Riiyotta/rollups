@@ -1,0 +1,14 @@
+{
+  "id": "section.stories.grid",
+  "type": "section",
+  "category": "social-proof",
+  "description": "Customer-quote grid with real partner logos. Shared by /how-to-raise-capital and /ruv/calculator (identical component, StoriesGrid.jsx). The 'Read more customer stories' link on the calculator page targets /customers, one of the two deliberate dummy Placeholder routes.",
+  "measuredFrom": "src/components/calculator/StoriesGrid.jsx",
+  "content": {
+    "stories": { "type": "array", "minItems": 2, "maxItems": 6, "items": { "logo": "assetRef (assetRole: company-logo)", "quote": "string maxWords:50", "author": "string maxWords:10" } },
+    "moreLink": { "type": "object", "fields": { "label": "string maxWords:5", "href": "string" }, "required": false },
+    "additionalProperties": false
+  },
+  "constraints": { "maxPerPage": 1, "scopedTo": ["template.comparison-guide", "template.calculator-tool"] },
+  "motion": { "reveal": "none", "reducedMotionFallback": "n/a — section has no motion to disable" }
+}

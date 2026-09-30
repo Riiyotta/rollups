@@ -1,0 +1,15 @@
+{
+  "id": "section.hero.calculator",
+  "type": "section",
+  "category": "hero",
+  "description": "RuvCalculator-page-only minimal hero: eyebrow, title, one-paragraph description with an inline link. No reveal animation classes at all — page-fade-in only.",
+  "measuredFrom": "src/pages/RuvCalculator.jsx (CalculatorHero function)",
+  "content": {
+    "eyebrow": { "type": "string", "maxWords": 2, "required": true },
+    "title": { "type": "string", "maxWords": 8, "required": true },
+    "description": { "type": "string", "maxWords": 40, "required": true },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "mustBeFirst": true, "mustFollowNav": true },
+  "motion": { "reveal": "none (page-fade-in only)", "reducedMotionFallback": "no additional fallback needed — this section has no scroll-reveal to disable" }
+}

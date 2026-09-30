@@ -1,0 +1,16 @@
+{
+  "id": "section.how-to-raise.steps",
+  "type": "section",
+  "category": "content",
+  "description": "HowToRaiseCapital-page-only scroll-synced step showcase (same IntersectionObserver current-card pattern as section.inaction.showcase, under how-to-raise-* class names, no heading).",
+  "measuredFrom": "src/components/raise/HowToRaiseSection.jsx, src/components/raise/raiseCards.js",
+  "content": {
+    "cards": { "type": "array", "minItems": 2, "maxItems": 6, "items": { "title": "string maxWords:8", "description": "string maxWords:30" } },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "scopedTo": "template.comparison-guide" },
+  "motion": {
+    "scrollSync": "same pattern as section.inaction.showcase.motion.scrollSync, plus GSAP ScrollToPlugin click-to-scroll on the sidebar",
+    "reducedMotionFallback": "renders first card as current with no scroll-driven re-selection; sidebar click jumps instantly with no smooth-scroll tween"
+  }
+}

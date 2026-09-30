@@ -1,0 +1,15 @@
+{
+  "id": "section.waitlist.trust",
+  "type": "section",
+  "category": "social-proof",
+  "description": "Waitlist-page-only trust band reusing the homepage hero's 5 trusted-logo set. Logo row is not scroll-revealed.",
+  "measuredFrom": "src/components/waitlist/WaitlistTrust.jsx",
+  "content": {
+    "eyebrow": { "type": "string", "maxWords": 2, "required": true },
+    "heading": { "type": "string", "maxWords": 12, "required": true },
+    "logos": { "type": "array", "maxItems": 5, "items": { "type": "assetRef", "assetRole": "trusted-by-logo" } },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "scopedTo": "template.waitlist-landing" },
+  "motion": { "reveal": "heading/eyebrow only (motion.patterns.scroll-reveal-fade-blur); logo row is excluded", "reducedMotionFallback": "motion.patterns.scroll-reveal-fade-blur.reducedMotionFallback" }
+}

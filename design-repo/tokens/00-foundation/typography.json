@@ -1,0 +1,41 @@
+{
+  "$description": "Type scale and font stacks. All sizes cited from src/index.css :root and the .heading/.text-* utility classes.",
+  "measuredFrom": "src/index.css:16-18 (size scale vars), src/index.css:66-91 (.heading/.text-* rules)",
+  "fontFamilies": {
+    "primary": { "value": "SuisseIntl, 'SuisseIntl Fallback', system-ui, arial", "measuredFrom": "src/index.css:23", "usage": "body copy, .text-reg, .text-link, .text-book" },
+    "secondary": { "value": "PpNeueCorp, 'PpNeueCorp Fallback', system-ui, arial", "measuredFrom": "src/index.css:24", "usage": ".heading (all display headings h1/h2)" },
+    "mono": { "value": "AbcFavoritMono, 'AbcFavoritMono Fallback', monospace, system-ui", "measuredFrom": "src/index.css:25", "usage": "buttons, .text-reg-mono, uppercase labels, LEARN MORE links" }
+  },
+  "sizeScale": {
+    "text-5xl": { "value": "3.375rem", "px": 54, "measuredFrom": "src/index.css:16" },
+    "text-4xl": { "value": "2.25rem", "px": 36, "measuredFrom": "src/index.css:16" },
+    "text-3xl": { "value": "1.875rem", "px": 30, "measuredFrom": "src/index.css:16" },
+    "text-2xl": { "value": "1.5rem", "px": 24, "measuredFrom": "src/index.css:17" },
+    "text-xl": { "value": "1.25rem", "px": 20, "measuredFrom": "src/index.css:17" },
+    "text-lg": { "value": "1.125rem", "px": 18, "measuredFrom": "src/index.css:17" },
+    "text-base": { "value": "1rem", "px": 16, "measuredFrom": "src/index.css:18" },
+    "text-sm": { "value": ".875rem", "px": 14, "measuredFrom": "src/index.css:18" },
+    "text-xs": { "value": ".75rem", "px": 12, "measuredFrom": "src/index.css:18" }
+  },
+  "weights": {
+    "regular": 400,
+    "medium-450": { "value": 450, "measuredFrom": "src/index.css:8 (SuisseIntl variable-weight face 450 500), .text-450 utility", "note": "distinct real weight between regular and medium, not a rounding artifact" },
+    "medium-500": 500
+  },
+  "styles": {
+    "heading": {
+      "fontFamily": "secondary",
+      "fontSize": "54px (desktop) / 36px (<=991px) / 30px (<=767px)",
+      "lineHeight": "100%",
+      "fontWeight": 500,
+      "letterSpacing": "-1.08px (desktop) / -.72px (<=767px)",
+      "measuredFrom": "src/index.css:66-68"
+    },
+    "text-reg": { "fontFamily": "primary", "fontSize": "14px", "lineHeight": "150%", "fontWeight": 400, "measuredFrom": "src/index.css:69" },
+    "text-reg-small": { "fontSize": "12px", "lineHeight": "140%", "measuredFrom": "src/index.css:70" },
+    "text-reg-big": { "fontSize": "24px (desktop) / 16px (<=991px)", "lineHeight": "normal", "measuredFrom": "src/index.css:73-75" },
+    "text-book": { "fontFamily": "primary", "fontSize": "18px", "lineHeight": "100%", "fontWeight": 500, "letterSpacing": "-.36px", "measuredFrom": "src/index.css:76" },
+    "text-reg-mono": { "fontFamily": "mono", "fontSize": "12px", "lineHeight": "100%", "fontWeight": 400, "measuredFrom": "src/index.css:81", "usage": "button labels, allcaps eyebrow labels" },
+    "text-link": { "fontFamily": "primary", "fontSize": "14px", "measuredFrom": "src/index.css:83" }
+  }
+}

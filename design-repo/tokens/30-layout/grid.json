@@ -1,0 +1,19 @@
+{
+  "$description": "Layout/grid tokens for the shared .container and .heading-wrapper primitives used by every section.",
+  "measuredFrom": "src/index.css:58-71",
+  "container": {
+    "marginDesktop": "0 40px",
+    "marginTablet": "0 24px (<=991px)",
+    "marginMobile": "0 16px (<=767px)",
+    "maxWidthDefault": "1280px",
+    "maxWidthMidWide": "calc(100% - 80px) (1360-1599px)",
+    "maxWidthWide": "1520px, centered (>=1600px)",
+    "border": "border.default on left and right edges"
+  },
+  "headingWrapper": {
+    "display": "flex column",
+    "gap": "spacing.md (16px)",
+    "padding": "80px 0 40px (desktop) / 0 padding-top removed (<=991px)",
+    "variants": ["default (left-aligned)", "centered", "with-padding (adds 30px/20px/10px horizontal at each breakpoint)"]
+  }
+}

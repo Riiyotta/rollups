@@ -1,0 +1,69 @@
+{
+  "$description": "Closed assetRole enum wired through schema, allowlist, and example. Every role carries explicit AI-generation guidance. The source project approximates a real company (Rollups / AngelList) — company-logo, trusted-by-logo, and testimonial-author-photo roles reference REAL third-party logos and REAL people's photos and are pinned to must-reuse-exact-or-omit, never AI-regenerate/fabricate, per BUILD-GUIDE.md 2.2 and MASTER-GUIDE.md 3.5/3.23.",
+  "measuredFrom": "ASSET_MANIFEST.md, ASSET_MANIFEST_PRODUCTS.md, ASSET_MANIFEST_CONTENT.md, src/components/Companies.jsx (PAIRS), grep of real JSX asset usage sites",
+  "generationPolicyEnum": ["may-generate-new", "must-reuse-exact", "must-reuse-exact-or-omit", "must-not-fabricate"],
+  "roles": {
+    "brand-logo": {
+      "generationPolicy": "must-reuse-exact",
+      "description": "Rollups' own wordmark/logo SVG.",
+      "measuredFrom": "public/svg/logo-rollups.svg, src/components/Navbar.jsx"
+    },
+    "company-logo": {
+      "generationPolicy": "must-reuse-exact-or-omit",
+      "pinnedValueNote": "This role's generationPolicy is a compliance-critical pinned value, not just a member of the closed enum — see compatibility/graph.json REAL_LOGO_NO_FABRICATION and extraction/verify_all.py's pinned-role check. A drift check must reject this value being silently changed to 'may-generate-new' even though that value is otherwise valid enum membership.",
+      "description": "Real third-party investor/company/law-firm logos shown in the trusted-by and companies-grid sections (24 distinct logos across 12 pairs: basis, wispr, loveable, thinking, superlinked, boxcar, aescape, commonsclinic, privy, coverface, silna, function, amca, monad, 11x, roboflow, vance, socket, base, succinct, enam, verse, branch, plus 5 hero trusted-row logos: replit, Notion, Kit, BASE, Lovable). A generator may select FROM this real list and omit logos it doesn't have real assets for, but must never invent a new company name/logo.",
+      "measuredFrom": "src/components/Companies.jsx PAIRS array, src/components/waitlist/WaitlistTrust.jsx, ASSET_MANIFEST.md:76-80"
+    },
+    "trusted-by-logo": {
+      "generationPolicy": "must-reuse-exact-or-omit",
+      "description": "Subset of company-logo used specifically in hero/trust-band rows (replit, Notion, Kit, BASE, Lovable).",
+      "measuredFrom": "ASSET_MANIFEST.md:76-80, src/components/waitlist/WaitlistTrust.jsx"
+    },
+    "testimonial-author-photo": {
+      "generationPolicy": "must-reuse-exact-or-omit",
+      "pinnedValueNote": "Real named individuals' photos (e.g. marie-founder.png = Marie Schneegans). Same pinned-value guidance as company-logo — never AI-regenerate a person's likeness.",
+      "description": "Real headshot photos of named testimonial authors.",
+      "measuredFrom": "ASSET_MANIFEST.md:28 (marie-founder.png), src/pages/Ruv.jsx TESTIMONIALS array image fields"
+    },
+    "product-screenshot": {
+      "generationPolicy": "must-reuse-exact",
+      "description": "Real captured screenshots of the actual Rollups/SAFE app UI (investor experience, dashboard).",
+      "measuredFrom": "src/pages/Safe.jsx FlipCard (safe-software-demo.png, safe-software-demo-admin.png)"
+    },
+    "blog-cover-image": {
+      "generationPolicy": "must-reuse-exact-or-omit",
+      "description": "Per-article cover images. Real assets already exist for all 9 articles; a generator producing a NEW article not in the real 9 may generate-new only if explicitly instructed that this design-repo's blog-cover-image role permits it for net-new content — default is reuse the existing set or omit.",
+      "measuredFrom": "src/data/articles.js 'cover' field, ASSET_MANIFEST_CONTENT.md"
+    },
+    "product-illustration": {
+      "generationPolicy": "may-generate-new",
+      "description": "Generic product-tile illustrations (not real people/logos/screenshots) — safe to regenerate in-brand.",
+      "measuredFrom": "src/components/Products.jsx"
+    },
+    "use-case-illustration": {
+      "generationPolicy": "may-generate-new",
+      "description": "Generic use-case/step illustrations.",
+      "measuredFrom": "src/components/shared/UseCaseTabs.jsx, src/components/waitlist/HowItWorks.jsx"
+    },
+    "capability-modal-image": {
+      "generationPolicy": "may-generate-new",
+      "description": "Generic product-UI mockup images shown in the capability click-to-expand modal.",
+      "measuredFrom": "src/components/shared/Capabilities.jsx"
+    },
+    "motion-graphic-lottie": {
+      "generationPolicy": "must-not-fabricate",
+      "description": "Real, hand-authored Lottie JSON animation files (hero decorative motion, Consolidate scroll-scrubbed hero). These encode real, licensed motion design work — not a role an LLM should attempt to synthesize a new .json for.",
+      "measuredFrom": "src/pages/Consolidate.jsx (consolidate-hero.json), src/components/raise/RaiseHero.jsx (product-raise.json)"
+    },
+    "illustrative-diagram": {
+      "generationPolicy": "may-generate-new",
+      "description": "Generic before/after or conceptual SVG diagrams (e.g. cap-table-with-ruv.svg).",
+      "measuredFrom": "src/components/raise/CleanCapTable.jsx"
+    },
+    "decorative-illustration": {
+      "generationPolicy": "may-generate-new",
+      "description": "Generic footer illustration artwork with no real-world referent.",
+      "measuredFrom": "src/components/footer/FooterIllustration.jsx"
+    }
+  }
+}

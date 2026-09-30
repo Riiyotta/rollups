@@ -1,0 +1,18 @@
+/* Legal pages. Source: recon/pages/css/legal.css (CLONE_SPEC_CONTENT.md §5).
+   --page-padding-lg--top/bottom are 120px / 40px per the spec (not defined in index.css). */
+.container-policy { max-width: 550px; padding: 0 10px; margin: auto; }
+.container-policy-header { padding-top: 120px; padding-bottom: 40px; gap: 16px; display: flex; flex-direction: column; }
+.container-policy-content { padding-bottom: 24px; }
+/* preflight resets h2 weight; the original h2 keeps the UA bold (700) */
+.container-policy-content h2 { margin-bottom: 16px; font-weight: 700; line-height: 1.5; }
+.container-policy-content h2,
+.container-policy-content p { font-size: var(--fonts-sizes--text-sm); color: var(--colors--light-100); }
+.container-policy-content p { line-height: 1.5; margin-bottom: 24px; }
+.container-policy-content p.list-head { margin-bottom: 4px; }
+.container-policy-content p a { text-decoration: underline; transition: color .18s ease-in-out; color: var(--colors--light-300); }
+.container-policy-content p a:hover { color: var(--colors--light-100); }
+.container-policy-content ul {
+  color: var(--colors--light-100); font-size: var(--fonts-sizes--text-sm); line-height: 1.5; margin-bottom: 24px;
+  list-style: disc; margin-left: 16px; padding-left: 6px;
+}
+.container-policy-content ul li { margin-bottom: 0; }

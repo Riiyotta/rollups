@@ -1,0 +1,14 @@
+{
+  "id": "section.waitlist.capabilities",
+  "type": "section",
+  "category": "content",
+  "description": "Waitlist-page-only simplified capability grid (no image-modal support, unlike section.capabilities.grid).",
+  "measuredFrom": "src/components/waitlist/Capabilities.jsx",
+  "content": {
+    "heading": { "type": "string", "maxWords": 4, "default": "Capabilities" },
+    "items": { "type": "array", "minItems": 3, "maxItems": 8, "items": { "title": "string maxWords:8", "text": "string maxWords:25" } },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "scopedTo": "template.waitlist-landing" },
+  "motion": { "reveal": "motion.patterns.scroll-reveal-fade-blur", "reducedMotionFallback": "motion.patterns.scroll-reveal-fade-blur.reducedMotionFallback" }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "section.contact.form",
+  "type": "section",
+  "category": "conversion",
+  "description": "ContactUs-page-only full-page form + 'what to expect' sidebar. No scroll reveal on this page — content is static after page-fade-in.",
+  "measuredFrom": "src/pages/ContactUs.jsx, src/components/contact/ContactForm.jsx",
+  "content": {
+    "title": { "type": "string", "maxWords": 4, "required": true },
+    "intro": { "type": "string", "maxWords": 25, "required": true },
+    "expectItems": { "type": "array", "minItems": 3, "maxItems": 6, "items": "string maxWords:15" },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "mustBeFirst": true, "mustFollowNav": true, "scopedTo": "template.contact-form" },
+  "motion": { "reveal": "none (static after page-fade-in)", "reducedMotionFallback": "n/a — section has no motion to disable" }
+}

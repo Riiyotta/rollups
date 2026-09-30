@@ -1,0 +1,19 @@
+{
+  "id": "section.shell.footer",
+  "type": "section",
+  "category": "shell",
+  "description": "Site-wide footer: marquee CTA band, per-page AI-summary prompt link, sitemap columns, social icons, illustration.",
+  "measuredFrom": "src/components/Footer.jsx, src/components/footer/FooterIllustration.jsx",
+  "content": {
+    "marqueeText": { "type": "string", "maxWords": 8 },
+    "sitemapColumns": { "type": "array", "maxItems": 4 },
+    "socialLinks": { "type": "array", "items": { "icon": "enum: x|chatgpt|claude", "href": "string" } },
+    "illustration": { "type": "assetRef", "assetRole": "decorative-illustration", "required": false },
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "mustBeLast": true },
+  "motion": {
+    "illustrationDraw": "SVG path draws in on scroll via GSAP DrawSVGPlugin + ScrollTrigger",
+    "reducedMotionFallback": "illustration renders fully drawn/static, no DrawSVG animation"
+  }
+}

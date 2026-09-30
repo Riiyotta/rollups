@@ -1,0 +1,154 @@
+/* /contact-us (CLONE_SPEC_CONTENT.md §2). Rules ported from recon/pages/css/contact.css, scoped under
+   .contact-hero-section (all route CSS is bundled globally). Unused original rules (team photos, option
+   buttons, benefit icons, split rows) are omitted. */
+
+.contact-hero-section .text-500 { font-weight: 500; }
+
+/* ---------- Layout ---------- */
+.contact-hero-section .contact-hero-content {
+  display: grid; grid-template-columns: 1.6fr 1fr; gap: 0; align-items: flex-start; max-width: 1200px; margin: 0 auto;
+}
+.contact-hero-section .contact-main {
+  max-width: 700px; padding: 0 30px 30px;
+  border: var(--border-line-width) solid var(--colors--light-300); border-left: none; border-bottom: none; border-top: none;
+}
+.contact-hero-section .contact-main-title { margin: 0 0 2rem; }
+.contact-hero-section .contact-benefits { margin-bottom: 2.5rem; }
+.contact-hero-section .contact-benefit { display: flex; align-items: flex-start; gap: .75rem; margin: 0 0 1rem; }
+.contact-hero-section .contact-benefit:last-child { margin-bottom: 0; }
+
+.contact-hero-section .contact-sidebar { background: rgba(0, 0, 0, 0); padding: 0 30px 80px; border: none; align-self: flex-start; }
+.contact-hero-section .what-to-expect .what-to-expect-title { margin: 0 0 1.5rem; }
+.contact-hero-section .what-to-expect .expect-section { margin-bottom: 2.5rem; }
+.contact-hero-section .what-to-expect .expect-section:last-child { margin-bottom: 0; }
+.contact-hero-section .what-to-expect .expect-list { list-style: none; padding: 0; margin: 0; }
+.contact-hero-section .what-to-expect .expect-list li { margin-bottom: .75rem; padding-left: 1.5rem; position: relative; }
+.contact-hero-section .what-to-expect .expect-list li::before { content: "•"; color: var(--colors--light-300); position: absolute; left: 0; top: 0; }
+.contact-hero-section .what-to-expect .expect-list li:last-child { margin-bottom: 0; }
+
+/* ---------- Form ---------- */
+.contact-hero-section .contact-form-wrapper { width: 100%; max-width: 500px; box-sizing: border-box; }
+.contact-hero-section .contact-form { display: flex; flex-direction: column; gap: var(--spacing-lg); }
+.contact-hero-section .contact-form .form-row:nth-child(4) { margin-bottom: 1.25rem; }
+.contact-hero-section .form-row { display: flex; gap: var(--spacing-md); }
+.contact-hero-section .form-field { display: flex; flex-direction: column; gap: var(--spacing-xs); width: 100%; }
+.contact-hero-section .form-label { margin-bottom: .5rem; }
+.contact-hero-section .label-fadein { animation: fadeInLabel .5s ease; }
+@keyframes fadeInLabel { 0% { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.contact-hero-section .contact-form .form-row:nth-child(4) .form-label { margin-top: 1rem; }
+.contact-hero-section .required-asterisk { color: #ef4444; margin-left: .25rem; }
+
+.contact-hero-section .contact-form-input {
+  font-family: var(--font-primary); font-size: var(--fonts-sizes--text-sm); line-height: normal;
+  background-color: rgba(0, 0, 0, 0); padding: var(--spacing-sm) var(--spacing-md);
+  border: var(--border-line-width) solid var(--border-color); border-radius: 7px; height: 48px; box-sizing: border-box;
+  color: var(--colors--light-100); width: 100%; transition: border-color .2s ease, outline-color .2s ease;
+}
+.contact-hero-section .contact-form-input::placeholder { color: var(--colors--light-300); font-size: var(--fonts-sizes--text-sm); font-weight: 400; opacity: 1; }
+.contact-hero-section .contact-form-input:focus,
+.contact-hero-section .contact-form-input:focus-visible,
+.contact-hero-section .contact-form-input:focus-within {
+  outline: .5px solid var(--colors--light-300); outline-offset: 0; border-color: var(--colors--light-200); background-color: rgba(0, 0, 0, 0);
+}
+.contact-hero-section .contact-form-input:disabled { color: var(--colors--light-300); background-color: rgba(0, 0, 0, 0); opacity: .55; }
+.contact-hero-section .contact-form-input.error { border-color: #ef4444; }
+.contact-hero-section .contact-form-input.error:focus,
+.contact-hero-section .contact-form-input.error:focus-visible,
+.contact-hero-section .contact-form-input.error:focus-within {
+  outline: .5px solid #ef4444; outline-offset: 0; border-color: #ef4444; box-shadow: 0 0 0 2px rgba(239, 68, 68, .2);
+}
+.contact-hero-section .contact-form-input:-webkit-autofill,
+.contact-hero-section .contact-form-input:-webkit-autofill:active,
+.contact-hero-section .contact-form-input:-webkit-autofill:focus,
+.contact-hero-section .contact-form-input:-webkit-autofill:hover {
+  -webkit-box-shadow: inset 0 0 0 30px rgba(0, 0, 0, 0) !important;
+  -webkit-text-fill-color: var(--colors--light-100) !important;
+  background-color: rgba(0, 0, 0, 0) !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+.contact-hero-section .contact-form-input:autofill { background-color: rgba(0, 0, 0, 0) !important; color: var(--colors--light-100) !important; }
+
+/* ---------- Product interest multiselect ---------- */
+.contact-hero-section .contact-form-select {
+  cursor: pointer; -webkit-appearance: none; appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23989e7b' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right var(--spacing-md) center; padding-right: 40px;
+}
+.contact-hero-section .interest-multiselect { position: relative; z-index: 1; width: 100%; }
+.contact-hero-section .interest-multiselect--open { z-index: 10050; }
+/* font: inherit makes the trigger 16px/24px (larger than the 14px inputs), as measured */
+.contact-hero-section .interest-multiselect__trigger { display: flex; align-items: center; width: 100%; text-align: left; font: inherit; cursor: pointer; }
+.contact-hero-section .interest-multiselect__trigger.is-placeholder .interest-multiselect__value { color: var(--colors--light-300); }
+.contact-hero-section .interest-multiselect__value { flex: 1 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.contact-hero-section .interest-multiselect__panel {
+  position: absolute; left: 0; right: 0; top: calc(100% + var(--spacing-3xs)); z-index: 2;
+  padding: var(--spacing-2xs) 0; max-height: 220px; overflow-y: auto;
+  background: color-mix(in srgb, var(--colors--green) 72%, var(--colors--black));
+  border: var(--border-line-width) solid var(--border-color); border-radius: 7px;
+  box-shadow: 0 10px 28px color-mix(in srgb, var(--colors--black) 55%, transparent);
+}
+.contact-hero-section .interest-multiselect__option {
+  display: flex; align-items: center; gap: var(--spacing-sm); width: 100%; margin: 0;
+  padding: var(--spacing-2xs) var(--spacing-md); border: none; border-radius: 0; box-sizing: border-box;
+  font: inherit; text-align: left; cursor: pointer; background: rgba(0, 0, 0, 0); color: var(--colors--light-100);
+}
+.contact-hero-section .interest-multiselect__option:hover { background-color: rgba(228, 234, 200, .08); }
+.contact-hero-section .interest-multiselect__option:focus { outline: none; }
+.contact-hero-section .interest-multiselect__option:focus-visible { outline: 2px solid var(--colors--light-200); outline-offset: -2px; }
+.contact-hero-section .interest-multiselect__option-text { font-size: var(--fonts-sizes--text-sm); line-height: 1.3; }
+.contact-hero-section .interest-multiselect__checkbox-visual {
+  width: 16px; height: 16px; flex-shrink: 0; box-sizing: border-box;
+  border: 1px solid var(--colors--light-300); border-radius: 3px; background: rgba(0, 0, 0, 0);
+}
+.contact-hero-section .interest-multiselect__checkbox-visual[data-checked="true"] {
+  border-color: var(--colors--light-200); background-color: var(--colors--light-200);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--colors--green) 35%, transparent);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8' viewBox='0 0 10 8' fill='none'%3E%3Cpath d='M1 4L3.5 6.5L9 1' stroke='%231a310f' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: 50%;
+}
+
+/* ---------- Errors / submit ---------- */
+.contact-hero-section .contact-form .form-error { color: #ef4444; font-size: .8rem; margin-top: .25rem; display: block; }
+.contact-hero-section .contact-alternative-options { margin-top: 0; margin-bottom: .25rem; width: 100%; max-width: 500px; }
+.contact-hero-section .contact-secondary-button-wrapper { width: 100%; }
+.contact-hero-section .contact-secondary-button-wrapper .button { width: 100%; justify-content: center; }
+/* Button icon slot (SUBMITTING spinner / SUBMITTED check) replaces the hover arrow */
+.contact-hero-section .button-wrapper .button [slot="icon"] {
+  display: flex; align-items: center; justify-content: center; width: 16px; height: 16px; margin-left: 8px; margin-top: -2px;
+}
+.contact-hero-section .rotate-animation { animation: rotate 1s linear infinite; }
+@keyframes rotate { 0% { transform: rotate(0deg); } to { transform: rotate(1turn); } }
+
+.contact-hero-section .form-message-error { margin-top: 1rem; padding: .75rem; color: var(--colors--light-100); }
+.contact-hero-section .form-message-error .error-mailto-link {
+  color: var(--colors--light-100); text-decoration: underline; text-decoration-color: rgba(255, 255, 255, .5); transition: all .2s ease;
+}
+.contact-hero-section .form-message-error .error-mailto-link:hover { color: #fff; text-decoration-color: #fff; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1023px) {
+  .contact-hero-section .contact-hero-content { grid-template-columns: 1fr; gap: 0; }
+  .contact-hero-section .contact-main { border-right: none; padding: 0 20px 20px; }
+  .contact-hero-section .contact-sidebar { position: static; border-top: var(--border-line-width) solid var(--colors--light-300); padding: 30px 20px 20px; }
+}
+@media (max-width: 767px) {
+  .contact-hero-section .contact-form-wrapper { max-width: 100%; margin: 0; }
+  .contact-hero-section .contact-form-input { max-width: 100%; margin: 0; }
+  .contact-hero-section .form-label { align-self: flex-start; text-align: left; }
+  .contact-hero-section .contact-alternative-options { max-width: 100%; }
+
+  .contact-hero-section { display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; padding: 20px 0 0; }
+  .contact-hero-section .container.with-top-padding { padding-top: 20px; width: 100%; max-width: 100%; margin: 0; border: none; }
+  .contact-hero-section .contact-hero-content { justify-content: flex-start; padding: 0 10px; }
+  .contact-hero-section .contact-hero-content,
+  .contact-hero-section .contact-main {
+    display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 100%; margin: 0; box-sizing: border-box;
+  }
+  .contact-hero-section .contact-main { padding: 0 10px 20px; border: none; text-align: center; order: 1; }
+  .contact-hero-section .contact-main-title { text-align: left; margin-bottom: 2rem; width: 100%; }
+  .contact-hero-section .contact-benefits { text-align: left; margin-bottom: 2.5rem; width: 100%; }
+  .contact-hero-section .contact-sidebar {
+    padding: 30px 10px 80px; border: none; border-top: var(--border-line-width) solid var(--colors--light-300);
+    width: 100%; max-width: 100%; margin: 0; order: 3; box-sizing: border-box;
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "repositoryId": "rollups-marketing-design-repo",
+  "repositoryVersion": "1.0.0",
+  "pageSpecVersion": "1.0.0",
+  "versionFieldNote": "allowlistVersion (below) is the ONLY machine-checked version field — extraction/verify_all.py fails the run if it drifts from tokens/llm/component-allowlist.json's own allowlistVersion. repositoryVersion and pageSpecVersion are documentation-only, hand-maintained markers with nothing automatically checking them — do not treat them as an enforcement guarantee.",
+  "allowlistVersion": "1.0.0",
+  "status": "design-review-pending",
+  "productionApproved": false,
+  "defaultTheme": "light",
+  "schemaValidatedThemes": ["light"],
+  "sourceProject": {
+    "description": "Pixel-fidelity clone of https://rollups.com — React 18 + Vite + Tailwind CSS v3 + GSAP + lottie-web + react-router-dom + Lenis (Consolidate page only), built section-by-section against Playwright measurements of the live site.",
+    "note": "No absolute or relative filesystem path to the source project is recorded here — see extraction/measured-values.json's citation ledger for build-time evidence sourcing, which degrades gracefully when no sibling source tree is present."
+  },
+  "counts": {
+    "note": "Recomputed from disk by extraction/verify_all.py's recompute-and-compare check, not hand-bumped. If this block ever drifts from the real file counts, verify_all.py fails the run (proven via a scratch-copy drift-injection test).",
+    "foundationTokenFiles": 10,
+    "foundationTokenFilesNote": "10 includes tokens/00-foundation/color.signup.json — a documentation-only exception file for the structurally separate /get-started SignUp page, NOT wired into schema/compatibility/allowlist. 9 of the 10 are the enforced marketing-site foundation.",
+    "semanticTokenFiles": 3,
+    "componentTokenFiles": 2,
+    "layoutTokenFiles": 1,
+    "themeFiles": 1,
+    "primitives": 7,
+    "components": 9,
+    "sections": 38,
+    "templates": 12,
+    "realRoutesCoveredByTemplates": 15,
+    "realContentPages": 13,
+    "dummyStubPages": 2,
+    "separateAppPages": 1,
+    "totalMountedRoutes": 16,
+    "assetRoles": 12,
+    "compatibilityGraphRules": 10
+  },
+  "scopeNotes": {
+    "realContentPages": "13 = the routes with genuine cloned marketing content: /, /ruv, /ruv/calculator, /safe, /how-to-raise-capital, /consolidate, /waitlist, /contact-us, /blog, /blog/:slug (9 real slugs, one template), /privacy-policy, /terms-of-service, /disclosures.",
+    "dummyStubPages": "2 = /careers, /customers — deliberate dummy stops for internal-looking links that don't exist on the live rollups.com sitemap. See templates/templates.json template.placeholder-stub and extraction/measured-values.json.",
+    "separateAppPages": "1 = /get-started (alias /setup) — SignUp page, a structurally separate app clone (app.rollups.com), intentionally excluded from templates.json and the marketing-site token set. See tokens/00-foundation/color.signup.json and extraction/measured-values.json signupPageExclusion.",
+    "totalMountedRoutes": "16 = 13 real + 2 dummy + 1 separate-app, matching src/pages/routes.jsx (15 entries) + src/App.jsx's sibling /get-started route (the /setup path is an alias to the same SignUp component, not counted twice)."
+  },
+  "entryPoints": {
+    "note": "Every path below is relative to this design-repo's own root and exists inside the delivered package. No ../ paths.",
+    "readme": "README.md",
+    "changelog": "CHANGELOG.md",
+    "schema": "schema/pagespec.schema.json",
+    "exampleInstance": "schema/example.pagespec.json",
+    "semanticValidator": "schema/semantic_validate.py",
+    "adversarialTests": "schema/tests/adversarial_test.py",
+    "compatibilityGraph": "compatibility/graph.json",
+    "templates": "templates/templates.json",
+    "componentAllowlist": "tokens/llm/component-allowlist.json",
+    "assetRoles": "tokens/llm/asset-roles.json",
+    "tokenCatalog": "tokens/llm/token-catalog.json",
+    "tokenPolicy": "tokens/llm/token-policy.json",
+    "measuredValues": "extraction/measured-values.json",
+    "verifyAll": "extraction/verify_all.py"
+  }
+}

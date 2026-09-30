@@ -1,0 +1,18 @@
+{
+  "id": "section.testimonial.slider",
+  "type": "section",
+  "category": "social-proof",
+  "description": "Draggable/auto-advancing testimonial carousel. Used on /ruv and /consolidate. NOT present on /safe (structural difference, confirmed by direct inspection of Safe.jsx — Safe's node sequence has no TestimonialSlider between hero and UseCaseTabs).",
+  "measuredFrom": "src/components/shared/TestimonialSlider.jsx, src/pages/Ruv.jsx, src/pages/Consolidate.jsx",
+  "content": {
+    "heading": { "type": "node", "maxWords": 12, "required": true },
+    "description": { "type": "node", "maxWords": 40, "required": true },
+    "items": { "type": "array", "minItems": 3, "maxItems": 10, "items": { "type": "ref", "component": "component.testimonial-card" } },
+    "additionalProperties": false
+  },
+  "constraints": { "maxPerPage": 1, "notObservedOn": ["template.product-landing-lite"] },
+  "motion": {
+    "autoAdvance": "carousel auto-advances between slides (real cadence not independently measured beyond CLONE_SPEC_PRODUCTS.md Appendix Z CSS)",
+    "reducedMotionFallback": "carousel does not auto-advance; user-initiated navigation only, slide transitions are instant crossfades"
+  }
+}

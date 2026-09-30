@@ -1,0 +1,168 @@
+/* §4 "Rollups in action" + §5 "Used by companies at every stage" (values from CLONE_SPEC.md and the original CSS chunks) */
+
+/* Shared helpers the original defines globally; scoped here so they don't leak into other sections */
+.rollups-section .text-reg-mono.text-allcaps.light-300,
+.stage-section .text-reg-mono.text-allcaps.light-300 { color: var(--colors--light-300); }
+.rollups-section .text-book.animation-text.book { font-weight: 500; }
+@media (max-width: 767px) { .stage-section .hide-mobile { display: none; } }
+@media (min-width: 768px) { .stage-section .show-mobile { display: none !important; } }
+
+/* ---------- Rollups in action ---------- */
+.rollups-section .rollups-wrapper {
+  border-bottom: .5px solid var(--colors--light-300);
+  display: grid; grid-template-rows: auto; grid-template-columns: .5fr 1fr; grid-auto-columns: 1fr;
+}
+@media (max-width: 1200px) { .rollups-section .rollups-wrapper { grid-template-columns: .35fr 1fr; } }
+@media (max-width: 991px) { .rollups-section .rollups-wrapper { grid-template-columns: 1fr; } }
+
+.rollups-section .rollups-header { max-width: 38ch; }
+@media (max-width: 991px) { .rollups-section .rollups-header { padding-left: 20px; padding-right: 20px; } }
+@media (max-width: 767px) { .rollups-section .rollups-header { padding-left: 10px; padding-right: 10px; padding-top: 0; } }
+
+.rollups-section .rollups-sidebar { position: relative; padding: 300px 0; }
+@media (max-width: 991px) { .rollups-section .rollups-sidebar { display: none; } }
+.rollups-section .rollups-sidebar-list { position: sticky; top: 300px; padding-left: 30px; display: flex; flex-direction: column; gap: 16px; }
+.rollups-section .rollups-sidebar-list li a { display: flex; align-items: center; gap: 14px; }
+.rollups-section .rollups-sidebar-list li a .text-light { transition: color .25s ease; color: var(--colors--light-300); }
+.rollups-section .rollups-sidebar-list li a:hover .text-light { color: var(--colors--light-200); }
+.rollups-section .rollups-sidebar-list .sidebar-item-current .text-light { color: var(--colors--light-100); }
+
+.rollups-section .rollups-content { display: flex; flex-direction: column; gap: 40px; }
+.rollups-section .rollups-steps { display: flex; flex-direction: column; gap: 140px; border-left: var(--border); }
+.rollups-section .rollups-step:last-child .action-card { border-bottom: none; }
+.rollups-section .rollups-step .action-card-ilu-wrapper { display: flex; justify-content: center; align-items: center; }
+.rollups-section .rollups-step .action-card-content-ilu { max-width: 440px; margin: auto; }
+@media (max-width: 767px) {
+  .rollups-section .rollups-step .action-card-content-ilu { max-width: 320px; }
+  .rollups-section .rollups-steps { gap: 60px; border-left: none; }
+}
+
+/* ActionCard */
+.action-card { display: grid; grid-template-columns: 1fr .5fr; border-top: var(--border); border-bottom: var(--border); }
+@media (max-width: 991px) { .action-card { grid-template-columns: .75fr 1fr; } }
+@media (max-width: 767px) { .action-card { grid-template-columns: 1fr; } }
+
+.action-card .action-card-ilu-wrapper {
+  padding: 30px 30px 0; position: relative; border-right: var(--border);
+  display: flex; align-items: flex-end; justify-content: center; overflow: hidden;
+}
+.action-card .action-card-content-ilu { width: 100%; height: auto; object-fit: contain; object-position: center; display: block; }
+.action-card .action-card-modal-wrapper {
+  position: absolute; top: 8px; right: 8px; width: calc(100% - 16px); height: calc(100% - 16px); overflow: clip; border-radius: 2px;
+}
+.action-card .action-card-modal {
+  width: 100%; height: 100%; background: #2d5636; transform: scale(0); transform-origin: bottom left; transition: transform .2s ease-in;
+}
+.action-card .action-card-modal-content {
+  width: 100%; height: 100%; padding: 30px 40px; opacity: 0; filter: blur(5px); transition: all .25s ease-out; box-sizing: border-box;
+}
+.action-card .action-card-modal.action-card-modal-open { transform: scale(1); }
+.action-card .action-card-modal.action-card-modal-open .action-card-modal-content { opacity: 1; filter: blur(0); }
+/* the Button component puts the class hook on its wrapper; position the inner <button> like .action-card-modal-button */
+.action-card .action-card-modal-wrapper .action-card-modal-button-wrapper .button { position: absolute; bottom: 0; left: 0; }
+
+.action-card .action-card-content-wrapper { display: flex; flex-direction: column; justify-content: space-between; padding: 30px; }
+.action-card .action-card-header { display: flex; flex-direction: column; gap: 16px; }
+.action-card .action-card-content { margin-top: 100px; }
+
+/* Mobile (<=767, JS-switched like the original): image + button + modal are rendered inside .action-card-content-wrapper */
+.action-card .action-card-mobile-button-wrapper { display: flex; justify-content: flex-start; margin: 16px 0 0; position: relative; }
+@media (min-width: 768px) { .action-card .action-card-mobile-button-wrapper { display: none; } }
+.action-card .action-card-mobile-modal-wrapper { position: absolute; inset: 0; pointer-events: none; z-index: 10; }
+.action-card .action-card-mobile-modal {
+  position: absolute; bottom: 100%; left: 0; right: 0; min-height: 200px; background: #2d5636;
+  transform: scale(0); transform-origin: bottom left; transition: transform .2s ease-in; border-radius: 2px; pointer-events: auto; margin-bottom: 8px;
+}
+.action-card .action-card-mobile-modal .action-card-modal-content { padding: 20px; }
+.action-card .action-card-mobile-modal.action-card-modal-open { transform: scale(1); }
+.action-card .action-card-mobile-modal.action-card-modal-open .action-card-modal-content { opacity: 1; filter: blur(0); }
+
+@media (max-width: 767px) {
+  .action-card .action-card-content-wrapper { order: 1; padding: 40px 10px 0; }
+  .action-card .action-card-ilu-wrapper { order: 2; border-right: none; border-bottom: none; padding: 0; }
+  .action-card .action-card-mobile-button-wrapper { order: 3; }
+  .action-card .action-card-ilu-wrapper img { max-width: 300px; margin: 0 auto; display: block; }
+  .action-card .action-card-content { margin-top: 24px; margin-bottom: 0; }
+}
+
+/* Action list */
+.action-list { display: flex; flex-direction: column; gap: 16px; position: relative; }
+.action-list .action-list-decor { width: 3px; height: 100%; position: absolute; top: 0; bottom: 0; left: 0; }
+.action-list .action-list-items { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px; }
+.action-list .action-list-item { position: relative; padding-left: 16px; }
+.action-list .action-list-item::before {
+  content: ""; display: block; width: 3px; height: 12px; background-color: var(--colors--light-300); position: absolute; top: 2px; left: 0; z-index: 1;
+}
+
+/* Testimonial */
+.testimonial-wrapper { position: relative; width: 100%; height: 100%; display: flex; flex-direction: column; gap: 40px; align-items: stretch; justify-content: center; }
+.testimonial-wrapper .testimonial-content { display: flex; flex-direction: column; gap: 40px; padding: 64px 0; }
+.testimonial-wrapper .testimonial-author { display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 12px; }
+.testimonial-wrapper .testimonial-author img { object-fit: contain; margin-right: auto; height: 100%; max-width: 120px; max-height: 80px; border-radius: 2px; }
+
+/* ---------- Stages ---------- */
+.stage-section .heading.stage { max-width: 15ch; }
+
+.stage-wrapper {
+  border-bottom: var(--border); display: flex; flex-flow: column; justify-content: flex-start; align-items: flex-start;
+}
+@media (min-width: 768px) {
+  .stage-wrapper { align-items: flex-end; justify-content: flex-end; }
+  .stage-wrapper.with-padding { min-height: 400px; padding-top: 60px; padding-bottom: 30px; padding-right: 30px; position: relative; }
+}
+@media (max-width: 767px) { .stage-wrapper { padding-left: 10px; padding-right: 10px; } }
+
+.stage-wrapper .stage-text-wrapper { display: flex; flex-flow: column; gap: 24px; max-width: 30ch; position: relative; }
+@media (max-width: 767px) { .stage-wrapper .stage-text-wrapper { padding: 32px 0 8px; max-width: 100%; } }
+.stage-button-wrapper { display: flex; justify-content: flex-start; align-items: center; }
+
+.stage-ilu-bg { position: absolute; inset: -10% 0 auto; }
+/* original svg is inline (baseline gap makes .stage-ilu-bg 433 tall at 1440, which the % label offsets depend on) */
+.stage-ilu-bg .draw-stage-ilu svg { display: inline; vertical-align: baseline; }
+.stage-ilu-bg .stage-text { display: flex; flex-flow: column; gap: 8px; max-width: 11ch; position: absolute; inset: auto auto 0 0; }
+.stage-ilu-bg .stage-text.stage-text-1 { max-width: none; bottom: 2%; left: 7%; }
+.stage-ilu-bg .stage-text.stage-text-2 { max-width: none; bottom: 27%; left: 19%; }
+.stage-ilu-bg .stage-text.stage-text-3 { max-width: none; bottom: 48%; left: 35%; }
+.stage-ilu-bg .stage-text.stage-text-4 { max-width: none; bottom: 62%; left: 53%; }
+.stage-ilu-bg .stage-text.stage-text-5 { max-width: none; bottom: 69%; left: 68%; }
+@media screen and (max-width: 1200px) {
+  .stage-ilu-bg .stage-text.stage-text-1 { bottom: 1%; }
+  .stage-ilu-bg .stage-text.stage-text-2 { bottom: 24%; }
+  .stage-ilu-bg .stage-text.stage-text-3 { bottom: 44%; }
+  .stage-ilu-bg .stage-text.stage-text-4 { bottom: 60%; }
+  .stage-ilu-bg .stage-text.stage-text-5 { bottom: 67%; }
+}
+.stage-ilu-bg .stage-text .stage-text-mono {
+  font-family: var(--font-mono); color: var(--colors--light-300); text-transform: uppercase; font-size: clamp(12px, 1vw, 12px); line-height: 100%; margin-bottom: 4px;
+}
+.stage-ilu-bg .stage-text .stage-text-book {
+  font-family: var(--font-primary); letter-spacing: -.36px; font-size: clamp(14px, 1.25vw, 18px); font-weight: 500; line-height: 120%;
+  display: flex; flex-direction: column; gap: 4px; margin: 0;
+}
+.stage-ilu-bg .stage-text .stage-text-book > div { line-height: 120%; }
+
+/* Mobile stage slider (replaces Swiper: 1 slide per view, centered, loop, 300ms) */
+@media (max-width: 767px) { .stage-slider-mobile-container { width: 100%; padding-top: 200px; padding-bottom: 48px; } }
+.stages-slider-wrapper { width: 100%; display: flex; align-items: center; justify-content: center; gap: var(--spacing-2xs); }
+.stages-slider-wrapper .slider-nav-container { display: flex; align-items: center; justify-content: center; }
+.stages-slider-wrapper .slider-nav-container.left { justify-content: flex-start; }
+.stages-slider-wrapper .slider-nav-container.right { justify-content: flex-end; }
+.stages-slider-wrapper .stages-slider { display: flex; overflow: hidden; width: 200px; touch-action: pan-y; }
+.stages-slider-wrapper .stages-slider-track { display: flex; max-width: 200px; transition-property: transform; transition-timing-function: ease; }
+.stages-slider-wrapper .stages-slide {
+  width: 100%; min-width: 200px; max-width: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--spacing-2xs);
+}
+.stages-slider-wrapper .slider-stage-text { text-align: center; }
+.stage-text-mono-slider { font-family: var(--font-mono); color: var(--colors--light-300); text-transform: uppercase; font-size: clamp(12px, 1vw, 12px); line-height: 100%; margin-bottom: 4px; }
+.stage-text-book-slider {
+  font-family: var(--font-primary); letter-spacing: -.36px; font-weight: 500; font-size: var(--fonts-sizes--text-lg); line-height: 120%;
+  display: flex; flex-direction: column; gap: 4px; margin: 0;
+}
+.stage-text-book-slider > div { line-height: 120%; }
+
+.stages-slider-wrapper button.learn-more-link { background: none; border: none; padding: 0; margin: 0; font-size: 13.3333px; line-height: normal; cursor: pointer; display: flex; align-items: center; color: var(--colors--light-100); }
+.stages-slider-wrapper button.learn-more-link .learn-more-icon { padding: 4px; }
+.stages-slider-wrapper .learn-more-link[data-invert=true] { transform: rotate(180deg); }
+@media (max-width: 767px) { .stages-slider-wrapper .learn-more-link:hover .learn-more-icon svg { animation: none; } }
+
+.slider-path { position: absolute; bottom: 100px; padding: 0 16px; left: 50%; transform: translateX(-50%); pointer-events: none; }

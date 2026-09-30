@@ -1,0 +1,19 @@
+{
+  "id": "section.founder-options",
+  "type": "section",
+  "category": "content",
+  "description": "HowToRaiseCapital-page-only 3-option comparison cards (direct shareholders / VC-led SPV / founder-run RUV), one highlighted. No scroll-reveal classes present in source.",
+  "measuredFrom": "src/components/raise/FounderOptions.jsx",
+  "content": {
+    "options": { "type": "array", "minItems": 3, "maxItems": 3, "items": {
+      "label": "string maxWords:3",
+      "title": "string maxWords:6",
+      "subtitle": "string maxWords:8",
+      "description": "string maxWords:25",
+      "highlighted": "boolean, optional"
+    }},
+    "additionalProperties": false
+  },
+  "constraints": { "onePerPage": true, "scopedTo": "template.comparison-guide" },
+  "motion": { "reveal": "none (no animation-item/animation-text classes present)", "reducedMotionFallback": "n/a — section has no motion to disable" }
+}
